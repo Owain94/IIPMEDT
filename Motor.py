@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 
 class Motor:
 
-    def __init__(self, input_pins: list):
+    def __init__(self, input_pins: list) -> None:
         GPIO.setup(input_pins[0], GPIO.OUT)
         GPIO.setup(input_pins[1], GPIO.OUT)
         GPIO.setup(input_pins[2], GPIO.OUT)
