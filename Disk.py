@@ -3,8 +3,8 @@ from xml.dom import minidom
 
 class Disk:
 
-    def __init__(self, max: int) -> None:
-        self._max = max
+    def __init__(self, max_index: int) -> None:
+        self._max = max_index
         document = minidom.parse('xml/products.xml')
 
         self._products = document.getElementsByTagName("product")
