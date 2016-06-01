@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracks>
+    <track product="bruin_brood">
+        <file>audio/bruin_brood.mp3</file>
+        <duration>2</duration>
+    </track>
+    <track product="wit_brood">
+        <file>audio/wit_brood.mp3</file>
+        <duration>2</duration>
+    </track>
+</tracks>
