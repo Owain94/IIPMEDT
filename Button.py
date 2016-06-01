@@ -5,7 +5,7 @@ class Button:
 
     def __init__(self, input_pin: int) -> None:
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(input_pin, GPIO.IN)
+        GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
         self._button = GPIO.input(input_pin)
 
