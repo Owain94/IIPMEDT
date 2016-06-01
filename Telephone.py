@@ -8,7 +8,7 @@ class Telephone:
 
     CONST_PER_SECOND = 4
 
-    def __init__(self, input_pin: int):
+    def __init__(self, input_pin: int) -> None:
         document = minidom.parse('xml/tracks.xml')
         self._tracks = document.getElementsByTagName("track")
         self._button = Button(input_pin)
