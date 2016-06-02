@@ -4,245 +4,245 @@
         <name>Bruin brood</name>
         <score>8.7</score>
         <kcal>102.0</kcal>
-        <suiker>1.2</suiker>
-        <vet>1.5</vet>
+        <sugar>1.2</sugar>
+        <fat>1.5</fat>
     </product>
     <product>
         <name>Wit brood</name>
         <score>4.1</score>
         <kcal>71.0</kcal>
-        <suiker>0.9</suiker>
-        <vet>0.6</vet>
+        <sugar>0.9</sugar>
+        <fat>0.6</fat>
     </product>
     <product>
         <name>Bolletje</name>
         <score>5.8</score>
         <kcal>141.0</kcal>
-        <suiker>0.0</suiker>
-        <vet>2.3</vet>
+        <sugar>0.0</sugar>
+        <fat>2.3</fat>
     </product>
     <product>
         <name>Cracker</name>
         <score>6.8</score>
         <kcal>14.0</kcal>
-        <suiker>0.5</suiker>
-        <vet>0.4</vet>
+        <sugar>0.5</sugar>
+        <fat>0.4</fat>
     </product>
     <product>
         <name>Ontbijtkoek</name>
         <score>6.6</score>
         <kcal>62.0</kcal>
-        <suiker>7.2</suiker>
-        <vet>0.3</vet>
+        <sugar>7.2</sugar>
+        <fat>0.3</fat>
     </product>
     <product>
         <name>Yoghurt</name>
         <score>7</score>
         <kcal>58.0</kcal>
-        <suiker>5.0</suiker>
-        <vet>0.4</vet>
+        <sugar>5.0</sugar>
+        <fat>0.4</fat>
     </product>
     <product>
         <name>Havermout</name>
         <score>8</score>
         <kcal>380.0</kcal>
-        <suiker>4.5</suiker>
-        <vet>7.0</vet>
+        <sugar>4.5</sugar>
+        <fat>7.0</fat>
     </product>
     <product>
         <name>Muesli</name>
         <score>7.5</score>
         <kcal>379.0</kcal>
-        <suiker>14.5</suiker>
-        <vet>6.0</vet>
+        <sugar>14.5</sugar>
+        <fat>6.0</fat>
     </product>
     <product>
         <name>Ontbijtgranen</name>
         <score>6.9</score>
         <kcal>376.0</kcal>
-        <suiker>7.5</suiker>
-        <vet>0.8</vet>
+        <sugar>7.5</sugar>
+        <fat>0.8</fat>
     </product>
     <product>
         <name>Melk, halfvolle</name>
         <score>7.5</score>
         <kcal>92.0</kcal>
-        <suiker>9.6</suiker>
-        <vet>3.0</vet>
+        <sugar>9.6</sugar>
+        <fat>3.0</fat>
     </product>
     <product>
         <name>Melk, volle</name>
         <score>5.9</score>
         <kcal>124.0</kcal>
-        <suiker>8.6</suiker>
-        <vet>6.8</vet>
+        <sugar>8.6</sugar>
+        <fat>6.8</fat>
     </product>
     <product>
         <name>Thee</name>
         <score>7.7</score>
         <kcal>0.0</kcal>
-        <suiker>0.0</suiker>
-        <vet>0.0</vet>
+        <sugar>0.0</sugar>
+        <fat>0.0</fat>
     </product>
     <product>
         <name>Water</name>
         <score>8</score>
         <kcal>0.0</kcal>
-        <suiker>0.0</suiker>
-        <vet>0.0</vet>
+        <sugar>0.0</sugar>
+        <fat>0.0</fat>
     </product>
     <product>
         <name>Jus d’orange</name>
         <score>7</score>
         <kcal>94.0</kcal>
-        <suiker>21.0</suiker>
-        <vet>0.4</vet>
+        <sugar>21.0</sugar>
+        <fat>0.4</fat>
     </product>
     <product>
         <name>Koffie, zwart</name>
         <score>5.5</score>
         <kcal>0.0</kcal>
-        <suiker>0.0</suiker>
-        <vet>0.0</vet>
+        <sugar>0.0</sugar>
+        <fat>0.0</fat>
     </product>
     <product>
-        <name>Koffie, melk &amp; suiker</name>
+        <name>Koffie, melk &amp; sugar</name>
         <score>5.3</score>
         <kcal>33.0</kcal>
-        <suiker>4.1</suiker>
-        <vet>0.2</vet>
+        <sugar>4.1</sugar>
+        <fat>0.2</fat>
     </product>
     <product>
         <name>Kaas</name>
         <score>7</score>
         <kcal>76.0</kcal>
-        <suiker>0.0</suiker>
-        <vet>5.0</vet>
+        <sugar>0.0</sugar>
+        <fat>5.0</fat>
     </product>
     <product>
         <name>Ham</name>
         <score>6</score>
         <kcal>60.0</kcal>
-        <suiker>0.3</suiker>
-        <vet>3.8</vet>
+        <sugar>0.3</sugar>
+        <fat>3.8</fat>
     </product>
     <product>
         <name>Pindakaas</name>
         <score>6.2</score>
         <kcal>94.0</kcal>
-        <suiker>0.9</suiker>
-        <vet>7.8</vet>
+        <sugar>0.9</sugar>
+        <fat>7.8</fat>
     </product>
     <product>
         <name>Hagelslag</name>
         <score>4.2</score>
         <kcal>137.0</kcal>
-        <suiker>20.4</suiker>
-        <vet>4.8</vet>
+        <sugar>20.4</sugar>
+        <fat>4.8</fat>
     </product>
     <product>
         <name>Chocopasta</name>
         <score>4.7</score>
         <kcal>169.0</kcal>
-        <suiker>15.8</suiker>
-        <vet>10.5</vet>
+        <sugar>15.8</sugar>
+        <fat>10.5</fat>
     </product>
     <product>
         <name>Jam</name>
         <score>6.7</score>
         <kcal>74.0</kcal>
-        <suiker>17.7</suiker>
-        <vet>0.0</vet>
+        <sugar>17.7</sugar>
+        <fat>0.0</fat>
     </product>
     <product>
         <name>Leverworst</name>
         <score>4.5</score>
         <kcal>92.0</kcal>
-        <suiker>0.0</suiker>
-        <vet>7.6</vet>
+        <sugar>0.0</sugar>
+        <fat>7.6</fat>
     </product>
     <product>
         <name>Vlokken</name>
         <score>4.8</score>
         <kcal>139.0</kcal>
-        <suiker>19.5</suiker>
-        <vet>5.0</vet>
+        <sugar>19.5</sugar>
+        <fat>5.0</fat>
     </product>
     <product>
         <name>Worst</name>
         <score>5.1</score>
         <kcal>92.0</kcal>
-        <suiker>0.0</suiker>
-        <vet>8.4</vet>
+        <sugar>0.0</sugar>
+        <fat>8.4</fat>
     </product>
     <product>
         <name>Kipfilet</name>
         <score>7.3</score>
         <kcal>196.0</kcal>
-        <suiker>0.0</suiker>
-        <vet>5.0</vet>
+        <sugar>0.0</sugar>
+        <fat>5.0</fat>
     </product>
     <product>
         <name>Gebakken ei</name>
         <score>6.4</score>
         <kcal>141.0</kcal>
-        <suiker>0.0</suiker>
-        <vet>12.0</vet>
+        <sugar>0.0</sugar>
+        <fat>12.0</fat>
     </product>
     <product>
         <name>Gekookt ei</name>
         <score>7.5</score>
         <kcal>95.0</kcal>
-        <suiker>0.1</suiker>
-        <vet>6.7</vet>
+        <sugar>0.1</sugar>
+        <fat>6.7</fat>
     </product>
     <product>
         <name>Margarine</name>
         <score>4.7</score>
         <kcal>36.0</kcal>
-        <suiker>0.0</suiker>
-        <vet>4.0</vet>
+        <sugar>0.0</sugar>
+        <fat>4.0</fat>
     </product>
     <product>
         <name>Appel</name>
         <score>9.2</score>
         <kcal>68.0</kcal>
-        <suiker>14.8</suiker>
-        <vet>0.0</vet>
+        <sugar>14.8</sugar>
+        <fat>0.0</fat>
     </product>
     <product>
         <name>Banaan</name>
         <score>8.3</score>
         <kcal>86.0</kcal>
-        <suiker>18.2</suiker>
-        <vet>0.2</vet>
+        <sugar>18.2</sugar>
+        <fat>0.2</fat>
     </product>
     <product>
         <name>Peer</name>
         <score>8.7</score>
         <kcal>54.0</kcal>
-        <suiker>10.5</suiker>
-        <vet>0.3</vet>
+        <sugar>10.5</sugar>
+        <fat>0.3</fat>
     </product>
     <product>
         <name>Kiwi</name>
         <score>9.1</score>
         <kcal>38.0</kcal>
-        <suiker>6.0</suiker>
-        <vet>0.2</vet>
+        <sugar>6.0</sugar>
+        <fat>0.2</fat>
     </product>
     <product>
         <name>Sinaasappel</name>
         <score>9.2</score>
         <kcal>66.0</kcal>
-        <suiker>12.5</suiker>
-        <vet>0.3</vet>
+        <sugar>12.5</sugar>
+        <fat>0.3</fat>
     </product>
     <product>
         <name>Mandarijn</name>
         <score>8.9</score>
         <kcal>49.0</kcal>
-        <suiker>9.2</suiker>
-        <vet>0.3</vet>
+        <sugar>9.2</sugar>
+        <fat>0.3</fat>
     </product>
 </products>

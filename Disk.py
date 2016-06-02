@@ -30,10 +30,10 @@ class Disk:
         return self.get_by_key('kcal', potential)
 
     def get_product_suiker_by_index(self, potential: int) -> str:
-        return self.get_by_key('suiker', potential)
+        return self.get_by_key('sugar', potential)
 
     def get_product_vet_by_index(self, potential: int) -> str:
-        return self.get_by_key('vet', potential)
+        return self.get_by_key('fat', potential)
 
     @property
     def products(self) -> list:
