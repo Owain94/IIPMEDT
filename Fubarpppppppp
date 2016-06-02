@@ -29,6 +29,15 @@ def down(steps):
 			for step in sequence:
 				set_step(step)
 				time.sleep(0.005)
+				
+if os.path.exists("/dev/ttyACM0") == True:
+	ACM = '/dev/ttyACM0'
+if os.path.exists("/dev/ttyACM1") == True:
+	ACM = '/dev/ttyACM1'
+if os.path.exists("/dev/ttyACM2") == True:
+	ACM = '/dev/ttyACM2'
+if os.path.exists("/dev/ttyACM3") == True:
+	ACM = '/dev/ttyACM3'
 
 
 ser = serial.Serial('/dev/ttyACM0' ,9600)
