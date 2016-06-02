@@ -19,11 +19,14 @@ GPIO.setup(coil_B_2_pin, GPIO.OUT)
 
 sequence = ['1000', '0100', '0010', '0001']
 
+
 def set_step(step):
         GPIO.output(coil_A_1_pin, step[0] == '1')
         GPIO.output(coil_A_2_pin, step[1] == '1')
         GPIO.output(coil_B_1_pin, step[2] == '1')
         GPIO.output(coil_B_2_pin, step[3] == '1')
+
+
 def down(steps):
         for i in range(steps):
             for step in sequence:
@@ -40,7 +43,7 @@ if os.path.exists("/dev/ttyACM3"):
     ACM = '/dev/ttyACM3'
 
 
-ser = serial.Serial('/dev/ttyACM0' ,9600)
+ser = serial.Serial('/dev/ttyACM0', 9600)
 while True:
     button = GPIO.input(2)
     read_serial = ser.readline()
@@ -60,8 +63,6 @@ while True:
             print(read_serial)
     except:
         pass
-    
-
 
     if not button:
         a = int(read_serial)
@@ -71,7 +72,3 @@ while True:
         down(int(steps)) 
         
     print("Product = {}".format(a))
-
-    
-
-        
