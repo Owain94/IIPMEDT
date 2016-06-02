@@ -4,7 +4,12 @@ import serial
 
 class Arduino:
 
-    CONST_AMC = ['/dev/ttyACM0', '/dev/ttyACM1', '/dev/ttyACM2', '/dev/ttyACM3']
+    CONST_AMC = [
+        '/dev/ttyACM0',
+        '/dev/ttyACM1',
+        '/dev/ttyACM2',
+        '/dev/ttyACM3'
+    ]
 
     def __init__(self) -> None:
         for amc in self.CONST_AMC:
@@ -24,7 +29,7 @@ class Arduino:
 
 def main() -> None:
     arduino = Arduino()
-    arduino.read_serial()
+    print(int(arduino.read_serial()))
 
 if __name__ == '__main__':
     main()
