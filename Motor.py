@@ -31,12 +31,14 @@ class Motor:
             for step in list(reversed(self.CONST_SEQUENCE)):
                 self.set_step(step)
                 time.sleep(0.005)
+        GPIO.cleanup()
 
     def down(self, steps: int) -> bool:
         for i in range(steps):
             for step in self.CONST_SEQUENCE:
                 self.set_step(step)
                 time.sleep(0.005)
+        GPIO.cleanup()
 
 
 def main() -> None:
