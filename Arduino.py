@@ -13,27 +13,26 @@ class Arduino:
 
     def __init__(self) -> None:
         if os.path.exists("/dev/ttyACM0") == True:
-            self._used_amc = '/dev/ttyACM0'
+            ACM = '/dev/ttyACM0'
         if os.path.exists("/dev/ttyACM1") == True:
-            self._used_amc = '/dev/ttyACM1'
+            ACM = '/dev/ttyACM1'
         if os.path.exists("/dev/ttyACM2") == True:
-            self._used_amc = '/dev/ttyACM2'
+            ACM = '/dev/ttyACM2'
         if os.path.exists("/dev/ttyACM3") == True:
-            self._used_amc = '/dev/ttyACM3'
+            ACM = '/dev/ttyACM3'
 
+        ser = serial.Serial(ACM, 9600)
+        read_serial = ser.readline()
 
-    def read_serial(self) -> str:
-        ser = serial.Serial(self._used_amc, 9600)
-        return ser.readline()
+        try:
+            print(read_serial)
 
-    @property
-    def amc(self) -> str:
-        return self._used_amc
+        except:
+            pass
 
 
 def main() -> None:
     arduino = Arduino()
-    print(int(arduino.read_serial()))
 
 if __name__ == '__main__':
     main()
