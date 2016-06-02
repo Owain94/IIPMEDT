@@ -21,10 +21,10 @@ class Arduino:
         if os.path.exists("/dev/ttyACM3") == True:
             self._used_amc = '/dev/ttyACM3'
 
-        self._serial = serial.Serial(self._used_amc, 9600)
 
     def read_serial(self) -> str:
-        return self._serial.readline()
+        ser = serial.Serial(self._used_amc, 9600)
+        return ser.readline()
 
     @property
     def amc(self) -> str:
