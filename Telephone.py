@@ -1,5 +1,6 @@
 import subprocess
 import time
+from Constants import Constants
 from xml.dom import minidom
 #from Button import Button
 
@@ -9,7 +10,7 @@ class Telephone:
         document = minidom.parse('xml/tracks.xml')
         self.__tracks = document.getElementsByTagName("track")
         #self.__button = Button(input_pin)
-        self.amount_per_second = 4
+        self.const = Constants(amount_per_second=4)
 
     def play_multiple_tracks(self, tracks: list) -> None:
         for track in tracks:
@@ -25,11 +26,11 @@ class Telephone:
 
                 process = subprocess.Popen("exec mpg321 " + file, stdout=subprocess.PIPE, shell=True)
 
-                for i in range(1, (duration * self.amount_per_second)):
+                for i in range(1, (duration * self.const.amount_per_second)):
                     #if self.__button.is_pressed():
-                    if False:
+                    if True:
                         break
-                    time.sleep(1 / self.amount_per_second)
+                    time.sleep(1 / self.const.amount_per_second)
                     pass
                 process.kill()
 

@@ -1,10 +1,11 @@
+from Constants import Constants
 import RPi.GPIO as GPIO
 import time
 
 
 class Motor:
     def __init__(self, input_pins: list) -> None:
-        self.sequence = ['1000', '0100', '0010', '0001']
+        self.const = Constants(sequence=['1000', '0100', '0010', '0001'])
 
         GPIO.setmode(GPIO.BCM)
 
@@ -26,14 +27,14 @@ class Motor:
 
     def up(self, steps: int) -> bool:
         for i in range(steps):
-            for step in list(reversed(self.sequence)):
+            for step in list(reversed(self.const.sequence)):
                 self.set_step(step)
                 time.sleep(0.005)
         self.clean()
 
     def down(self, steps: int) -> bool:
         for i in range(steps):
-            for step in self.sequence:
+            for step in self.const.sequence:
                 self.set_step(step)
                 time.sleep(0.005)
         self.clean()

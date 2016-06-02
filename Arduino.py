@@ -1,17 +1,18 @@
+from Constants import Constants
 import os.path
 import serial
 
 
 class Arduino:
     def __init__(self) -> None:
-        self.amc_paths = [
+        self.const = Constants(amc_paths=[
             '/dev/ttyACM0',
             '/dev/ttyACM1',
             '/dev/ttyACM2',
             '/dev/ttyACM3'
-        ]
+        ])
 
-        for amc in self.amc_paths:
+        for amc in self.const.amc_paths:
             if os.path.exists(amc):
                 self.__used_amc = amc
                 break
