@@ -17,6 +17,7 @@ class Led:
         GPIO.output(self._led_output_pin, GPIO.LOW)
         time.sleep(seconds)
 
+
 def main() -> None:
     led = Led(12)  # input pin
     led.blink(2)
