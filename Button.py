@@ -10,7 +10,7 @@ class Button:
         self._button = GPIO.input(input_pin)
 
     def is_pressed(self) -> bool:
-        return self._button is not True
+        return self._button == False
 
 
 def main() -> None:
