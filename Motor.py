@@ -31,20 +31,27 @@ class Motor:
             for step in list(reversed(self.CONST_SEQUENCE)):
                 self.set_step(step)
                 time.sleep(0.005)
-        GPIO.cleanup()
+        self._clean()
 
     def down(self, steps: int) -> bool:
         for i in range(steps):
             for step in self.CONST_SEQUENCE:
                 self.set_step(step)
                 time.sleep(0.005)
-        GPIO.cleanup()
+        self._clean()
+
+    def _clean(self):
+        GPIO.output(self._coil_A_1_pin, False)
+        GPIO.output(self._coil_A_2_pin, False)
+        GPIO.output(self._coil_B_1_pin, False)
+        GPIO.output(self._coil_B_2_pin, False)
 
 
 def main() -> None:
     motor = Motor([26, 13, 6, 5])
-    motor.up(1)
-    motor.down(1)
+    motor.up(10)
+    motor.down(10)
+    GPIO.cleanup()
 
 if __name__ == '__main__':
     main()
