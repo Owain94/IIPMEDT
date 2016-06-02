@@ -30,13 +30,13 @@ def down(steps):
                 set_step(step)
                 time.sleep(0.005)
                 
-if os.path.exists("/dev/ttyACM0") == True:
+if os.path.exists("/dev/ttyACM0"):
     ACM = '/dev/ttyACM0'
-if os.path.exists("/dev/ttyACM1") == True:
+if os.path.exists("/dev/ttyACM1"):
     ACM = '/dev/ttyACM1'
-if os.path.exists("/dev/ttyACM2") == True:
+if os.path.exists("/dev/ttyACM2"):
     ACM = '/dev/ttyACM2'
-if os.path.exists("/dev/ttyACM3") == True:
+if os.path.exists("/dev/ttyACM3"):
     ACM = '/dev/ttyACM3'
 
 
@@ -46,13 +46,13 @@ while True:
     read_serial = ser.readline()
     
     try:
-        if int(read_serial) > 0 and int(read_serial) < 30:
+        if 0 < int(read_serial) < 30:
             print("Brood")
         
-        elif int(read_serial) > 30 and int(read_serial) < 60:
+        elif 30 < int(read_serial) < 60:
             print("Sinaasappel")
         
-        elif int(read_serial) > 60 and int(read_serial) < 90:
+        elif 60 < int(read_serial) < 90:
 
             print("Banaan")
 
@@ -63,7 +63,7 @@ while True:
     
 
 
-    if button == False:
+    if not button:
         a = int(read_serial)
         set_step('0000')
         delay = 5
