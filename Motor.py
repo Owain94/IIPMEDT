@@ -3,48 +3,46 @@ import time
 
 
 class Motor:
-
-    CONST_SEQUENCE = ['1000', '0100', '0010', '0001']
-
     def __init__(self, input_pins: list) -> None:
+        self.sequence = ['1000', '0100', '0010', '0001']
 
         GPIO.setmode(GPIO.BCM)
 
-        self._coil_A_1_pin = input_pins[0]
-        self._coil_A_2_pin = input_pins[1]
-        self._coil_B_1_pin = input_pins[2]
-        self._coil_B_2_pin = input_pins[3]
+        self.__coil_A_1_pin = input_pins[0]
+        self.__coil_A_2_pin = input_pins[1]
+        self.__coil_B_1_pin = input_pins[2]
+        self.__coil_B_2_pin = input_pins[3]
 
-        GPIO.setup(self._coil_A_1_pin, GPIO.OUT)
-        GPIO.setup(self._coil_A_2_pin, GPIO.OUT)
-        GPIO.setup(self._coil_B_1_pin, GPIO.OUT)
-        GPIO.setup(self._coil_B_2_pin, GPIO.OUT)
+        GPIO.setup(self.__coil_A_1_pin, GPIO.OUT)
+        GPIO.setup(self.__coil_A_2_pin, GPIO.OUT)
+        GPIO.setup(self.__coil_B_1_pin, GPIO.OUT)
+        GPIO.setup(self.__coil_B_2_pin, GPIO.OUT)
 
     def set_step(self, step: str) -> bool:
-        GPIO.output(self._coil_A_1_pin, int(step[0]) == 1)
-        GPIO.output(self._coil_A_2_pin, int(step[1]) == 1)
-        GPIO.output(self._coil_B_1_pin, int(step[2]) == 1)
-        GPIO.output(self._coil_B_2_pin, int(step[3]) == 1)
+        GPIO.output(self.__coil_A_1_pin, int(step[0]) == 1)
+        GPIO.output(self.__coil_A_2_pin, int(step[1]) == 1)
+        GPIO.output(self.__coil_B_1_pin, int(step[2]) == 1)
+        GPIO.output(self.__coil_B_2_pin, int(step[3]) == 1)
 
     def up(self, steps: int) -> bool:
         for i in range(steps):
-            for step in list(reversed(self.CONST_SEQUENCE)):
+            for step in list(reversed(self.sequence)):
                 self.set_step(step)
                 time.sleep(0.005)
-        self._clean()
+        self.clean()
 
     def down(self, steps: int) -> bool:
         for i in range(steps):
-            for step in self.CONST_SEQUENCE:
+            for step in self.sequence:
                 self.set_step(step)
                 time.sleep(0.005)
-        self._clean()
+        self.clean()
 
-    def _clean(self):
-        GPIO.output(self._coil_A_1_pin, False)
-        GPIO.output(self._coil_A_2_pin, False)
-        GPIO.output(self._coil_B_1_pin, False)
-        GPIO.output(self._coil_B_2_pin, False)
+    def clean(self):
+        GPIO.output(self.__coil_A_1_pin, False)
+        GPIO.output(self.__coil_A_2_pin, False)
+        GPIO.output(self.__coil_B_1_pin, False)
+        GPIO.output(self.__coil_B_2_pin, False)
 
 
 def main() -> None:

@@ -3,28 +3,27 @@ import serial
 
 
 class Arduino:
-
-    CONST_AMC = [
-        '/dev/ttyACM0',
-        '/dev/ttyACM1',
-        '/dev/ttyACM2',
-        '/dev/ttyACM3'
-    ]
-
     def __init__(self) -> None:
-        for amc in self.CONST_AMC:
+        self.amc_paths = [
+            '/dev/ttyACM0',
+            '/dev/ttyACM1',
+            '/dev/ttyACM2',
+            '/dev/ttyACM3'
+        ]
+
+        for amc in self.amc_paths:
             if os.path.exists(amc):
-                self._used_amc = amc
+                self.__used_amc = amc
                 break
 
-        self._serial = serial.Serial(self._used_amc, 9600)
+        self.__serial = serial.Serial(self.__used_amc, 9600)
 
     def read_serial(self) -> str:
-        return self._serial.readline()
+        return self.__serial.readline()
 
     @property
     def amc(self) -> str:
-        return self._used_amc
+        return self.__used_amc
 
 
 def main() -> None:

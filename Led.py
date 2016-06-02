@@ -3,9 +3,7 @@ import time
 
 
 class Led:
-
     def __init__(self, output_pin: int) -> None:
-
         self._led_output_pin = output_pin
 
         GPIO.setmode(GPIO.BCM)

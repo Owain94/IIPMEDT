@@ -5,20 +5,18 @@ from Button import Button
 
 
 class Telephone:
-
-    CONST_PER_SECOND = 4
-
     def __init__(self, input_pin: int) -> None:
         document = minidom.parse('xml/tracks.xml')
-        self._tracks = document.getElementsByTagName("track")
-        self._button = Button(input_pin)
+        self.__tracks = document.getElementsByTagName("track")
+        self.__button = Button(input_pin)
+        self.amount_per_second = 4
 
     def play_multiple_tracks(self, tracks: list) -> None:
         for track in tracks:
             self.play_track(track)
 
     def play_track(self, track_name: str) -> None:
-        for track in self._tracks:
+        for track in self.__tracks:
             if track.getAttribute('product') == track_name:
 
                 file = track.getElementsByTagName("file")[0].firstChild.data
@@ -27,10 +25,10 @@ class Telephone:
 
                 process = subprocess.Popen("exec mpg321 " + file, stdout=subprocess.PIPE, shell=True)
 
-                for i in range(1, (duration * self.CONST_PER_SECOND)):
-                    if self._button.is_pressed():
+                for i in range(1, (duration * self.amount_per_second)):
+                    if self.__button.is_pressed():
                         break
-                    time.sleep(1 / self.CONST_PER_SECOND)
+                    time.sleep(1 / self.amount_per_second)
                     pass
                 process.kill()
 
