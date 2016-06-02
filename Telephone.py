@@ -1,14 +1,14 @@
 import subprocess
 import time
 from xml.dom import minidom
-from Button import Button
+#from Button import Button
 
 
 class Telephone:
     def __init__(self, input_pin: int) -> None:
         document = minidom.parse('xml/tracks.xml')
         self.__tracks = document.getElementsByTagName("track")
-        self.__button = Button(input_pin)
+        #self.__button = Button(input_pin)
         self.amount_per_second = 4
 
     def play_multiple_tracks(self, tracks: list) -> None:
@@ -26,7 +26,8 @@ class Telephone:
                 process = subprocess.Popen("exec mpg321 " + file, stdout=subprocess.PIPE, shell=True)
 
                 for i in range(1, (duration * self.amount_per_second)):
-                    if self.__button.is_pressed():
+                    #if self.__button.is_pressed():
+                    if False:
                         break
                     time.sleep(1 / self.amount_per_second)
                     pass
