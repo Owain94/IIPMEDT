@@ -12,10 +12,14 @@ class Arduino:
     ]
 
     def __init__(self) -> None:
-        for amc in self.CONST_AMC:
-            if os.path.exists(amc):
-                self._used_amc = amc
-                break
+        if os.path.exists("/dev/ttyACM0") == True:
+            self._used_amc = '/dev/ttyACM0'
+        if os.path.exists("/dev/ttyACM1") == True:
+            self._used_amc = '/dev/ttyACM1'
+        if os.path.exists("/dev/ttyACM2") == True:
+            self._used_amc = '/dev/ttyACM2'
+        if os.path.exists("/dev/ttyACM3") == True:
+            self._used_amc = '/dev/ttyACM3'
 
         self._serial = serial.Serial(self._used_amc, 9600)
 
