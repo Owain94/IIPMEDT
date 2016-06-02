@@ -47,17 +47,17 @@ while True:
     
     try:
         if int(read_serial) > 0 and int(read_serial) < 30:
-            print "Brood"
+            print("Brood")
         
         elif int(read_serial) > 30 and int(read_serial) < 60:
-            print "Sinaasappel"
+            print("Sinaasappel")
         
         elif int(read_serial) > 60 and int(read_serial) < 90:
 
-            print "Banaan"
+            print("Banaan")
 
         else:
-            print read_serial
+            print(read_serial)
     except:
         pass
     
@@ -70,7 +70,7 @@ while True:
         steps = a
         down(int(steps)) 
         
-    print "Product = {}".format(a)
+    print("Product = {}".format(a))
 
     
 
