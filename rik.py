@@ -27,8 +27,8 @@ def set_step(step):
         GPIO.output(coil_B_2_pin, step[3] == '1')
 
 
-def down(steps):
-        for i in range(steps):
+def down(amount_of_steps):
+        for i in range(amount_of_steps):
             for step in sequence:
                 set_step(step)
                 time.sleep(0.005)
