@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 import time
 import threading
 
+
 class Led:
     def __init__(self, output_pin: int) -> None:
         self.__led_output_pin = output_pin

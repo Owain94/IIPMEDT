@@ -1,3 +1,6 @@
 class User:
     def __init__(self):
-        pass
+        self.__user_products = []
+
+    def add_product(self, product: str):
+        self.__user_products.append(product)

@@ -59,7 +59,8 @@ class Arduino:
 def main() -> None:
     arduino = Arduino()
 
-    print(arduino.get_serial())
+    for i in range(20):
+        print(arduino.get_serial())
 
 if __name__ == '__main__':
     main()
