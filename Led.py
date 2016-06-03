@@ -8,16 +8,13 @@ class Led:
     Klasse om LED lampjes aan te sturen
     """
     def __init__(self, output_pin: int) -> None:
-<<<<<<< HEAD
-        self.__blink_thread = None
-=======
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
 
         :param output_pin: De GPIO pin die wordt gebruikt op de raspberry
                            als int
         """
->>>>>>> github/master
+        self.__blink_thread = None
         self.__led_output_pin = output_pin
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.__led_output_pin, GPIO.OUT)
@@ -42,10 +39,6 @@ class Led:
             return False
 
     def blink_in_thread(self, seconds: float):
-<<<<<<< HEAD
-        self.__blink_thread = threading.Thread(target=self.blink, args=(seconds,))
-        self.__blink_thread.start()
-=======
         """
         Voer de blink functie uit in een aparte thread zodat er andere
         code tegelijkertijd gedraaid kan worden
@@ -53,9 +46,8 @@ class Led:
         :param seconds: De tijd die tussen het knipperen van de LED zit
                         als float
         """
-        t = Thread(target=self.blink, args=(seconds,))
-        t.start()
->>>>>>> github/master
+        self.__blink_thread = Thread(target=self.blink, args=(seconds,))
+        self.__blink_thread.start()
 
 
 def main() -> None:
@@ -65,9 +57,9 @@ def main() -> None:
     """
     led = Led(2)  # input pin
     led.blink_in_thread(4.0)
-    time.sleep(5.0)
+    sleep(5.0)
     print(led.thread_is_alive())
-    time.sleep(10.0)
+    sleep(10.0)
     print(led.thread_is_alive())
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
