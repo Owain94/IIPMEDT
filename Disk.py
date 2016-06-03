@@ -38,10 +38,11 @@ class Disk:
 
     def get_by_key(self, key: str, potential: int) -> str:
         """
-        TODO
+        De opgegeven key(name, score, kcal, sugar of fat) wordt uitgelezen
+        van het huidig geselecteerde product. Deze waarde wordt terug gegeven.
 
         :param potential: POT meet gegevens als int
-        :param key: TODO als string
+        :param key: name, score, kcal, sugar of fat als string
         :return: Aantal kcal als string
         """
         index = self.get_product_index(potential)
