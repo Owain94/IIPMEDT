@@ -23,9 +23,5 @@ def main() -> None:
     led = Led(2)  # input pin
     led.blink_in_thread(1.0)
 
-    for i in range(20):
-        print('Main thread')
-        time.sleep(0.1)
-
 if __name__ == '__main__':
     main()
