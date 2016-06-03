@@ -31,17 +31,15 @@ start_led_red = Led(2)  # Start led red input pin.
 state = State()  # Current state
 # bell = Bell(1)  # Bell with output pin.
 
-i = 19
+# i = 19
 
 while True:
     if state.is_state('initial') and start_button.is_pressed():
         state.current_state = 'start_button_pressed'  # updating current state.
 
     elif state.is_state('initial'):
-        if i is 19:
+        if not start_led_red.thread_is_alive():
             start_led_red.blink_in_thread(1.0)
-            i = 0
-        i += 1
 
     # elif state.is_state('start_button_pressed') and not telephone_button.is_pressed():
     #     state.current_state = 'telephone_picked_up_for_first_time'
@@ -58,4 +56,6 @@ while True:
 
     # else:
     #     state.reset_state()
+    print('state: ' + state.current_state)
+    print('thread bestaat: ' + str(start_led_red.thread_is_alive()))
     sleep(0.1)
