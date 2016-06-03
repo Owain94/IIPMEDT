@@ -32,7 +32,9 @@ class Motor:
 
     def set_step(self, step: str) -> None:
         """
-        TODO
+        Als bijvoorbeeld de step variabele '0100' bevat wordt er alleen op de
+        tweede pin stroom gezet. Zo draait het motorje elke keer (reeks
+        die meegegeven wordt is: 1000, 0100, 0010, 0001) een stapje verder
 
         :param step: Het aantal stappen als string
         """
