@@ -37,6 +37,7 @@ class Motor:
         die meegegeven wordt is: 1000, 0100, 0010, 0001) een stapje verder
 
         :param step: Het aantal stappen als string
+                     (0100 = false, true, false, false)
         """
         GPIO.output(self.__coil_A_1_pin, int(step[0]) == 1)
         GPIO.output(self.__coil_A_2_pin, int(step[1]) == 1)
