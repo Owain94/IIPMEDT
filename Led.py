@@ -1,6 +1,6 @@
 from time import sleep
+from threading import Thread
 import RPi.GPIO as GPIO
-import threading
 
 
 class Led:
@@ -16,7 +16,7 @@ class Led:
         sleep(seconds)
 
     def blink_in_thread(self, seconds: float):
-        t = threading.Thread(target=self.blink, args=(seconds,))
+        t = Thread(target=self.blink, args=(seconds,))
         t.start()
 
 

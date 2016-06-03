@@ -1,5 +1,5 @@
 from Constants import Constants
-import os.path
+from os.path import exists
 import serial
 import collections
 
@@ -23,7 +23,7 @@ class Arduino:
 
         # Nakijken welk pad in gebruik is en deze opslaan
         for amc in self.const.amc_paths:
-            if os.path.exists(amc):
+            if exists(amc):
                 self.__used_amc = amc
                 break
 

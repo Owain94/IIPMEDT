@@ -45,7 +45,7 @@ def main() -> None:
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
-    bell = Bell(2)  # input pin
+    bell = Buzzer(2)  # input pin
     bell.ring_in_thread(1.0)
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
