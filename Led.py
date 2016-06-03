@@ -9,7 +9,7 @@ class Led:
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.__led_output_pin, GPIO.OUT)
 
-    def blink(self, seconds: int):
+    def blink(self, seconds: float):
         GPIO.output(self.__led_output_pin, GPIO.HIGH)
         time.sleep(seconds)
         GPIO.output(self.__led_output_pin, GPIO.LOW)
