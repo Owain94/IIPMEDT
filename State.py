@@ -1,12 +1,10 @@
 class State:
     """
-    Klasse om bij te houden waar het programma zich bevind ik de flow
+    Klasse om bij te houden waar het programma zich bevindt in de flow
     """
     def __init__(self) -> None:
         """
-        code die wordt uitgevoerd bij het instantiëren van de klasse
-
-        :param input_pins: De GPIO pins waar de motor op is aan gesloten
+        Code die wordt uitgevoerd bij het instantiëren van de klasse
         """
         self._current_state = 'initial'
 

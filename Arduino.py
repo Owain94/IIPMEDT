@@ -10,7 +10,7 @@ class Arduino:
     """
     def __init__(self) -> None:
         """
-        code die wordt uitgevoerd bij het instantiëren van de klasse
+        Code die wordt uitgevoerd bij het instantiëren van de klasse
         """
 
         # De paden op de arduino (gedefinieerd als constante)
@@ -73,7 +73,7 @@ class Arduino:
         """
         Vraag een lijst op met metingen van de POT meter
 
-        :return: Een lijst met gegevens van de POT meter
+        :return: Alle meet gegevens van de POT meter als lijst
         """
         ser_list = []
 

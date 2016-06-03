@@ -9,9 +9,10 @@ class Buzzer:
     """
     def __init__(self, output_pin: int) -> None:
         """
-        code die wordt uitgevoerd bij het instantiëren van de klasse
+        Code die wordt uitgevoerd bij het instantiëren van de klasse
 
         :param output_pin: De GPIO pin die wordt gebruikt op de raspberry
+                           als int
         """
         self.__bell_output_pin = output_pin
 
@@ -21,7 +22,7 @@ class Buzzer:
         vervolgens de stroom er weer af te halen na een timeout
 
         :param seconds_to_ring: De tijd die tussen het rinkelen van de
-                                bel zit
+                                bel zit als float
         """
         GPIO.output(self.__bell_output_pin, True)
         sleep(seconds_to_ring)
@@ -34,7 +35,7 @@ class Buzzer:
         code tegelijkertijd gedraaid kan worden
 
         :param seconds_to_ring: De tijd die tussen het rinkelen van de
-                                bel zit
+                                bel zit als float
         """
         t = Thread(target=self.ring, args=(seconds_to_ring,))
         t.start()

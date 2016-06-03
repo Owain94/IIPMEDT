@@ -7,9 +7,10 @@ class Button:
     """
     def __init__(self, input_pin: int) -> None:
         """
-        code die wordt uitgevoerd bij het instantiëren van de klasse
+        Code die wordt uitgevoerd bij het instantiëren van de klasse
 
-        :param input_pin:  De GPIO pin die wordt gebruikt op de raspberry
+        :param input_pin: De GPIO pin die wordt gebruikt op de raspberry
+                          als int
         """
         self.__button_input_pin = input_pin
         GPIO.setmode(GPIO.BCM)
@@ -20,7 +21,7 @@ class Button:
         Kijk of de button is ingedrukt
 
         :return: True als de button is ingedrukt, False als deze niet
-                 is ingedrukt
+                 is ingedrukt, als boolean
         """
         # De raspberry geeft false terug als de button is ingedrukt en true
         # als deze niet is ingedrukt, dit is vrij verwarrend vandaar de we

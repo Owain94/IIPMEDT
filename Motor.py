@@ -9,9 +9,10 @@ class Motor:
     """
     def __init__(self, input_pins: list) -> None:
         """
-        code die wordt uitgevoerd bij het instantiëren van de klasse
+        Code die wordt uitgevoerd bij het instantiëren van de klasse
 
         :param input_pins: De GPIO pins waar de motor op is aan gesloten
+                           als lijst
         """
         # De sequentie die wordt gebruikt om de motor te laten draaien
         # (gedefinieerd als constante)

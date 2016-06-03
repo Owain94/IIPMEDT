@@ -9,9 +9,10 @@ class Led:
     """
     def __init__(self, output_pin: int) -> None:
         """
-        code die wordt uitgevoerd bij het instantiëren van de klasse
+        Code die wordt uitgevoerd bij het instantiëren van de klasse
 
         :param output_pin: De GPIO pin die wordt gebruikt op de raspberry
+                           als int
         """
         self.__led_output_pin = output_pin
         GPIO.setmode(GPIO.BCM)
@@ -23,6 +24,7 @@ class Led:
         vervolgens de stroom er weer af te halen na een timeout
 
         :param seconds: De tijd die tussen het knipperen van de LED zit
+                        als float
         """
         GPIO.output(self.__led_output_pin, True)
         sleep(seconds)
@@ -35,6 +37,7 @@ class Led:
         code tegelijkertijd gedraaid kan worden
 
         :param seconds: De tijd die tussen het knipperen van de LED zit
+                        als float
         """
         t = Thread(target=self.blink, args=(seconds,))
         t.start()

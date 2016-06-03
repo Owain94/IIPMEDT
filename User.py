@@ -5,7 +5,7 @@ class User:
     """
     def __init__(self):
         """
-        code die wordt uitgevoerd bij het instantiëren van de klasse
+        Code die wordt uitgevoerd bij het instantiëren van de klasse
         """
         self.__user_products = []
 

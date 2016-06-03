@@ -7,10 +7,10 @@ class Disk:
     """
     def __init__(self, max_index: int) -> None:
         """
-        code die wordt uitgevoerd bij het instantiëren van de klasse
+        Code die wordt uitgevoerd bij het instantiëren van de klasse
 
         :param max_index: Maximale index die kan worden terug gegeven door
-                          de POT meter
+                          de POT meter als int
         """
         self._max = max_index
         # Inladen van het xml bestand met de producten
