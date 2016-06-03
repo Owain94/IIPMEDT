@@ -4,15 +4,15 @@ import time
 
 class Led:
     def __init__(self, output_pin: int) -> None:
-        self._led_output_pin = output_pin
+        self.__led_output_pin = output_pin
 
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(self._led_output_pin, GPIO.OUT)
+        GPIO.setup(self.__led_output_pin, GPIO.OUT)
 
     def blink(self, seconds: int):
-        GPIO.output(self._led_output_pin, GPIO.HIGH)
+        GPIO.output(self.__led_output_pin, GPIO.HIGH)
         time.sleep(seconds)
-        GPIO.output(self._led_output_pin, GPIO.LOW)
+        GPIO.output(self.__led_output_pin, GPIO.LOW)
         time.sleep(seconds)
 
 
