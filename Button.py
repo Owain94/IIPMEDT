@@ -3,13 +3,12 @@ import RPi.GPIO as GPIO
 
 class Button:
     def __init__(self, input_pin: int) -> None:
+        self.__button_input_pin = input_pin
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
-        self.__button = GPIO.input(input_pin)
+        GPIO.setup(self.__button_input_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     def is_pressed(self) -> bool:
-        return self.__button == False
+        return not GPIO.input(self.__button_input_pin)
 
 
 def main() -> None:
