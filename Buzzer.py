@@ -14,31 +14,41 @@ class Buzzer:
         :param output_pin: De GPIO pin die wordt gebruikt op de raspberry
                            als int
         """
-        self.__bell_output_pin = output_pin
+        self.__buzz_thread = None
+        self.__buzz_output_pin = output_pin
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(self.__buzz_output_pin, GPIO.OUT)
 
-    def ring(self, seconds_to_ring: float) -> None:
+    def buzz(self, seconds_to_ring: float) -> None:
         """
-        Laat de bel rinkelen door stroom op de GPIO pin te zetten en
+        Laat de zoomer zoomen door stroom op de GPIO pin te zetten en
         vervolgens de stroom er weer af te halen na een timeout
 
         :param seconds_to_ring: De tijd die tussen het rinkelen van de
                                 bel zit als float
         """
-        GPIO.output(self.__bell_output_pin, True)
+        GPIO.output(self.__buzz_output_pin, True)
         sleep(seconds_to_ring)
-        GPIO.output(self.__bell_output_pin, False)
+        GPIO.output(self.__buzz_output_pin, False)
         sleep(seconds_to_ring)
 
-    def ring_in_thread(self, seconds_to_ring: float) -> None:
+    def thread_is_alive(self) -> bool:
+        # noinspection PyBroadException
+        try:
+            return self.__buzz_thread.is_alive()
+        except:
+            return False
+
+    def buzz_in_thread(self, seconds_to_ring: float) -> None:
         """
-        Voer de ring functie uit in een aparte thread zodat er andere
+        Voer de buzz functie uit in een aparte thread zodat er andere
         code tegelijkertijd gedraaid kan worden
 
         :param seconds_to_ring: De tijd die tussen het rinkelen van de
                                 bel zit als float
         """
-        t = Thread(target=self.ring, args=(seconds_to_ring,))
-        t.start()
+        self.__buzz_thread = Thread(target=self.buzz, args=(seconds_to_ring,))
+        self.__buzz_thread.start()
 
 
 def main() -> None:
@@ -47,7 +57,7 @@ def main() -> None:
     klasse in een ander bestand wordt geimporteerd!
     """
     bell = Buzzer(2)  # input pin
-    bell.ring_in_thread(1.0)
+    bell.buzz_in_thread(1.0)
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
