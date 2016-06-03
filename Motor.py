@@ -1,6 +1,6 @@
 from Constants import Constants
 import RPi.GPIO as GPIO
-import time
+from time import sleep
 
 
 class Motor:
@@ -29,14 +29,14 @@ class Motor:
         for i in range(steps):
             for step in list(reversed(self.const.sequence)):
                 self.set_step(step)
-                time.sleep(0.005)
+                sleep(0.005)
         self.clean()
 
     def down(self, steps: int) -> bool:
         for i in range(steps):
             for step in self.const.sequence:
                 self.set_step(step)
-                time.sleep(0.005)
+                sleep(0.005)
         self.clean()
 
     def clean(self):

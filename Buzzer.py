@@ -1,6 +1,6 @@
+from time import sleep
+from threading import Thread
 import RPi.GPIO as GPIO
-import time
-import threading
 
 
 class Buzzer:
@@ -24,9 +24,9 @@ class Buzzer:
                                 bel zit
         """
         GPIO.output(self.__bell_output_pin, True)
-        time.sleep(seconds_to_ring)
+        sleep(seconds_to_ring)
         GPIO.output(self.__bell_output_pin, False)
-        time.sleep(seconds_to_ring)
+        sleep(seconds_to_ring)
 
     def ring_in_thread(self, seconds_to_ring: float) -> None:
         """
@@ -36,7 +36,7 @@ class Buzzer:
         :param seconds_to_ring: De tijd die tussen het rinkelen van de
                                 bel zit
         """
-        t = threading.Thread(target=self.ring, args=(seconds_to_ring,))
+        t = Thread(target=self.ring, args=(seconds_to_ring,))
         t.start()
 
 
