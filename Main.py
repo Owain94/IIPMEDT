@@ -2,7 +2,7 @@ from Button import Button
 from Disk import Disk
 from Arduino import Arduino
 from Led import Led
-from Bell import Bell
+from Buzzer import Bell
 from Motor import Motor
 from Telephone import Telephone
 from User import User

@@ -3,7 +3,7 @@ import time
 import threading
 
 
-class Bell:
+class Buzzer:
     """
     Klasse om de de bel aan te sturen
     """
