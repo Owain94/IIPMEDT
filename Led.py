@@ -33,6 +33,7 @@ class Led:
         sleep(seconds)
 
     def thread_is_alive(self) -> bool:
+        # noinspection PyBroadException
         try:
             return self.__blink_thread.is_alive()
         except:
