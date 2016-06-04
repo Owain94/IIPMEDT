@@ -3,57 +3,60 @@ from Disk import Disk
 from Arduino import Arduino
 from Led import Led
 from Buzzer import Buzzer
-from Motor import Motor
 from Telephone import Telephone
 from User import User
 from State import State
 from time import sleep
+from Road import Road
 
 # todo all pins
 
 telephone = Telephone(1)  # Telephone with button input pin.
+road = Road(1, 1, [1, 2, 3, 4])  # road with 2 switches and a motor.
 
-# begin_switch = Button(1)  # Begin switch input pin.
-# end_switch = Button(1)  # End switch input pin.
-start_button = Button(3)  # Start button input pin.
-# plus_button = Button(1)  # Plus button input pin.
-# done_button = Button(1)  # Done button input pin.
-telephone_button = telephone.button  # Telephone button.
+switch_begin = road.begin_switch  # Begin switch input pin.
+switch_end = road.end_switch  # End switch input pin.
 
-start_led_red = Led(2)  # Start led red input pin.
-# start_led_green = Led(1)  # Start led green input pin.
-# plus_led_red = Led(1)  # Plus led red input pin.
-# plus_led_green = Led(1)  # Plus led green input pin.
+button_start = Button(1)  # Start button input pin.
+button_plus = Button(1)  # Plus button input pin.
+button_done = Button(1)  # Done button input pin.
+button_telephone = telephone.button  # Telephone button.
 
-# food_disk = Disk(1024)  # Food disk with range.
-# arduino = Arduino()  # Arduino
-# motor = Motor([1, 2, 3, 4])  # Motor with input pins.
-# user = User()  # User.
+led_start_red = Led(1)  # Start led red input pin.
+led_plus_red = Led(1)  # Plus led red input pin.
+led_plus_green = Led(1)  # Plus led green input pin.
+
+motor = road.motor  # Motor with input pins.
+disk_products = Disk(1024)  # Food disk with range.
+arduino = Arduino()  # Arduino
+user = User()  # User.
 state = State()  # Current state
-# bell = Bell(1)  # Bell with output pin.
+buzzer = Buzzer(1)  # Bell with output pin.
 
 while True:
-    if state.is_state('initial') and start_button.is_pressed():
-        state.current_state = 'start_button_pressed'  # updating current state.
+    if state.is_state('initial') and button_start.is_pressed():
+        state.current_state = 'button_start_pressed'
 
     elif state.is_state('initial'):
-        if not start_led_red.thread_is_alive():
-            start_led_red.blink_in_thread(1.0)
+        if not led_start_red.thread_is_alive():
+            led_start_red.blink_in_thread(1.0)
 
-    # elif state.is_state('start_button_pressed') and not telephone_button.is_pressed():
-    #     state.current_state = 'telephone_picked_up_for_first_time'
-    #
-    # elif state.is_state('start_button_pressed'):
-    #     bell.ring_in_thread(1.0)
-    #
-    # elif state.is_state('telephone_picked_up_for_first_time'):
-    #     state.current_state = 'telephone_first_track_played'
-    #     telephone.play_track('eerste_track')  # todo audio file
-    #
-    # elif state.is_state('telephone_first_track_played') and telephone_button.is_pressed():
-    #     plus_led_red.blink_in_thread(1.0)  # green led blinking for 1 second.
+    elif state.is_state('button_start_pressed') and not button_telephone.is_pressed():
+        state.current_state = 'telephone_picked_up_for_first_time'
+
+    elif state.is_state('button_start_pressed'):
+        buzzer.buzz_in_thread(1.0)
+
+    elif state.is_state('telephone_picked_up_for_first_time'):
+        state.current_state = 'telephone_first_track_played'
+        telephone.play_track('welcome_track')  # todo audio file
+
+    elif state.is_state('telephone_first_track_played') and button_telephone.is_pressed():
+        led_plus_red.blink_in_thread(1.0)
 
     # else:
     #     state.reset_state()
+
+    print('Huidige status: ' + state.current_state)
 
     sleep(0.1)
