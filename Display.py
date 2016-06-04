@@ -1,6 +1,14 @@
 class Display:
-
+    """
+    Klasse om displays aan te sturen
+    """
     def __init__(self, output_pins: list) -> None:
+        """
+        Code die wordt uitgevoerd bij het instantiëren van de klasse
+
+        :param output_pins: De GPIO pin die wordt gebruikt op de raspberry
+                            als lijst
+        """
         pass
 
 
