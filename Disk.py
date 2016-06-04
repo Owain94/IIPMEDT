@@ -15,7 +15,6 @@ class Disk:
         self._max = max_index
         # Inladen van het xml bestand met de producten
         document = minidom.parse('xml/products.xml')
-
         # Alle producten inlezen
         self._products = document.getElementsByTagName("product")
         # De range voor de prodcuten bereken op basis van de maximale
