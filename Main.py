@@ -11,27 +11,31 @@ from Road import Road
 
 # todo all pins
 
-telephone = Telephone(1)  # Telephone with button input pin.
+# Other
 road = Road(1, 1, [1, 2, 3, 4])  # road with 2 switches and a motor.
-
-switch_begin = road.begin_switch  # Begin switch input pin.
-switch_end = road.end_switch  # End switch input pin.
-
-button_start = Button(1)  # Start button input pin.
-button_plus = Button(1)  # Plus button input pin.
-button_done = Button(1)  # Done button input pin.
-button_telephone = telephone.button  # Telephone button.
-
-led_start_red = Led(1)  # Start led red input pin.
-led_plus_red = Led(1)  # Plus led red input pin.
-led_plus_green = Led(1)  # Plus led green input pin.
-
+telephone = Telephone(1)  # Telephone with button input pin.
 motor = road.motor  # Motor with input pins.
 disk_products = Disk(1024)  # Food disk with range.
 arduino = Arduino()  # Arduino
 user = User()  # User.
 state = State()  # Current state
 buzzer = Buzzer(1)  # Bell with output pin.
+
+# Switches
+switch_begin = road.begin_switch  # Begin switch input pin.
+switch_end = road.end_switch  # End switch input pin.
+
+# Buttons
+button_start = Button(1)  # Start button input pin.
+button_plus = Button(1)  # Plus button input pin.
+button_done = Button(1)  # Done button input pin.
+button_telephone = telephone.button  # Telephone button.
+
+# Led's
+led_start_red = Led(1)  # Start led red input pin.
+led_plus_red = Led(1)  # Plus led red input pin.
+led_plus_green = Led(1)  # Plus led green input pin.
+
 
 while True:
     if state.is_state('initial') and button_start.is_pressed():
