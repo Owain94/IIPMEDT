@@ -19,7 +19,7 @@ disk_products = Disk(1024)  # Food disk with range.
 arduino = Arduino()  # Arduino
 user = User()  # User.
 state = State()  # Current state
-buzzer = Buzzer(1)  # Bell with output pin.
+buzzer = Buzzer(1.0, 1)  # Bell with output pin.
 
 # Switches
 switch_begin = road.begin_switch  # Begin switch input pin.
