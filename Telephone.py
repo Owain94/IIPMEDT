@@ -54,6 +54,15 @@ class Telephone:
                     pass
                 process.kill()
 
+    @property
+    def button(self) -> Button:
+        """
+        Getter voor de knop van de telefoon
+
+        :return: Een object van de knop als type Button
+        """
+        return self.__button
+
 
 def main() -> None:
     """
