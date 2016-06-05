@@ -8,6 +8,7 @@ from User import User
 from State import State
 from time import sleep
 from Road import Road
+import RPi.GPIO as GPIO
 
 # todo all pins
 
@@ -36,31 +37,34 @@ led_start_red = Led(1)  # Start led red input pin.
 led_plus_red = Led(1)  # Plus led red input pin.
 led_plus_green = Led(1)  # Plus led green input pin.
 
+try:
+    while True:
+        if state.is_state('initial') and button_start.is_pressed():
+            state.current_state = 'button_start_pressed'
 
-while True:
-    if state.is_state('initial') and button_start.is_pressed():
-        state.current_state = 'button_start_pressed'
+        elif state.is_state('initial'):
+            if not led_start_red.thread_is_alive():
+                led_start_red.blink_in_thread(1.0)
 
-    elif state.is_state('initial'):
-        if not led_start_red.thread_is_alive():
-            led_start_red.blink_in_thread(1.0)
+        elif state.is_state('button_start_pressed') and not button_telephone.is_pressed():
+            state.current_state = 'telephone_picked_up_for_first_time'
 
-    elif state.is_state('button_start_pressed') and not button_telephone.is_pressed():
-        state.current_state = 'telephone_picked_up_for_first_time'
+        elif state.is_state('button_start_pressed'):
+            buzzer.buzz_in_thread(1.0)
 
-    elif state.is_state('button_start_pressed'):
-        buzzer.buzz_in_thread(1.0)
+        elif state.is_state('telephone_picked_up_for_first_time'):
+            state.current_state = 'telephone_first_track_played'
+            telephone.play_track('welcome_track')  # todo audio file
 
-    elif state.is_state('telephone_picked_up_for_first_time'):
-        state.current_state = 'telephone_first_track_played'
-        telephone.play_track('welcome_track')  # todo audio file
+        elif state.is_state('telephone_first_track_played') and button_telephone.is_pressed():
+            led_plus_red.blink_in_thread(1.0)
 
-    elif state.is_state('telephone_first_track_played') and button_telephone.is_pressed():
-        led_plus_red.blink_in_thread(1.0)
+        # else:
+        #     state.reset_state()
 
-    # else:
-    #     state.reset_state()
+        print('Huidige status: ' + state.current_state)
 
-    print('Huidige status: ' + state.current_state)
+        sleep(0.1)
 
-    sleep(0.1)
+except KeyboardInterrupt:
+    GPIO.cleanup()
