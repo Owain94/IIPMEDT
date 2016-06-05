@@ -1,6 +1,5 @@
 from Button import Button
 from Disk import Disk
-from Arduino import Arduino
 from Led import Led
 from Buzzer import Buzzer
 from Telephone import Telephone
@@ -17,7 +16,7 @@ road = Road(1, 1, [1, 2, 3, 4])  # road with 2 switches and a motor.
 telephone = Telephone(1)  # Telephone with button input pin.
 motor = road.motor  # Motor with input pins.
 disk_products = Disk(1024)  # Food disk with range.
-arduino = Arduino()  # Arduino
+arduino = disk_products.arduino  # Arduino
 user = User()  # User.
 state = State()  # Current state
 buzzer = Buzzer(1.0, 1)  # Bell with output pin.
