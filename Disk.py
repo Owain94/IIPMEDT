@@ -67,8 +67,7 @@ class Disk:
         :param potential: POT meet gegevens als int
         :return: Aantal kcal als string
         """
-        if potential is -1:
-            potential = self.get_serial()
+        potential = self.potential(potential)
 
         return {
             'name':  self.get_product_name_by_index(potential),
@@ -86,11 +85,7 @@ class Disk:
         :param potential: POT meet gegevens als int
         :return: Aantal kcal als string
         """
-
-        if potential is -1:
-            potential = self.get_serial()
-
-        return self.get_by_key('name', potential)
+        return self.get_by_key('name', self.potential(potential))
 
     def get_product_score_by_index(self, potential: int = -1) -> str:
         """
@@ -100,11 +95,7 @@ class Disk:
         :param potential: POT meet gegevens als int
         :return: Product score als string
         """
-
-        if potential is -1:
-            potential = self.get_serial()
-
-        return self.get_by_key('score', potential)
+        return self.get_by_key('score', self.potential(potential))
 
     def get_product_kcal_by_index(self, potential: int = -1) -> str:
         """
@@ -114,11 +105,7 @@ class Disk:
         :param potential: POT meet gegevens als int
         :return: Aantal kcal als string
         """
-
-        if potential is -1:
-            potential = self.get_serial()
-
-        return self.get_by_key('kcal', potential)
+        return self.get_by_key('kcal', self.potential(potential))
 
     def get_product_sugar_by_index(self, potential: int = -1) -> str:
         """
@@ -128,11 +115,7 @@ class Disk:
         :param potential: POT meet gegevens als int
         :return: Suiker percentage als string
         """
-
-        if potential is -1:
-            potential = self.get_serial()
-
-        return self.get_by_key('sugar', potential)
+        return self.get_by_key('sugar', self.potential(potential))
 
     def get_product_fat_by_index(self, potential: int = -1) -> str:
         """
@@ -142,11 +125,14 @@ class Disk:
         :param potential: POT meet gegevens als int
         :return: Vet percentage als string
         """
+        return self.get_by_key('fat', self.potential(potential))
+
+    def potential(self, potential: int) -> int:
 
         if potential is -1:
             potential = self.get_serial()
 
-        return self.get_by_key('fat', potential)
+        return potential
 
     @property
     def products(self) -> list:
