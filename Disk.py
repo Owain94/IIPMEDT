@@ -128,7 +128,15 @@ class Disk:
         return self.get_by_key('fat', self.potential(potential))
 
     def potential(self, potential: int) -> int:
+        """
+        Kijkt of de opgegeven potential niet gelijk is aan -1 (standaard).
+        Als dat zo is wordt de potmeter uitgelezen. Als de gebruik een eigen
+        waarde opgegeven heeft wordt de potmeter niet opnieuw uitgelezen maar
+        wordt die waarde gebruikt.
 
+        :param potential: POT meet gegevens als int
+        :return: POT meet gegevens als int (zelf ingevoerd of uitgelezen)
+        """
         if potential is -1:
             potential = self.get_serial()
 
