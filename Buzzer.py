@@ -11,6 +11,7 @@ class Buzzer:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
 
+        :param audio_track_length: De lengte van het audio bestand
         :param output_pin: De GPIO pin die wordt gebruikt op de raspberry
                            als int
         """
