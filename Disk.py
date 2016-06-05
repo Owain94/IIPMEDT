@@ -1,4 +1,5 @@
 from xml.dom import minidom
+from Arduino import Arduino
 
 
 class Disk:
@@ -22,6 +23,16 @@ class Disk:
         self._disk_range = round(self._max / len(self._products), 2)
         # Het aantal producten
         self._product_count = len(self._products)
+        # Arduino
+        self._arduino = Arduino
+
+    def get_serial(self) -> int:
+        """
+        Leest de waarde uit van de POT meter.
+
+        :return: POT waarde als int
+        """
+        return self._arduino.get_serial
 
     def get_product_index(self, potential: int) -> int:
         """
@@ -48,7 +59,26 @@ class Disk:
         return self._products[index].getElementsByTagName(key)[0]\
             .firstChild.data
 
-    def get_product_name_by_index(self, potential: int) -> str:
+    def get_product_by_index(self, potential: int = -1) -> list:
+        """
+        Haalt een list van een product op aan de hand van de POT meet
+        gegevens
+
+        :param potential: POT meet gegevens als int
+        :return: Aantal kcal als string
+        """
+        if potential is -1:
+            potential = self.get_serial()
+
+        return {
+            'name':  self.get_product_name_by_index(potential),
+            'score': self.get_product_score_by_index(potential),
+            'kcal':  self.get_product_kcal_by_index(potential),
+            'sugar': self.get_product_sugar_by_index(potential),
+            'fat':   self.get_product_fat_by_index(potential)
+        }
+
+    def get_product_name_by_index(self, potential: int = -1) -> str:
         """
         Haal de naam van een product op aan de hand van de POT meet
         gegevens
@@ -56,9 +86,13 @@ class Disk:
         :param potential: POT meet gegevens als int
         :return: Aantal kcal als string
         """
+
+        if potential is -1:
+            potential = self.get_serial()
+
         return self.get_by_key('name', potential)
 
-    def get_product_score_by_index(self, potential: int) -> str:
+    def get_product_score_by_index(self, potential: int = -1) -> str:
         """
         Haal de score van een product op aan de hand van de POT meet
         gegevens
@@ -66,9 +100,13 @@ class Disk:
         :param potential: POT meet gegevens als int
         :return: Product score als string
         """
+
+        if potential is -1:
+            potential = self.get_serial()
+
         return self.get_by_key('score', potential)
 
-    def get_product_kcal_by_index(self, potential: int) -> str:
+    def get_product_kcal_by_index(self, potential: int = -1) -> str:
         """
         Haal het aantal kcal van een product op aan de hand van de POT
         meet gegevens
@@ -76,9 +114,13 @@ class Disk:
         :param potential: POT meet gegevens als int
         :return: Aantal kcal als string
         """
+
+        if potential is -1:
+            potential = self.get_serial()
+
         return self.get_by_key('kcal', potential)
 
-    def get_product_sugar_by_index(self, potential: int) -> str:
+    def get_product_sugar_by_index(self, potential: int = -1) -> str:
         """
         Haal het suiker percentage van een product op aan de hand van de
         POT meet gegevens
@@ -86,9 +128,13 @@ class Disk:
         :param potential: POT meet gegevens als int
         :return: Suiker percentage als string
         """
+
+        if potential is -1:
+            potential = self.get_serial()
+
         return self.get_by_key('sugar', potential)
 
-    def get_product_fat_by_index(self, potential: int) -> str:
+    def get_product_fat_by_index(self, potential: int = -1) -> str:
         """
         Haal het vet percentage van een product op aan de hand van de
         POT meet gegevens
@@ -96,6 +142,10 @@ class Disk:
         :param potential: POT meet gegevens als int
         :return: Vet percentage als string
         """
+
+        if potential is -1:
+            potential = self.get_serial()
+
         return self.get_by_key('fat', potential)
 
     @property
@@ -125,6 +175,15 @@ class Disk:
         """
         return self._product_count
 
+    @property
+    def arduino(self) -> Arduino:
+        """
+        Getter voor de Arduino instantie
+
+        :return: Een Arduino object
+        """
+        return self._arduino
+
 
 def main() -> None:
     """
@@ -137,6 +196,7 @@ def main() -> None:
     print(disk.get_product_kcal_by_index(250))
     print(disk.get_product_sugar_by_index(250))
     print(disk.get_product_fat_by_index(250))
+    print(disk.get_product_by_index(250))
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
