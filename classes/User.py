@@ -63,9 +63,6 @@ class User:
         :param kcal_score: Kcal score
         :return: De uiteindelijke score
         """
-        """
-        """
-        
         final_score = (0.7 * kcal_score) + (0.3 * score)
         
         round(final_score, 1)
