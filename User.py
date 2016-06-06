@@ -29,8 +29,8 @@ class User:
         for product_list in self.__user_products:
             for product in product_list:
                 kcal += product['kcal']
-       	
-       	kcal_score = kcal / 80
+
+        kcal_score = kcal / 80
 
         round(kcal_score, 1)
 
