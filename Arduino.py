@@ -77,7 +77,7 @@ class Arduino:
         """
         ser_list = []
 
-        for i in range(20):
+        for i in range(10):
             while True:
                 ser = self.read_serial()
                 # Kijk na of de waarde niet hoger is dan 1023 en wel hoger
