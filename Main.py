@@ -67,7 +67,9 @@ try:
             state.current_state = 'telephone_feedback_first_score'
             
         elif state.is_state('telephone_feedback_first_score')
-            telephone.play_track('')
+            state.current_state = 'first_feedback_track_played'
+            telephone.play_track(user.determine_feedback_playback(user.score, user.kcal_score))
+            
             
             
             
