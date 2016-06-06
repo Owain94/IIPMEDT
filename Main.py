@@ -43,7 +43,8 @@ try:
             if not led_start_red.thread_is_alive():
                 led_start_red.blink_in_thread(1.0)
 
-        elif state.is_state('button_start_pressed') and not button_telephone.is_pressed():
+        elif state.is_state('button_start_pressed')\
+                and not button_telephone.is_pressed():
             state.current_state = 'telephone_picked_up_for_first_time'
 
         elif state.is_state('button_start_pressed'):
@@ -53,7 +54,8 @@ try:
             state.current_state = 'telephone_first_track_played'
             telephone.play_track('welcome_track')  # todo audio file
 
-        elif state.is_state('telephone_first_track_played') and button_telephone.is_pressed():
+        elif state.is_state('telephone_first_track_played')\
+                and button_telephone.is_pressed():
             led_plus_red.blink_in_thread(1.0)
             while not button_done.is_pressed():
                 if button_plus.is_pressed():
@@ -63,15 +65,16 @@ try:
                 state.current_state = 'products_selected'
                 
         elif state.is_state('products_selected'):
-            motor.up(user.convert_score_to_motor(user.calculate_final_score(user.calculate_health_score(user.user_products), user.calculate_calorie_score(user.user_products))))
+            motor.up(user.convert_score_to_motor(user.calculate_final_score(
+                user.calculate_health_score(user.user_products),
+                user.calculate_calorie_score(user.user_products))))
             state.current_state = 'telephone_feedback_first_score'
             
         elif state.is_state('telephone_feedback_first_score'):
             state.current_state = 'first_feedback_track_played'
-            telephone.play_track(user.determine_feedback_playback(user.calculate_health_score(user.user_products), user.calculate_calorie_score(user.user_products)))
-            
-            
-            
+            telephone.play_track(user.determine_feedback_playback(
+                user.calculate_health_score(user.user_products),
+                user.calculate_calorie_score(user.user_products)))
             
         # else:
         #     state.reset_state()
