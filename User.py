@@ -39,7 +39,17 @@ class User:
         final_score = (0.7 * kcal_score) + (0.3 * score)
 
         return final_score
-
+        
+    def convert_score_to_motor(self, final_score: float) -> int:
+        """
+        Zet berekende score om in aantal motorstappen
+        """
+        
+        aantal_stappen = final_score * 100
+        
+        return aantal_stappen
+        
+        
     @staticmethod
     def get_product_information() -> list:
         """
