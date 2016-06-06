@@ -33,6 +33,11 @@ class Led:
         sleep(seconds)
 
     def thread_is_alive(self) -> bool:
+        """
+        Controleert of er een thread bestaat.
+
+        :return: True of False op basis op de thread bestaat.
+        """
         # noinspection PyBroadException
         try:
             return self.__blink_thread.is_alive()
