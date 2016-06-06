@@ -8,4 +8,8 @@
         <file>audio/wit_brood.mp3</file>
         <duration>2</duration>
     </track>
+    <track product="">
+        <file>audio/.mp3</file>
+        <duration></duration>
+    </track>
 </tracks>
