@@ -33,8 +33,9 @@ class Telephone:
 
         :param tracks: De bestanden die afgespeeld moeten worden als lijst
         """
-        for track in tracks:
-            self.play_track(track)
+        #for track in tracks:
+        #    self.play_track(track)
+        [(self.play_track(track)) for track in tracks]
 
     def play_track(self, track_name: str) -> None:
         """
