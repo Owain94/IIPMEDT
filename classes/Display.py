@@ -170,10 +170,15 @@ class Display:
         """
         pixels = self.const.digits[digit]
 
-        for pixel in pixels:
-            x = int([pixel[0] + 5, pixel[0]][not second])
-            y = int(pixel[1])
-            self.__display.set_pixel(x, y, 1)
+        # for pixel in pixels:
+        #    x = int([pixel[0] + 5, pixel[0]][not second])
+        #    y = int(pixel[1])
+        #    self.__display.set_pixel(x, y, 1)
+
+        [(self.__display.set_pixel(int([pixel[0] + 5,
+                                        pixel[0]][not second]),
+                                   int(pixel[1]), 1))
+         for pixel in pixels]
 
         self.__display.write_display()
 
@@ -181,7 +186,7 @@ class Display:
         """
         Zet alle pixels van het display weer uit.
         """
-        #for x in range(8):
+        # for x in range(8):
         #    for y in range(8):
         #        self.__display.clear()
         #        self.__display.set_pixel(x, y, 0)
