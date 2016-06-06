@@ -1,26 +1,24 @@
 from xml.dom import minidom
 from Arduino import Arduino
+from Constants import Constants
 
 
 class Disk:
     """
     Klasse om xml bestanden te verwerken
     """
-    def __init__(self, max_index: int) -> None:
+    def __init__(self) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
-
-        :param max_index: Maximale index die kan worden terug gegeven door
-                          de POT meter als int
         """
-        self._max = max_index
+        self.const = Constants(max_index=1024)
         # Inladen van het xml bestand met de producten
         document = minidom.parse('xml/products.xml')
         # Alle producten inlezen
         self._products = document.getElementsByTagName("product")
         # De range voor de prodcuten bereken op basis van de maximale
         # index en het aantal producten
-        self._disk_range = round(self._max / len(self._products), 2)
+        self._disk_range = round(self.const.max_index / len(self._products), 2)
         # Het aantal producten
         self._product_count = len(self._products)
         # Arduino
