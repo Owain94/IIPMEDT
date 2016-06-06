@@ -5,6 +5,7 @@
 display.set_pixel(3,7,1)
 
 #1e cijfer
+
 #0 = 
 #(RECHTS)
 display.set_pixel(2,2,1)

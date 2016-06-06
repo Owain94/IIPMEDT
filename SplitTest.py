@@ -8,7 +8,7 @@ display = Matrix8x8()
 display.begin()
 display.clear()
 
-gezcijfeind = 6.7
+gezcijfeind = 6.9
 
 frac, whole = math.modf(gezcijfeind)
 
