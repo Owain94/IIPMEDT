@@ -17,7 +17,7 @@ class Display:
         self.__display.begin()
         self.__display.clear()
 
-        self.const = Constants(digits=[
+        self.const = Constants(digits=
             {
                 1: [
                     [2, 2],
@@ -154,19 +154,29 @@ class Display:
                     [1, 6]
                 ]
             }
-        ])
+        )
 
     def comma(self) -> None:
         """
         Zet de komma op het display.
-
-        :return: HELEMAAL NIETS!
         """
         self.__display.set_pixel(3, 7, 1)
 
-    # def zero(self, first_digit: bool) -> None:
-
     def digit(self, digit: int, second: bool) -> None:
+        """
+        Zet het opgeven getal op het display.
+
+        :param digit: 0 t/m 9
+        :param second: of het opgegeven getal het eerste of tweede getal is
+        """
+        pixels = self.const.digits[digit]
+
+        for pixel in pixels:
+            x = int([pixel[0] + 5, pixel[0]][not second])
+            y = int(pixel[1])
+            self.__display.set_pixel(x, y, 1)
+
+        self.__display.write_display()
 
 
 def main() -> None:
