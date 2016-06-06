@@ -17,7 +17,7 @@ class User:
         li = []
 
         disk = Disk()
-        li.append(disk.get_product_by_index(disk.potential()))
+        li.append(disk.get_product_by_index())
 
         return li
 

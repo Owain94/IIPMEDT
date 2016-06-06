@@ -22,7 +22,7 @@ class Disk:
         # Het aantal producten
         self._product_count = len(self._products)
         # Arduino
-        self._arduino = Arduino
+        self._arduino = Arduino()
 
     def get_serial(self) -> int:
         """
@@ -30,7 +30,7 @@ class Disk:
 
         :return: POT waarde als int
         """
-        return self._arduino.get_serial
+        return self._arduino.get_serial()
 
     def get_product_index(self, potential: int) -> int:
         """
