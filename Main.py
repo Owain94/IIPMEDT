@@ -81,12 +81,16 @@ try:
                 user.calculate_health_score(user.user_products),
                 user.calculate_calorie_score(user.user_products)))
             
-        # else:
-        #     state.reset_state()
+        else:
+            state.reset_state()
+            display_one.clear()
+            display_two.clear()
 
         print('Huidige status: ' + state.current_state)
 
         sleep(0.1)
 
 except KeyboardInterrupt:
+    display_one.clear()
+    display_two.clear()
     GPIO.cleanup()

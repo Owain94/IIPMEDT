@@ -178,6 +178,9 @@ class Display:
         self.__display.write_display()
 
     def clear(self) -> None:
+        """
+        Zet alle pixels van het display weer uit.
+        """
         for x in range(8):
             for y in range(8):
                 self.__display.clear()
