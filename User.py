@@ -12,7 +12,8 @@ class User:
         """
         self.__user_products = []
 
-    def get_product_information(self) -> list:
+    @staticmethod
+    def get_product_information() -> list:
         li = []
 
         disk = Disk()
