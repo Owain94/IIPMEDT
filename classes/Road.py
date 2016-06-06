@@ -1,9 +1,9 @@
 if __name__ == '__main__':
-    from Button import Button
-    from Motor import Motor
-else:
-    from classes.Button import Button
-    from classes.Motor import Motor
+    from sys import path
+    path.append("..")
+
+from classes.Button import Button
+from classes.Motor import Motor
 
 
 class Road:

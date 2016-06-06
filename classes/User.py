@@ -1,9 +1,8 @@
 if __name__ == '__main__':
-    from Disk import Disk
-else:
-    from classes.Disk import Disk
+    from sys import path
+    path.append("..")
 
-
+from classes.Disk import Disk
 
 
 class User:

@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    from sys import path
+    path.append("..")
+
 from util.Constants import Constants
 from os.path import exists
 import collections
