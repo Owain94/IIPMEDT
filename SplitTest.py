@@ -1,6 +1,6 @@
 import math
 import time
-from Adafruit_LED_Backpack import Matrix8x8
+from Matrix8x8 import Matrix8x8
 
 display = Matrix8x8.Matrix8x8()
 
@@ -14,8 +14,8 @@ frac, whole = math.modf(gezcijfeind)
 cijf1 = int(whole)
 cijf2 = int(frac*10)
 
-print cijf1
-print cijf2
+print(cijf1)
+print(cijf2)
 
 
 #display.set_pixel(x,y,1/0)
