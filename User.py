@@ -16,8 +16,6 @@ class User:
     def add_product(self) -> None:
         """
         Voeg een product toe aan de lijst met producten
-
-        :param product: Het toe te voegen product als string
         """
         self.__user_products.append(self.get_product_information())
 
