@@ -71,8 +71,9 @@ class User:
         round(final_score, 1)
         
         return final_score
-    
-    def convert_score_to_motor(self, final_score: float) -> int:
+
+    @staticmethod
+    def convert_score_to_motor(final_score: float) -> int:
         """
         Zet berekende score om in aantal motorstappen
 
@@ -80,9 +81,9 @@ class User:
         :return: Het aantal stappen dat de motor moet draaien
         """
         aantal_stappen = final_score * 100
-        
+
         return aantal_stappen
-        
+
     @staticmethod
     def determine_feedback_playback(score: float, kcal_score: float) -> str:
         """
