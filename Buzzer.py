@@ -47,9 +47,6 @@ class Buzzer:
         """
         Voer de buzz functie uit in een aparte thread zodat er andere
         code tegelijkertijd gedraaid kan worden
-
-        :param seconds_to_ring: De tijd die tussen het rinkelen van de
-                                bel zit als float
         """
         self.__buzzer_thread = Thread(target=self.buzz)
         self.__buzzer_thread.start()
