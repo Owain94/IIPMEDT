@@ -129,7 +129,9 @@ def main() -> None:
     for i in range(10):
         user.add_product()
 
-    user.calculate_score()
+    user.calculate_health_score()
+    user.calculate_calorie_score()
+    user.calculate_final_score()
 
 if __name__ == "__main__":
     main()
