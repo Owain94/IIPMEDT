@@ -55,6 +55,10 @@ try:
 
         elif state.is_state('telephone_first_track_played') and button_telephone.is_pressed():
             led_plus_red.blink_in_thread(1.0)
+           while not button_done.is_pressed():
+                if button_plus.is_pressed():
+                    user.add_product()
+                pass
 
         # else:
         #     state.reset_state()
