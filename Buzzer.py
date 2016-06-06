@@ -32,6 +32,11 @@ class Buzzer:
         sleep(1.0)
 
     def thread_is_alive(self) -> bool:
+        """
+        Controleert of er een thread bestaat.
+
+        :return: True of False op basis op de thread bestaat.
+        """
         # noinspection PyBroadException
         try:
             return self.__buzzer_thread.is_alive()
