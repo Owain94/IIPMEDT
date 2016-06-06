@@ -23,7 +23,7 @@ class Road:
         self.__end_switch = Button(end_switch_input_pin)
         self.__motor = Motor(motor_input_pins)
 
-    def move_to_begin(self) -> bool:
+    def move_to_begin(self) -> None:
         """
         Blijf de motor draaien tot de begin positie is bereikt
 
@@ -34,9 +34,7 @@ class Road:
 
         self.__motor.up(20)
 
-        return True
-
-    def move_to_end(self) -> bool:
+    def move_to_end(self) -> None:
         """
         Blijf de motor draaien tot de eind positie is bereikt
 
@@ -46,8 +44,6 @@ class Road:
             self.__motor.up(1)
 
         self.motor.down(20)
-
-        return True
 
     @property
     def begin_switch(self) -> Button:
