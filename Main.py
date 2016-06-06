@@ -9,8 +9,6 @@ from time import sleep
 from Road import Road
 import RPi.GPIO as GPIO
 
-# todo all pins
-
 # Other
 road = Road(1, 1, [1, 2, 3, 4])  # road with 2 switches and a motor.
 telephone = Telephone(1)  # Telephone with button input pin.
