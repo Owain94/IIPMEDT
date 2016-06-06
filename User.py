@@ -1,11 +1,14 @@
 from Disk import Disk
+from Telephone import Telephone
 from time import sleep
+
 
 class User:
     """
     Klasse om bij te houden welke producten de gebruiker allemaal
     heeft toegevoegd
     """
+
     def __init__(self):
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
@@ -20,37 +23,52 @@ class User:
         """
         self.__user_products.append(self.get_product_information())
 
-    def calculate_score(self) -> float:
+    def calculate_calorie_score(self) -> float:
         """
-        Reken totale score uit van de gekozen producten
+        Reken totaal aantal caloriën uit van de gekozen producten
+        """
+        kcal = 0
+        for product_list in self.__user_products:
+            for product in product_list:
+                kcal += product['kcal']
+
+        kcal_score = kcal / 80
+
+        round(kcal_score, 1)
+
+        return kcal_score
+
+    def calculate_health_score(self) -> float:
+        """
+        Reken gezondheidscijfer uit van de gekozen producten
         """
         score = 0
-        count = 0 
-        kcal = 0 
+        count = 0
         for product_list in self.__user_products:
             for product in product_list:
                 score += product['score']
-                kcal += product['kcal']
-                count += 1 
-       	
-       	kcal_score = kcal / 80
+                count += 1
+
         score = (score / count) / 2
 
-        final_score = (0.7 * kcal_score) + (0.3 * score)
-        round(final_score, 1)
+        round(score, 1)
 
-        return final_score
-        
+        return score
+
     def convert_score_to_motor(self, final_score: float) -> int:
         """
         Zet berekende score om in aantal motorstappen
         """
-        
+
         aantal_stappen = final_score * 100
-        
+
         return aantal_stappen
-        
-        
+
+    def determine_feedback_playback(self, final_score: float):
+        track_name = ""
+        if final_score < 4:
+            track_name = ""
+
     @staticmethod
     def get_product_information() -> list:
         """
@@ -83,6 +101,7 @@ def main() -> None:
         user.add_product()
 
     user.calculate_score()
+
 
 if __name__ == "__main__":
     main()
