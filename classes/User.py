@@ -29,11 +29,7 @@ class User:
             for product in product_list:
                 kcal += product['kcal']
 
-        kcal_score = kcal / 80
-
-        round(kcal_score, 1)
-
-        return kcal_score
+        return round(kcal / 80, 1)
         
     def calculate_health_score(self) -> float: 
         """
@@ -47,12 +43,8 @@ class User:
             for product in product_list:
                 score += product['score']
                 count += 1 
-                
-        score = (score / count) / 2
-        
-        round(score, 1)
 
-        return score
+        return round((score / count) / 2, 1)
     
     @staticmethod
     def calculate_final_score(score: float, kcal_score: float) -> float:
@@ -63,11 +55,7 @@ class User:
         :param kcal_score: Kcal score
         :return: De uiteindelijke score
         """
-        final_score = (0.7 * kcal_score) + (0.3 * score)
-        
-        round(final_score, 1)
-        
-        return final_score
+        return round((0.7 * kcal_score) + (0.3 * score), 1)
 
     @staticmethod
     def convert_score_to_motor(final_score: float) -> int:
@@ -77,9 +65,7 @@ class User:
         :param final_score: Uiteindelijke score
         :return: Het aantal stappen dat de motor moet draaien
         """
-        aantal_stappen = final_score * 100
-
-        return aantal_stappen
+        return final_score * 100
 
     @staticmethod
     def determine_feedback_playback(score: float, kcal_score: float) -> str:
@@ -122,10 +108,8 @@ class User:
 
         :return: list met alle producten
         """
-        li = []
-
         disk = Disk()
-        li.append(disk.get_product_by_index())
+        li = [disk.get_product_by_index()]
 
         return li
 
