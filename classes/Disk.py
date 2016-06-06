@@ -1,5 +1,5 @@
 from xml.dom import minidom
-from . import Arduino
+from classes.Arduino import Arduino
 from util.Constants import Constants
 
 
@@ -24,7 +24,7 @@ class Disk:
         # Het aantal producten
         self._product_count = len(self._products)
         # Arduino
-        self._arduino = Arduino.Arduino()
+        self._arduino = Arduino()
 
     def get_serial(self) -> int:
         """
