@@ -6,6 +6,7 @@ from classes.Telephone import Telephone
 from classes.User import User
 from classes.State import State
 from classes.Road import Road
+from classes.Display import Display
 from time import sleep
 import RPi.GPIO as GPIO
 
@@ -33,6 +34,10 @@ button_telephone = telephone.button  # Telephone button.
 led_start_red = Led(1)  # Start led red input pin.
 led_plus_red = Led(1)  # Plus led red input pin.
 led_plus_green = Led(1)  # Plus led green input pin.
+
+# Displays
+display_one = Display()
+display_two = Display()
 
 try:
     while True:
