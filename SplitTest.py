@@ -1,6 +1,7 @@
 import math
 import time
-from Matrix8x8 import Matrix8x8
+
+from lib.Matrix8x8 import Matrix8x8
 
 display = Matrix8x8.Matrix8x8()
 
