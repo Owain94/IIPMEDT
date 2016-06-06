@@ -1,6 +1,5 @@
 from Disk import Disk
-from Telephone import Telephone
-from time import sleep
+
 
 class User:
     """
