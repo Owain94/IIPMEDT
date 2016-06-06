@@ -91,7 +91,7 @@ class User:
         :param kcal_score: Kcal score
         :return: De track naam die afgespeeld moet worden
         """
-        track_name = ""
+        # track_name = ""
         if score < 3.5 and kcal_score > 6:
             track_name = "Ontbijt_lage_gezondheidswaarde_teveel_eten"
         
@@ -106,8 +106,10 @@ class User:
             
         elif score > 3.5 and kcal_score < 4:
             track_name = "Ontbijt_goede_gezondheidswaarde_weinig_eten"
-            
-        elif (score > 4.5) and (4.5 < kcal_score < 5.5):
+
+        # Deze if is overbodig want er is nog maar 1 mogelijkheid over
+        # elif (score > 4.5) and (4.5 < kcal_score < 5.5):
+        else:
             track_name = "Ontbijt_perfect"
 
         return track_name
