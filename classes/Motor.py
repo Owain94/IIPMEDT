@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    from sys import path
+    path.append("..")
+
 from util.Constants import Constants
 import RPi.GPIO as GPIO
 from time import sleep

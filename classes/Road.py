@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    from sys import path
+    path.append("..")
+
 from classes.Button import Button
 from classes.Motor import Motor
 

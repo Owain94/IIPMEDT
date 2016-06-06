@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    from sys import path
+    path.append("..")
+
 from xml.dom import minidom
 from classes.Arduino import Arduino
 from util.Constants import Constants

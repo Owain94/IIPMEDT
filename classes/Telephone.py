@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    from sys import path
+    path.append("..")
+
 import subprocess
 import time
 from util.Constants import Constants
