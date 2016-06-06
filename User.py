@@ -2,13 +2,11 @@ from Disk import Disk
 from Telephone import Telephone
 from time import sleep
 
-
 class User:
     """
     Klasse om bij te houden welke producten de gebruiker allemaal
     heeft toegevoegd
     """
-
     def __init__(self):
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
@@ -27,48 +25,75 @@ class User:
         """
         Reken totaal aantal caloriën uit van de gekozen producten
         """
-        kcal = 0
+        kcal = 0 
         for product_list in self.__user_products:
             for product in product_list:
                 kcal += product['kcal']
-
-        kcal_score = kcal / 80
+       	
+       	kcal_score = kcal / 80
 
         round(kcal_score, 1)
 
         return kcal_score
-
-    def calculate_health_score(self) -> float:
+        
+    def calculate_health_score(self) -> float: 
         """
         Reken gezondheidscijfer uit van de gekozen producten
         """
         score = 0
-        count = 0
+        count = 0 
         for product_list in self.__user_products:
             for product in product_list:
                 score += product['score']
-                count += 1
-
+                count += 1 
+                
         score = (score / count) / 2
-
+        
         round(score, 1)
 
         return score
-
+    
+    def calculate_final_score(self, score:float, kcal_score:float) -> float
+        
+        """
+        Bereken totale score op basis van score en kcal_Score
+        """
+        
+        final_score = (0.7 * kcal_score) + (0.3 * score)
+        
+        round(final_score, 1)
+        
+        return final_score
+    
     def convert_score_to_motor(self, final_score: float) -> int:
         """
         Zet berekende score om in aantal motorstappen
         """
-
+        
         aantal_stappen = final_score * 100
-
+        
         return aantal_stappen
-
-    def determine_feedback_playback(self, final_score: float):
+        
+    def determine_feedback_playback(self, score:float, kcal_score:float): 
         track_name = ""
-        if final_score < 4:
-            track_name = ""
-
+        if score < 3.5 and kcal_score > 6:
+            track_name = "Ontbijt_lage_gezondheidswaarde_teveel_eten"
+        
+        elif score < 3.5 and kcal_score < 4:
+            track_name = "Ontbijt_lage_gezondheidswaarde_weinig_eten"
+        
+        elif score < 3.5 and (kcal_score > 4.5 and kcal_score < 5.5):
+            track_name = "Ontbijt_lage_gezondheidswaarde_genoeg_eten"
+            
+        elif score > 3.5 and kcal_score > 6:
+            track_name = "Ontbijt_goede_gezondheidswaarde_teveel_eten"
+            
+        elif score > 3.5 and kcal_score < 4:
+            track_name = "Ontbijt_goede_gezondheidswaarde_weinig_eten"
+            
+        elif (score > 4.5) and (kcal_score > 4.5 and kcal_score < 5.5):
+            track_name = "Ontbijt_perfect"
+            
     @staticmethod
     def get_product_information() -> list:
         """
@@ -101,7 +126,6 @@ def main() -> None:
         user.add_product()
 
     user.calculate_score()
-
 
 if __name__ == "__main__":
     main()
