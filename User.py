@@ -53,7 +53,8 @@ class User:
 
         return score
     
-    def calculate_final_score(self, score: float, kcal_score: float) -> float:
+    @staticmethod
+    def calculate_final_score(score: float, kcal_score: float) -> float:
         
         """
         Bereken totale score op basis van score en kcal_Score
