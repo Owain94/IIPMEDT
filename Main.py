@@ -66,7 +66,7 @@ try:
             motor.up(user.convert_score_to_motor(user.calculate_final_score(user.calculate_health_score(), user.calculate_calorie_score())))
             state.current_state = 'telephone_feedback_first_score'
             
-        elif state.is_state('telephone_feedback_first_score')
+        elif state.is_state('telephone_feedback_first_score'):
             state.current_state = 'first_feedback_track_played'
             telephone.play_track(user.determine_feedback_playback(user.calculate_health_score(), user.calculate_calorie_score()))
             
