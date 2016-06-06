@@ -1,15 +1,215 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tracks>
+    <track product="10x">
+        <file>audio/10x.mp3</file>
+        <duration>0.706</duration>
+    </track>
+    <track product="1x">
+        <file>audio/1x.mp3</file>
+        <duration>0.81</duration>
+    </track>
+    <track product="2x">
+        <file>audio/2x.mp3</file>
+        <duration>0.732</duration>
+    </track>
+    <track product="3x">
+        <file>audio/3x.mp3</file>
+        <duration>0.654</duration>
+    </track>
+    <track product="4x">
+        <file>audio/4x.mp3</file>
+        <duration>0.758</duration>
+    </track>
+    <track product="5x">
+        <file>audio/5x.mp3</file>
+        <duration>0.889</duration>
+    </track>
+    <track product="6x">
+        <file>audio/6x.mp3</file>
+        <duration>0.863</duration>
+    </track>
+    <track product="7x">
+        <file>audio/7x.mp3</file>
+        <duration>0.941</duration>
+    </track>
+    <track product="8x">
+        <file>audio/8x.mp3</file>
+        <duration>0.706</duration>
+    </track>
+    <track product="9x">
+        <file>audio/9x.mp3</file>
+        <duration>0.863</duration>
+    </track>
+    <track product="Appel">
+        <file>audio/Appel.mp3</file>
+        <duration>0.523</duration>
+    </track>
+    <track product="Banaan">
+        <file>audio/Banaan.mp3</file>
+        <duration>0.68</duration>
+    </track>
+    <track product="Bolletje">
+        <file>audio/Bolletje.mp3</file>
+        <duration>0.68</duration>
+    </track>
+    <track product="Chocopasta">
+        <file>audio/Chocopasta.mp3</file>
+        <duration>1</duration>
+    </track>
+    <track product="Cracker">
+        <file>audio/Cracker.mp3</file>
+        <duration>0.575</duration>
+    </track>
+    <track product="Gebakken_ei">
+        <file>audio/Gebakken_ei.mp3</file>
+        <duration>1.019</duration>
+    </track>
+    <track product="Gekookt_ei">
+        <file>audio/Gekookt_ei.mp3</file>
+        <duration>0.863</duration>
+    </track>
+    <track product="Gekozen">
+        <file>audio/Gekozen.mp3</file>
+        <duration>2.2</duration>
+    </track>
+    <track product="Hagelslag">
+        <file>audio/Hagelslag.mp3</file>
+        <duration>0.915</duration>
+    </track>
+    <track product="Ham">
+        <file>audio/Ham.mp3</file>
+        <duration>0.445</duration>
+    </track>
+    <track product="Havermout">
+        <file>audio/Havermout.mp3</file>
+        <duration>0.81</duration>
+    </track>
+    <track product="Jam">
+        <file>audio/Jam.mp3</file>
+        <duration>0.523</duration>
+    </track>
+    <track product="Kaas">
+        <file>audio/Kaas.mp3</file>
+        <duration>0.523</duration>
+    </track>
+    <track product="Kipfilet">
+        <file>audio/Kipfilet.mp3</file>
+        <duration>0.758</duration>
+    </track>
+    <track product="Kiwi">
+        <file>audio/Kiwi.mp3</file>
+        <duration>0.549</duration>
+    </track>
+    <track product="Koffie_melk_suiker">
+        <file>audio/Koffie_melk_suiker.mp3</file>
+        <duration>1.777</duration>
+    </track>
+    <track product="Koffie_zwart">
+        <file>audio/Koffie_zwart.mp3</file>
+        <duration>1.254</duration>
+    </track>
+    <track product="Leverworst">
+        <file>audio/Leverworst.mp3</file>
+        <duration>0.967</duration>
+    </track>
+    <track product="Mandarijn">
+        <file>audio/Mandarijn.mp3</file>
+        <duration>0.836</duration>
+    </track>
+    <track product="Margarine">
+        <file>audio/Margarine.mp3</file>
+        <duration>0.81</duration>
+    </track>
+    <track product="Melk_halfvol">
+        <file>audio/Melk_halfvol.mp3</file>
+        <duration>1.385</duration>
+    </track>
+    <track product="Melk_vol">
+        <file>audio/Melk_vol.mp3</file>
+        <duration>1.124</duration>
+    </track>
+    <track product="Muesli">
+        <file>audio/Muesli.mp3</file>
+        <duration>0.601</duration>
+    </track>
+    <track product="Ontbijtgranen">
+        <file>audio/Ontbijtgranen.mp3</file>
+        <duration>1.045</duration>
+    </track>
+    <track product="Ontbijtkoek">
+        <file>audio/Ontbijtkoek.mp3</file>
+        <duration>0.941</duration>
+    </track>
+    <track product="Ontvangsbericht">
+        <file>audio/Ontvangsbericht.mp3</file>
+        <duration>13.924</duration>
+    </track>
+    <track product="Peer">
+        <file>audio/Peer.mp3</file>
+        <duration>0.497</duration>
+    </track>
+    <track product="Pindakaas">
+        <file>audio/Pindakaas.mp3</file>
+        <duration>0.863</duration>
+    </track>
+    <track product="Sinaasappel">
+        <file>audio/Sinaasappel.mp3</file>
+        <duration>0.941</duration>
+    </track>
+    <track product="Sinaassappelsap">
+        <file>audio/Sinaassappelsap.mp3</file>
+        <duration>1.124</duration>
+    </track>
+    <track product="Thee">
+        <file>audio/Thee.mp3</file>
+        <duration>0.497</duration>
+    </track>
+    <track product="Vlokken">
+        <file>audio/Vlokken.mp3</file>
+        <duration>0.68</duration>
+    </track>
+    <track product="Water">
+        <file>audio/Water.mp3</file>
+        <duration>0.575</duration>
+    </track>
+    <track product="Worst">
+        <file>audio/Worst.mp3</file>
+        <duration>0.523</duration>
+    </track>
+    <track product="Yoghurt">
+        <file>audio/Yoghurt.mp3</file>
+        <duration>0.706</duration>
+    </track>
     <track product="bruin_brood">
         <file>audio/bruin_brood.mp3</file>
-        <duration>2</duration>
+        <duration>0.889</duration>
+    </track>
+    <track product="ontbijt_goed_gzw_teveel_eten">
+        <file>audio/ontbijt_goed_gzw_teveel_eten.mp3</file>
+        <duration>8.621</duration>
+    </track>
+    <track product="ontbijt_goede_gzw_teweinig_eten">
+        <file>audio/ontbijt_goede_gzw_teweinig_eten.mp3</file>
+        <duration>8.778</duration>
+    </track>
+    <track product="ontbijt_lage_gzw_genoeg_eten">
+        <file>audio/ontbijt_lage_gzw_genoeg_eten.mp3</file>
+        <duration>8.987</duration>
+    </track>
+    <track product="ontbijt_lage_gzw_teveel_eten">
+        <file>audio/ontbijt_lage_gzw_teveel_eten.mp3</file>
+        <duration>8.621</duration>
+    </track>
+    <track product="ontbijt_lage_gzw_weinig_eten">
+        <file>audio/ontbijt_lage_gzw_weinig_eten.mp3</file>
+        <duration>8.725</duration>
+    </track>
+    <track product="ontbijt_perf">
+        <file>audio/ontbijt_perf.mp3</file>
+        <duration>5.225</duration>
     </track>
     <track product="wit_brood">
         <file>audio/wit_brood.mp3</file>
-        <duration>2</duration>
-    </track>
-    <track product="">
-        <file>audio/.mp3</file>
-        <duration></duration>
+        <duration>0.758</duration>
     </track>
 </tracks>
