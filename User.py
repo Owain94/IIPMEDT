@@ -74,7 +74,7 @@ class User:
         
         return aantal_stappen
         
-    def determine_feedback_playback(self, score:float, kcal_score:float): 
+    def determine_feedback_playback(self, score:float, kcal_score:float) -> str:
         track_name = ""
         if score < 3.5 and kcal_score > 6:
             track_name = "Ontbijt_lage_gezondheidswaarde_teveel_eten"
@@ -93,6 +93,8 @@ class User:
             
         elif (score > 4.5) and (kcal_score > 4.5 and kcal_score < 5.5):
             track_name = "Ontbijt_perfect"
+
+        return track_name
             
     @staticmethod
     def get_product_information() -> list:
