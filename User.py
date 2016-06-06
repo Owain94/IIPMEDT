@@ -24,6 +24,8 @@ class User:
     def calculate_calorie_score(self) -> float:
         """
         Reken totaal aantal caloriën uit van de gekozen producten
+
+        :return: De kcal score
         """
         kcal = 0 
         for product_list in self.__user_products:
@@ -39,6 +41,8 @@ class User:
     def calculate_health_score(self) -> float: 
         """
         Reken gezondheidscijfer uit van de gekozen producten
+
+        :return: De gezondheidswaarde score
         """
         score = 0
         count = 0 
@@ -55,9 +59,14 @@ class User:
     
     @staticmethod
     def calculate_final_score(score: float, kcal_score: float) -> float:
-        
         """
-        Bereken totale score op basis van score en kcal_Score
+        Bereken totale score op basis van score en kcal score
+
+        :param score: Gezondheidswaarde score
+        :param kcal_score: Kcal score
+        :return: De uiteindelijke score
+        """
+        """
         """
         
         final_score = (0.7 * kcal_score) + (0.3 * score)
@@ -69,14 +78,24 @@ class User:
     def convert_score_to_motor(self, final_score: float) -> int:
         """
         Zet berekende score om in aantal motorstappen
+
+        :param final_score: Uiteindelijke score
+        :return: Het aantal stappen dat de motor moet draaien
         """
-        
         aantal_stappen = final_score * 100
         
         return aantal_stappen
         
     @staticmethod
     def determine_feedback_playback(score: float, kcal_score: float) -> str:
+        """
+        Zoek uit welk bestand er af gespeeld moet worden aan de hand van
+        de scores
+
+        :param score: Gezondheidswaarde score
+        :param kcal_score: Kcal score
+        :return: De track naam die afgespeeld moet worden
+        """
         track_name = ""
         if score < 3.5 and kcal_score > 6:
             track_name = "Ontbijt_lage_gezondheidswaarde_teveel_eten"
@@ -124,6 +143,10 @@ class User:
 
 
 def main() -> None:
+    """
+    Code om de klasse te testen, deze code wordt niet uitgevoerd als de
+    klasse in een ander bestand wordt geimporteerd!
+    """
     user = User()
 
     for i in range(10):
@@ -133,5 +156,7 @@ def main() -> None:
     user.calculate_calorie_score()
     user.calculate_final_score()
 
+# Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
+# wordt geimporteerd
 if __name__ == "__main__":
     main()
