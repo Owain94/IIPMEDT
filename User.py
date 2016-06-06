@@ -53,7 +53,7 @@ class User:
 
         return score
     
-    def calculate_final_score(self, score:float, kcal_score:float) -> float:
+    def calculate_final_score(self, score: float, kcal_score: float) -> float:
         
         """
         Bereken totale score op basis van score en kcal_Score
@@ -75,7 +75,7 @@ class User:
         return aantal_stappen
         
     @staticmethod
-    def determine_feedback_playback(score:float, kcal_score:float) -> str:
+    def determine_feedback_playback(score: float, kcal_score: float) -> str:
         track_name = ""
         if score < 3.5 and kcal_score > 6:
             track_name = "Ontbijt_lage_gezondheidswaarde_teveel_eten"
