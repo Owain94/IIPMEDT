@@ -20,18 +20,17 @@
 # THE SOFTWARE.
 from __future__ import division
 
-
 # Constants
-DEFAULT_ADDRESS             = 0x70
-HT16K33_BLINK_CMD           = 0x80
-HT16K33_BLINK_DISPLAYON     = 0x01
-HT16K33_BLINK_OFF           = 0x00
-HT16K33_BLINK_2HZ           = 0x02
-HT16K33_BLINK_1HZ           = 0x04
-HT16K33_BLINK_HALFHZ        = 0x06
-HT16K33_SYSTEM_SETUP        = 0x20
-HT16K33_OSCILLATOR          = 0x01
-HT16K33_CMD_BRIGHTNESS      = 0xE0
+DEFAULT_ADDRESS = 0x70
+HT16K33_BLINK_CMD = 0x80
+HT16K33_BLINK_DISPLAYON = 0x01
+HT16K33_BLINK_OFF = 0x00
+HT16K33_BLINK_2HZ = 0x02
+HT16K33_BLINK_1HZ = 0x04
+HT16K33_BLINK_HALFHZ = 0x06
+HT16K33_SYSTEM_SETUP = 0x20
+HT16K33_OSCILLATOR = 0x01
+HT16K33_CMD_BRIGHTNESS = 0xE0
 
 
 class HT16K33(object):
@@ -45,7 +44,7 @@ class HT16K33(object):
             import lib.I2C as I2C
             i2c = I2C
         self._device = i2c.get_i2c_device(address, **kwargs)
-        self.buffer = bytearray([0]*16)
+        self.buffer = bytearray([0] * 16)
 
     def begin(self):
         """Initialize driver with LEDs enabled and all turned off."""
@@ -63,8 +62,11 @@ class HT16K33(object):
         """
         if frequency not in [HT16K33_BLINK_OFF, HT16K33_BLINK_2HZ,
                              HT16K33_BLINK_1HZ, HT16K33_BLINK_HALFHZ]:
-            raise ValueError('Frequency must be one of HT16K33_BLINK_OFF, HT16K33_BLINK_2HZ, HT16K33_BLINK_1HZ, or HT16K33_BLINK_HALFHZ.')
-        self._device.writeList(HT16K33_BLINK_CMD | HT16K33_BLINK_DISPLAYON | frequency, [])
+            raise ValueError(
+                'Frequency must be one of HT16K33_BLINK_OFF, HT16K33_BLINK'
+                '2HZ, HT16K33_BLINK_1HZ, or HT16K33_BLINK_HALFHZ.')
+        self._device.writeList(
+            HT16K33_BLINK_CMD | HT16K33_BLINK_DISPLAYON | frequency, [])
 
     def set_brightness(self, brightness):
         """Set brightness of entire display to specified value (16 levels, from

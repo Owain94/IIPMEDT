@@ -60,9 +60,9 @@ class Matrix8x8(HT16K33.HT16K33):
                 else:
                     self.set_pixel(x, y, 1)
 
-    def create_blank_image(self):
+    @staticmethod
+    def create_blank_image():
         return Image.new("RGB", (8, 8))
-
 
     def horizontal_scroll(self, image, padding=True):
         """Returns a list of images which appear to scroll from left to right
@@ -93,22 +93,23 @@ class Matrix8x8(HT16K33.HT16K33):
                 display_section.paste(section, (8 - x, 0, 8, 8))
                 image_list.append(display_section)
 
-        #Scroll across the input image.
+        # Scroll across the input image.
         for x in range(8, width + 1):
             section = image.crop((x - 8, 0, x, 8))
             display_section = self.create_blank_image()
             display_section.paste(section, (0, 0, 8, 8))
             image_list.append(display_section)
 
-        #Scroll out, leaving the blank image.
+        # Scroll out, leaving the blank image.
         if padding:
             for x in range(width - 7, width + 1):
                 section = image.crop((x, 0, width, 8))
                 display_section = self.create_blank_image()
-                display_section.paste(section, (0, 0, 7 - (x - (width - 7)), 8))
+                display_section.paste(section,
+                                      (0, 0, 7 - (x - (width - 7)), 8))
                 image_list.append(display_section)
 
-        #Return the list of images created
+        # Return the list of images created
         return image_list
 
     def vertical_scroll(self, image, padding=True):
@@ -139,22 +140,23 @@ class Matrix8x8(HT16K33.HT16K33):
                 display_section.paste(section, (0, 8 - y, 8, 8))
                 image_list.append(display_section)
 
-        #Scroll across the input image.
+        # Scroll across the input image.
         for y in range(8, height + 1):
             section = image.crop((0, y - 8, 8, y))
             display_section = self.create_blank_image()
             display_section.paste(section, (0, 0, 8, 8))
             image_list.append(display_section)
 
-        #Scroll out, leaving the blank image.
+        # Scroll out, leaving the blank image.
         if padding:
             for y in range(height - 7, height + 1):
                 section = image.crop((0, y, 8, height))
                 display_section = self.create_blank_image()
-                display_section.paste(section, (0, 0, 8, 7 - (y - (height - 7))))
+                display_section.paste(section,
+                                      (0, 0, 8, 7 - (y - (height - 7))))
                 image_list.append(display_section)
 
-        #Return the list of images created
+        # Return the list of images created
         return image_list
 
     def animate(self, images, delay=.25):
