@@ -181,11 +181,16 @@ class Display:
         """
         Zet alle pixels van het display weer uit.
         """
-        for x in range(8):
-            for y in range(8):
-                self.__display.clear()
-                self.__display.set_pixel(x, y, 0)
-                self.__display.write_display()
+        #for x in range(8):
+        #    for y in range(8):
+        #        self.__display.clear()
+        #        self.__display.set_pixel(x, y, 0)
+        #        self.__display.write_display()
+
+        [(self.__display.clear(),
+          self.__display.set_pixel(x, y, 0),
+          self.__display.write_display())
+         for x in range(8) for y in range(8)]
 
     def show_digit(self, score: float) -> None:
         """
