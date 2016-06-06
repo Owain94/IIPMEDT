@@ -166,6 +166,7 @@ class Display:
         Zet de komma op het display.
         """
         self.__display.set_pixel(3, 7, 1)
+        self.__display.write_display()
 
     def digit(self, digit: int, second: bool = False) -> None:
         """
