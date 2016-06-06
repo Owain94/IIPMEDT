@@ -74,7 +74,8 @@ class User:
         
         return aantal_stappen
         
-    def determine_feedback_playback(self, score:float, kcal_score:float) -> str:
+    @staticmethod
+    def determine_feedback_playback(score:float, kcal_score:float) -> str:
         track_name = ""
         if score < 3.5 and kcal_score > 6:
             track_name = "Ontbijt_lage_gezondheidswaarde_teveel_eten"
