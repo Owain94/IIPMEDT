@@ -42,8 +42,8 @@ class Disk:
         :return: product index als int
         """
         for i in range(0, self._product_count):
-            if (potential >= i * self._disk_range) and (
-                        potential <= ((i + 1) * self._disk_range)):
+            if (potential >= i * self._disk_range)\
+                    and (potential <= ((i + 1) * self._disk_range)):
                 return i
 
     def get_by_key(self, key: str, potential: int) -> str:
