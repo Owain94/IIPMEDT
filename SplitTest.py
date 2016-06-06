@@ -1,7 +1,7 @@
 import math
 import time
 
-from lib.Matrix8x8 import Matrix8x8
+from lib.Adafruit_LED_Backpack.Matrix8x8 import Matrix8x8
 
 display = Matrix8x8()
 
