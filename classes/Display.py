@@ -5,6 +5,7 @@ if __name__ == '__main__':
 from util.Constants import Constants
 from lib.Matrix8x8 import Matrix8x8
 
+from time import sleep
 
 #  I2C SETUP
 #  https://learn.adafruit.com/matrix-7-segment-led-backpack-with-the-raspberry-pi/configuring-your-pi-for-i2c
@@ -212,6 +213,8 @@ def main() -> None:
     """
     display = Display()
     display.show_digit(6.9)
+    sleep(5)
+    display.clear()
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
