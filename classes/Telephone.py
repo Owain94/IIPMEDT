@@ -48,9 +48,12 @@ class Telephone:
 
                 file = track.getElementsByTagName("file")[0].firstChild.data
 
-                duration = int(track.getElementsByTagName("duration")[0].firstChild.data)
+                duration = int(track.getElementsByTagName("duration")[0]
+                               .firstChild.data)
 
-                process = subprocess.Popen("exec mpg321 " + file, stdout=subprocess.PIPE, shell=True)
+                process = subprocess.Popen("exec mpg321 " + file,
+                                           stdout=subprocess.PIPE,
+                                           shell=True)
 
                 for i in range(1, (duration * self.const.amount_per_second)):
                     if self.__button.is_pressed():
