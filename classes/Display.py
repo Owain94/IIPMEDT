@@ -6,6 +6,10 @@ from util.Constants import Constants
 from lib.Matrix8x8 import Matrix8x8
 
 
+#  I2C SETUP
+#  https://learn.adafruit.com/matrix-7-segment-led-backpack-with-the-raspberry-pi/configuring-your-pi-for-i2c
+#  https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c
+
 class Display:
     """
     Klasse om displays aan te sturen
