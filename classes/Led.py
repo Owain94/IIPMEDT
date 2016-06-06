@@ -36,7 +36,7 @@ class Led:
         """
         Controleert of er een thread bestaat.
 
-        :return: True of False op basis op de thread bestaat.
+        :return: True of False op basis op de thread bestaat, als boolean
         """
         # noinspection PyBroadException
         try:

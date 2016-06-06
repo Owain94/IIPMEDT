@@ -14,7 +14,8 @@ class Telephone:
         Code die wordt uitgevoerd bij het instantiëren van de klasse
 
         :param input_pin: De GPIO pin die wordt gebruikt op de raspberry
-                          om te kijken of de hoorn is opgenomen of niet
+                          om te kijken of de hoorn is opgenomen of niet,
+                          als int
         """
         # Inladen van het xml bestand met de audio bestanden
         document = minidom.parse('xml/tracks.xml')
@@ -59,7 +60,7 @@ class Telephone:
         """
         Getter voor de knop van de telefoon
 
-        :return: Een object van de knop als type Button
+        :return: Instantie van de button klasse
         """
         return self.__button
 

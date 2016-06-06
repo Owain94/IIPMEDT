@@ -23,7 +23,7 @@ class User:
         """
         Reken totaal aantal caloriën uit van de gekozen producten
 
-        :return: De kcal score
+        :return: De kcal score als float
         """
         kcal = 0 
         for product_list in products:
@@ -37,7 +37,7 @@ class User:
         """
         Reken gezondheidscijfer uit van de gekozen producten
 
-        :return: De gezondheidswaarde score
+        :return: De gezondheidswaarde score als float
         """
         score = 0
         count = 0 
@@ -53,9 +53,9 @@ class User:
         """
         Bereken totale score op basis van score en kcal score
 
-        :param score: Gezondheidswaarde score
-        :param kcal_score: Kcal score
-        :return: De uiteindelijke score
+        :param score: Gezondheidswaarde score als float
+        :param kcal_score: Kcal score als float
+        :return: De uiteindelijke score als float
         """
         return round((0.7 * kcal_score) + (0.3 * score), 1)
 
@@ -64,8 +64,8 @@ class User:
         """
         Zet berekende score om in aantal motorstappen
 
-        :param final_score: Uiteindelijke score
-        :return: Het aantal stappen dat de motor moet draaien
+        :param final_score: Uiteindelijke score als float
+        :return: Het aantal stappen dat de motor moet draaien als int
         """
         return final_score * 100
 
@@ -75,9 +75,9 @@ class User:
         Zoek uit welk bestand er af gespeeld moet worden aan de hand van
         de scores
 
-        :param score: Gezondheidswaarde score
-        :param kcal_score: Kcal score
-        :return: De track naam die afgespeeld moet worden
+        :param score: Gezondheidswaarde score als float
+        :param kcal_score: Kcal score als float
+        :return: De track naam die afgespeeld moet worden als string
         """
 
         if score < 3.5:
@@ -103,7 +103,7 @@ class User:
         Haalt de live waarde van POT meter op en haalt het daarbij horende
         product op.
 
-        :return: list met alle producten
+        :return: Alle producten als lijst
         """
         disk = Disk()
         li = [disk.get_product_by_index()]
@@ -115,7 +115,7 @@ class User:
         """
         Lijst met alle producten van de gebruiker.
 
-        :return: list met producten
+        :return: Producten van de gebruiker als lijst
         """
         return self.__user_products
 

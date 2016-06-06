@@ -20,7 +20,7 @@ class State:
         argument
 
         :param state: Staat om na te kijken als string
-        :return: True als de huidige staat dezelfde is als de stata om na
+        :return: True als de huidige staat dezelfde is als de staat om na
         te kijken anders False, als boolean
         """
         return self._current_state is state

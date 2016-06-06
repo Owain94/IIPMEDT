@@ -14,8 +14,9 @@ class Road:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
 
-        :param begin_switch_input_pin: De GPIO pins van de begin switch
-        :param end_switch_input_pin: De GPIO pins van de eind switch
+        :param begin_switch_input_pin: De GPIO pins van de begin switch,
+                                       als int
+        :param end_switch_input_pin: De GPIO pins van de eind switch, als int
         :param motor_input_pins: De GPIO pins die de motor gebruikt als lijst
         """
         self.__begin_switch = Button(begin_switch_input_pin)

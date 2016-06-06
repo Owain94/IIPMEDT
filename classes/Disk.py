@@ -135,7 +135,7 @@ class Disk:
         wordt die waarde gebruikt.
 
         :param potential: POT meet gegevens als int
-        :return: POT meet gegevens als int (zelf ingevoerd of uitgelezen)
+        :return: POT meet gegevens (zelf ingevoerd of uitgelezen), als int
         """
         if potential is -1:
             potential = self.get_serial()
@@ -174,7 +174,7 @@ class Disk:
         """
         Getter voor de Arduino instantie
 
-        :return: Een Arduino object
+        :return: Instantie van de Arduino klasse
         """
         return self._arduino
 
