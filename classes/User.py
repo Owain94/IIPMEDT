@@ -44,11 +44,11 @@ class User:
         :return: De gezondheidswaarde score als float
         """
         score = 0
-        count = 0 
+        count = 0
         for product_list in products:
             for product in product_list:
                 score += product['score']
-                count += 1 
+                count += 1
 
         return round((score / count) / 2, 1)
     
@@ -131,8 +131,9 @@ def main() -> None:
     """
     user = User()
 
-    for i in range(10):
-        user.add_product()
+    #for i in range(10):
+    #    user.add_product()
+    [(user.add_product()) for _ in range(10)]
 
     health = user.calculate_health_score(user.user_products)
     calories = user.calculate_calorie_score(user.user_products)
