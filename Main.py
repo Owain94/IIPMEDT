@@ -9,13 +9,11 @@ from time import sleep
 from Road import Road
 import RPi.GPIO as GPIO
 
-# todo all pins
-
 # Other
 road = Road(1, 1, [1, 2, 3, 4])  # road with 2 switches and a motor.
 telephone = Telephone(1)  # Telephone with button input pin.
 motor = road.motor  # Motor with input pins.
-disk_products = Disk(1024)  # Food disk with range.
+disk_products = Disk()  # Food disk with range.
 arduino = disk_products.arduino  # Arduino
 user = User()  # User.
 state = State()  # Current state
@@ -49,7 +47,7 @@ try:
             state.current_state = 'telephone_picked_up_for_first_time'
 
         elif state.is_state('button_start_pressed'):
-            buzzer.buzz_in_thread(1.0)
+            buzzer.buzz_in_thread()
 
         elif state.is_state('telephone_picked_up_for_first_time'):
             state.current_state = 'telephone_first_track_played'

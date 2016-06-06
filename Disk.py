@@ -182,7 +182,7 @@ def main() -> None:
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
-    disk = Disk(1024)
+    disk = Disk()
     print(disk.get_product_name_by_index(250))
     print(disk.get_product_score_by_index(250))
     print(disk.get_product_kcal_by_index(250))

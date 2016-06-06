@@ -38,7 +38,7 @@ class Buzzer:
         except:
             return False
 
-    def buzz_in_thread(self, seconds_to_ring: float) -> None:
+    def buzz_in_thread(self) -> None:
         """
         Voer de buzz functie uit in een aparte thread zodat er andere
         code tegelijkertijd gedraaid kan worden
@@ -46,7 +46,7 @@ class Buzzer:
         :param seconds_to_ring: De tijd die tussen het rinkelen van de
                                 bel zit als float
         """
-        self.__buzzer_thread = Thread(target=self.buzz, args=(seconds_to_ring,))
+        self.__buzzer_thread = Thread(target=self.buzz)
         self.__buzzer_thread.start()
 
 
@@ -55,8 +55,8 @@ def main() -> None:
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
-    buzzer = Buzzer(1.0, 2)  # input pin
-    buzzer.buzz_in_thread(1.0)
+    buzzer = Buzzer(2.0, 3)  # input pin
+    buzzer.buzz()
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
