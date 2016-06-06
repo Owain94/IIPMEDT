@@ -138,4 +138,5 @@ app/*.js
 app/*.map
 
 ## Maarten
-maarten.sh
+fswatch.sh
+rsync.sh

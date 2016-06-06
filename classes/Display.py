@@ -211,7 +211,7 @@ def main() -> None:
     klasse in een ander bestand wordt geimporteerd!
     """
     display = Display()
-    display.show_digit(9.6)
+    display.show_digit(6.9)
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
