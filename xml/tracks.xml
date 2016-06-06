@@ -52,6 +52,10 @@
         <file>audio/Bolletje.mp3</file>
         <duration>0.68</duration>
     </track>
+    <track product="Bruin_brood">
+        <file>audio/Bruin_brood.mp3</file>
+        <duration>0.889</duration>
+    </track>
     <track product="Chocopasta">
         <file>audio/Chocopasta.mp3</file>
         <duration>1</duration>
@@ -132,6 +136,30 @@
         <file>audio/Muesli.mp3</file>
         <duration>0.601</duration>
     </track>
+    <track product="Ontbijt_goed_gzw_teveel_eten">
+        <file>audio/Ontbijt_goed_gzw_teveel_eten.mp3</file>
+        <duration>8.621</duration>
+    </track>
+    <track product="Ontbijt_goede_gzw_teweinig_eten">
+        <file>audio/Ontbijt_goede_gzw_teweinig_eten.mp3</file>
+        <duration>8.778</duration>
+    </track>
+    <track product="Ontbijt_lage_gzw_genoeg_eten">
+        <file>audio/Ontbijt_lage_gzw_genoeg_eten.mp3</file>
+        <duration>8.987</duration>
+    </track>
+    <track product="Ontbijt_lage_gzw_teveel_eten">
+        <file>audio/Ontbijt_lage_gzw_teveel_eten.mp3</file>
+        <duration>8.621</duration>
+    </track>
+    <track product="Ontbijt_lage_gzw_weinig_eten">
+        <file>audio/Ontbijt_lage_gzw_weinig_eten.mp3</file>
+        <duration>8.725</duration>
+    </track>
+    <track product="Ontbijt_perf">
+        <file>audio/Ontbijt_perf.mp3</file>
+        <duration>5.225</duration>
+    </track>
     <track product="Ontbijtgranen">
         <file>audio/Ontbijtgranen.mp3</file>
         <duration>1.045</duration>
@@ -172,6 +200,10 @@
         <file>audio/Water.mp3</file>
         <duration>0.575</duration>
     </track>
+    <track product="Wit_brood">
+        <file>audio/Wit_brood.mp3</file>
+        <duration>0.758</duration>
+    </track>
     <track product="Worst">
         <file>audio/Worst.mp3</file>
         <duration>0.523</duration>
@@ -179,37 +211,5 @@
     <track product="Yoghurt">
         <file>audio/Yoghurt.mp3</file>
         <duration>0.706</duration>
-    </track>
-    <track product="Bruin_brood">
-        <file>audio/Bruin_brood.mp3</file>
-        <duration>0.889</duration>
-    </track>
-    <track product="Ontbijt_goed_gzw_teveel_eten">
-        <file>audio/Ontbijt_goed_gzw_teveel_eten.mp3</file>
-        <duration>8.621</duration>
-    </track>
-    <track product="Ontbijt_goede_gzw_teweinig_eten">
-        <file>audio/Ontbijt_goede_gzw_teweinig_eten.mp3</file>
-        <duration>8.778</duration>
-    </track>
-    <track product="Ontbijt_lage_gzw_genoeg_eten">
-        <file>audio/Ontbijt_lage_gzw_genoeg_eten.mp3</file>
-        <duration>8.987</duration>
-    </track>
-    <track product="Ontbijt_lage_gzw_teveel_eten">
-        <file>audio/Ontbijt_lage_gzw_teveel_eten.mp3</file>
-        <duration>8.621</duration>
-    </track>
-    <track product="Ontbijt_lage_gzw_weinig_eten">
-        <file>audio/Ontbijt_lage_gzw_weinig_eten.mp3</file>
-        <duration>8.725</duration>
-    </track>
-    <track product="Ontbijt_perf">
-        <file>audio/Ontbijt_perf.mp3</file>
-        <duration>5.225</duration>
-    </track>
-    <track product="Wit_brood">
-        <file>audio/Wit_brood.mp3</file>
-        <duration>0.758</duration>
     </track>
 </tracks>
