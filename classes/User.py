@@ -18,20 +18,22 @@ class User:
         """
         self.__user_products.append(self.get_product_information())
 
-    def calculate_calorie_score(self) -> float:
+    @staticmethod
+    def calculate_calorie_score(products: list) -> float:
         """
         Reken totaal aantal caloriën uit van de gekozen producten
 
         :return: De kcal score
         """
         kcal = 0 
-        for product_list in self.__user_products:
+        for product_list in products:
             for product in product_list:
                 kcal += product['kcal']
 
         return round(kcal / 80, 1)
         
-    def calculate_health_score(self) -> float: 
+    @staticmethod
+    def calculate_health_score(products: list) -> float:
         """
         Reken gezondheidscijfer uit van de gekozen producten
 
@@ -39,7 +41,7 @@ class User:
         """
         score = 0
         count = 0 
-        for product_list in self.__user_products:
+        for product_list in products:
             for product in product_list:
                 score += product['score']
                 count += 1 
@@ -133,8 +135,8 @@ def main() -> None:
     for i in range(10):
         user.add_product()
 
-    health = user.calculate_health_score()
-    calories = user.calculate_calorie_score()
+    health = user.calculate_health_score(user.user_products)
+    calories = user.calculate_calorie_score(user.user_products)
 
     print("{}\n{}\n{}".format(health, calories,
                               user.calculate_final_score(health, calories)))
