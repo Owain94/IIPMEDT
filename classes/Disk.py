@@ -1,5 +1,5 @@
 from xml.dom import minidom
-from Arduino import Arduino
+from classes.Arduino import Arduino
 from util.Constants import Constants
 
 

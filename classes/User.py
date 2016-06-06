@@ -1,4 +1,4 @@
-from Disk import Disk
+from classes.Disk import Disk
 
 
 class User:

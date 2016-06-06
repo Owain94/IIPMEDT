@@ -1,7 +1,7 @@
 from util.Constants import Constants
 from os.path import exists
-import serial
 import collections
+import serial
 
 
 class Arduino:

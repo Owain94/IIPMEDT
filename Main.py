@@ -1,12 +1,12 @@
-from Button import Button
-from Disk import Disk
-from Led import Led
-from Buzzer import Buzzer
-from Telephone import Telephone
-from User import User
-from State import State
+from classes.Button import Button
+from classes.Disk import Disk
+from classes.Led import Led
+from classes.Buzzer import Buzzer
+from classes.Telephone import Telephone
+from classes.User import User
+from classes.State import State
+from classes.Road import Road
 from time import sleep
-from Road import Road
 import RPi.GPIO as GPIO
 
 # Other
