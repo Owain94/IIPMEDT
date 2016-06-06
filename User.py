@@ -82,7 +82,7 @@ class User:
         elif score < 3.5 and kcal_score < 4:
             track_name = "Ontbijt_lage_gezondheidswaarde_weinig_eten"
         
-        elif score < 3.5 and (kcal_score > 4.5 and kcal_score < 5.5):
+        elif score < 3.5 and (4.5 < kcal_score < 5.5):
             track_name = "Ontbijt_lage_gezondheidswaarde_genoeg_eten"
             
         elif score > 3.5 and kcal_score > 6:
@@ -91,7 +91,7 @@ class User:
         elif score > 3.5 and kcal_score < 4:
             track_name = "Ontbijt_goede_gezondheidswaarde_weinig_eten"
             
-        elif (score > 4.5) and (kcal_score > 4.5 and kcal_score < 5.5):
+        elif (score > 4.5) and (4.5 < kcal_score < 5.5):
             track_name = "Ontbijt_perfect"
 
         return track_name
