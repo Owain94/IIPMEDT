@@ -184,6 +184,14 @@ class Display:
                 self.__display.set_pixel(x, y, 0)
                 self.__display.write_display()
 
+    def show_digit(self, score: float) -> None:
+        self.clear()
+
+        digit = "{:1.1f}".format(score)
+        self.digit(int(digit[0]))
+        self.comma()
+        self.digit(int(digit[3]), True)
+
 
 def main() -> None:
     """
@@ -191,10 +199,7 @@ def main() -> None:
     klasse in een ander bestand wordt geimporteerd!
     """
     display = Display()
-    display.clear()
-    display.digit(6)
-    display.comma()
-    display.digit(9, True)
+    display.show_digit(9.6)
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
