@@ -195,7 +195,7 @@ class Display:
         digit = "{:1.1f}".format(score)
         self.digit(int(digit[0]))
         self.comma()
-        self.digit(int(digit[3]), True)
+        self.digit(int(digit[2]), True)
 
 
 def main() -> None:
