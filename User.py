@@ -1,4 +1,5 @@
 from Disk import Disk
+from Telephone import Telephone
 from time import sleep
 
 class User:
@@ -20,26 +21,37 @@ class User:
         """
         self.__user_products.append(self.get_product_information())
 
-    def calculate_score(self) -> float:
+    def calculate_calorie_score(self) -> float:
         """
-        Reken totale score uit van de gekozen producten
+        Reken totaal aantal caloriën uit van de gekozen producten
         """
-        score = 0
-        count = 0 
         kcal = 0 
         for product_list in self.__user_products:
             for product in product_list:
-                score += product['score']
                 kcal += product['kcal']
-                count += 1 
        	
        	kcal_score = kcal / 80
+
+        round(kcal_score, 1)
+
+        return kcal_score
+        
+    def calculate_health_score(self) -> float: 
+        """
+        Reken gezondheidscijfer uit van de gekozen producten
+        """
+        score = 0
+        count = 0 
+        for product_list in self.__user_products:
+            for product in product_list:
+                score += product['score']
+                count += 1 
+                
         score = (score / count) / 2
+        
+        round(score, 1)
 
-        final_score = (0.7 * kcal_score) + (0.3 * score)
-        round(final_score, 1)
-
-        return final_score
+        return score
         
     def convert_score_to_motor(self, final_score: float) -> int:
         """
@@ -50,7 +62,12 @@ class User:
         
         return aantal_stappen
         
-        
+    def determine_feedback_playback(self, final_score: float): 
+        track_name = ""
+        if final_score < 4:
+            track_name = ""
+            
+    
     @staticmethod
     def get_product_information() -> list:
         """
