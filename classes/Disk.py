@@ -20,15 +20,15 @@ class Disk:
         # Inladen van het xml bestand met de producten
         document = minidom.parse('xml/products.xml')
         # Alle producten inlezen
-        self._products = document.getElementsByTagName("product")
+        self.__products = document.getElementsByTagName("product")
         # De range voor de prodcuten bereken op basis van de maximale
         # index en het aantal producten
-        self._disk_range = round(self.const.max_index / len(self._products),
+        self.__disk_range = round(self.const.max_index / len(self.__products),
                                  2)
         # Het aantal producten
-        self._product_count = len(self._products)
+        self.__product_count = len(self.__products)
         # Arduino
-        self._arduino = Arduino()
+        self.__arduino = Arduino()
 
     def get_serial(self) -> int:
         """
@@ -36,7 +36,7 @@ class Disk:
 
         :return: POT waarde als int
         """
-        return self._arduino.get_serial()
+        return self.__arduino.get_serial()
 
     def get_product_index(self, potential: int) -> int:
         """
@@ -45,9 +45,9 @@ class Disk:
         :param potential: POT meet gegevens als int
         :return: product index als int
         """
-        for i in range(0, self._product_count):
-            if (potential >= i * self._disk_range)\
-                    and (potential <= ((i + 1) * self._disk_range)):
+        for i in range(0, self.__product_count):
+            if (potential >= i * self.__disk_range)\
+                    and (potential <= ((i + 1) * self.__disk_range)):
                 return i
 
     def get_by_key(self, key: str, potential: int) -> str:
@@ -60,7 +60,7 @@ class Disk:
         :return: Aantal kcal als string
         """
         index = self.get_product_index(potential)
-        return self._products[index].getElementsByTagName(key)[0] \
+        return self.__products[index].getElementsByTagName(key)[0] \
             .firstChild.data
 
     def get_product_by_index(self, potential: int = -1) -> list:
@@ -153,7 +153,7 @@ class Disk:
 
         :return: Alle producten als lijst
         """
-        return self._products
+        return self.__products
 
     @property
     def disk_range(self) -> float:
@@ -162,7 +162,7 @@ class Disk:
 
         :return: Disk range als int
         """
-        return self._disk_range
+        return self.__disk_range
 
     @property
     def product_count(self) -> int:
@@ -171,7 +171,7 @@ class Disk:
 
         :return: Het aantal producten als int
         """
-        return self._product_count
+        return self.__product_count
 
     @property
     def arduino(self) -> Arduino:
@@ -180,7 +180,7 @@ class Disk:
 
         :return: Instantie van de Arduino klasse
         """
-        return self._arduino
+        return self.__arduino
 
 
 def main() -> None:

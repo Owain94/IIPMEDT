@@ -22,8 +22,8 @@ class Telephone:
                           als int
         """
         # Inladen van het xml bestand met de audio bestanden
-        document = minidom.parse('xml/tracks.xml')
-        self.__tracks = document.getElementsByTagName("track")
+        self.__tracks = minidom.parse('xml/tracks.xml')\
+            .getElementsByTagName("track")
         self.__button = Button(input_pin)
         self.const = Constants(amount_per_second=4)
 
