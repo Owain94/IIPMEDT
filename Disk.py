@@ -1,6 +1,6 @@
 from xml.dom import minidom
 from Arduino import Arduino
-from Constants import Constants
+from util.Constants import Constants
 
 
 class Disk:
