@@ -26,8 +26,6 @@ class Road:
     def move_to_begin(self) -> None:
         """
         Blijf de motor draaien tot de begin positie is bereikt
-
-        :return: Gewoon altijd True...
         """
         while not self.__begin_switch.is_pressed():
             self.__motor.down(1)
@@ -37,8 +35,6 @@ class Road:
     def move_to_end(self) -> None:
         """
         Blijf de motor draaien tot de eind positie is bereikt
-
-        :return:  Gewoon altijd True...
         """
         while not self.__end_switch.is_pressed():
             self.__motor.up(1)
