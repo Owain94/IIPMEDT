@@ -1,3 +1,7 @@
+import math
+import time
+from lib.Matrix8x8 import Matrix8x8
+
 class Display:
     """
     Klasse om displays aan te sturen
