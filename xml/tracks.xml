@@ -180,36 +180,36 @@
         <file>audio/Yoghurt.mp3</file>
         <duration>0.706</duration>
     </track>
-    <track product="bruin_brood">
-        <file>audio/bruin_brood.mp3</file>
+    <track product="Bruin_brood">
+        <file>audio/Bruin_brood.mp3</file>
         <duration>0.889</duration>
     </track>
-    <track product="ontbijt_goed_gzw_teveel_eten">
-        <file>audio/ontbijt_goed_gzw_teveel_eten.mp3</file>
+    <track product="Ontbijt_goed_gzw_teveel_eten">
+        <file>audio/Ontbijt_goed_gzw_teveel_eten.mp3</file>
         <duration>8.621</duration>
     </track>
-    <track product="ontbijt_goede_gzw_teweinig_eten">
-        <file>audio/ontbijt_goede_gzw_teweinig_eten.mp3</file>
+    <track product="Ontbijt_goede_gzw_teweinig_eten">
+        <file>audio/Ontbijt_goede_gzw_teweinig_eten.mp3</file>
         <duration>8.778</duration>
     </track>
-    <track product="ontbijt_lage_gzw_genoeg_eten">
-        <file>audio/ontbijt_lage_gzw_genoeg_eten.mp3</file>
+    <track product="Ontbijt_lage_gzw_genoeg_eten">
+        <file>audio/Ontbijt_lage_gzw_genoeg_eten.mp3</file>
         <duration>8.987</duration>
     </track>
-    <track product="ontbijt_lage_gzw_teveel_eten">
-        <file>audio/ontbijt_lage_gzw_teveel_eten.mp3</file>
+    <track product="Ontbijt_lage_gzw_teveel_eten">
+        <file>audio/Ontbijt_lage_gzw_teveel_eten.mp3</file>
         <duration>8.621</duration>
     </track>
-    <track product="ontbijt_lage_gzw_weinig_eten">
-        <file>audio/ontbijt_lage_gzw_weinig_eten.mp3</file>
+    <track product="Ontbijt_lage_gzw_weinig_eten">
+        <file>audio/Ontbijt_lage_gzw_weinig_eten.mp3</file>
         <duration>8.725</duration>
     </track>
-    <track product="ontbijt_perf">
-        <file>audio/ontbijt_perf.mp3</file>
+    <track product="Ontbijt_perf">
+        <file>audio/Ontbijt_perf.mp3</file>
         <duration>5.225</duration>
     </track>
-    <track product="wit_brood">
-        <file>audio/wit_brood.mp3</file>
+    <track product="Wit_brood">
+        <file>audio/Wit_brood.mp3</file>
         <duration>0.758</duration>
     </track>
 </tracks>
