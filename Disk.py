@@ -7,6 +7,7 @@ class Disk:
     """
     Klasse om xml bestanden te verwerken
     """
+
     def __init__(self) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
@@ -18,7 +19,8 @@ class Disk:
         self._products = document.getElementsByTagName("product")
         # De range voor de prodcuten bereken op basis van de maximale
         # index en het aantal producten
-        self._disk_range = round(self.const.max_index / len(self._products), 2)
+        self._disk_range = round(self.const.max_index / len(self._products),
+                                 2)
         # Het aantal producten
         self._product_count = len(self._products)
         # Arduino
@@ -54,7 +56,7 @@ class Disk:
         :return: Aantal kcal als string
         """
         index = self.get_product_index(potential)
-        return self._products[index].getElementsByTagName(key)[0]\
+        return self._products[index].getElementsByTagName(key)[0] \
             .firstChild.data
 
     def get_product_by_index(self, potential: int = -1) -> list:
@@ -68,11 +70,11 @@ class Disk:
         potential = self.potential(potential)
 
         return {
-            'name':  self.get_product_name_by_index(potential),
+            'name': self.get_product_name_by_index(potential),
             'score': self.get_product_score_by_index(potential),
-            'kcal':  self.get_product_kcal_by_index(potential),
+            'kcal': self.get_product_kcal_by_index(potential),
             'sugar': self.get_product_sugar_by_index(potential),
-            'fat':   self.get_product_fat_by_index(potential)
+            'fat': self.get_product_fat_by_index(potential)
         }
 
     def get_product_name_by_index(self, potential: int = -1) -> str:
@@ -189,6 +191,7 @@ def main() -> None:
     print(disk.get_product_sugar_by_index(250))
     print(disk.get_product_fat_by_index(250))
     print(disk.get_product_by_index(250))
+
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
