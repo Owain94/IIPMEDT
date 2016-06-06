@@ -185,6 +185,11 @@ class Display:
                 self.__display.write_display()
 
     def show_digit(self, score: float) -> None:
+        """
+        Converteer float naar de display digits
+
+        :param score: Score als float
+        """
         self.clear()
 
         digit = "{:1.1f}".format(score)
