@@ -150,9 +150,11 @@ def main() -> None:
     for i in range(10):
         user.add_product()
 
-    user.calculate_health_score()
-    user.calculate_calorie_score()
-    user.calculate_final_score()
+    health = user.calculate_health_score()
+    calories = user.calculate_calorie_score()
+
+    print("{}\n{}\n{}".format(health, calories,
+                              user.calculate_final_score(health, calories)))
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
