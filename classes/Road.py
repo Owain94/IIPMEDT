@@ -1,5 +1,9 @@
-from classes.Button import Button
-from classes.Motor import Motor
+if __name__ == '__main__':
+    from Button import Button
+    from Motor import Motor
+else:
+    from classes.Button import Button
+    from classes.Motor import Motor
 
 
 class Road:

@@ -1,4 +1,9 @@
-from classes.Disk import Disk
+if __name__ == '__main__':
+    from Disk import Disk
+else:
+    from classes.Disk import Disk
+
+
 
 
 class User:

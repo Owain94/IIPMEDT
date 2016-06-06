@@ -1,6 +1,10 @@
 from xml.dom import minidom
-from classes.Arduino import Arduino
 from util.Constants import Constants
+
+if __name__ == '__main__':
+    from Arduino import Arduino
+else:
+    from classes.Arduino import Arduino
 
 
 class Disk:

@@ -1,8 +1,12 @@
 import subprocess
 import time
-from util.Constants import Constants
 from xml.dom import minidom
-from classes.Button import Button
+from util.Constants import Constants
+
+if __name__ == '__main__':
+    from Button import Button
+else:
+    from classes.Button import Button
 
 
 class Telephone:
