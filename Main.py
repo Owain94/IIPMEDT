@@ -55,7 +55,22 @@ try:
 
         elif state.is_state('telephone_first_track_played') and button_telephone.is_pressed():
             led_plus_red.blink_in_thread(1.0)
-
+            while not button_done.is_pressed():
+                if button_plus.is_pressed():
+                    user.add_product()
+                pass
+            if button_done.is_pressed():
+                state.current_state = 'products_selected'
+                
+        elif state.is_state('products_selected'):
+            motor.up(user.convert_score_to_motor(user.calculate_score))
+            state.current_state = 'telephone_feedback_first_score'
+            
+        elif state.is_state('telephone_feedback_first_score')
+            telephone.play_track('')
+            
+            
+            
         # else:
         #     state.reset_state()
 

@@ -21,19 +21,36 @@ class User:
         self.__user_products.append(self.get_product_information())
 
     def calculate_score(self) -> float:
-
+        """
+        Reken totale score uit van de gekozen producten
+        """
         score = 0
-
+        count = 0 
+        kcal = 0 
         for product_list in self.__user_products:
             for product in product_list:
-                print(product['name'])
-                print(product['score'])
-                print(product['kcal'])
-                print(product['fat'])
-                print(product['sugar'])
+                score += product['score']
+                kcal += product['kcal']
+                count += 1 
+       	
+       	kcal_score = kcal / 80
+        score = (score / count) / 2
 
-        return score
+        final_score = (0.7 * kcal_score) + (0.3 * score)
+        round(final_score, 1)
 
+        return final_score
+        
+    def convert_score_to_motor(self, final_score: float) -> int:
+        """
+        Zet berekende score om in aantal motorstappen
+        """
+        
+        aantal_stappen = final_score * 100
+        
+        return aantal_stappen
+        
+        
     @staticmethod
     def get_product_information() -> list:
         """
