@@ -219,6 +219,14 @@ class Display:
         self.comma()
         self.digit(int(digit[2]), True)
 
+    @property
+    def display_number(self) -> int:
+        """
+        Haal het display nummer op.
+        :return: display nummer als int.
+        """
+        return self.__display_number
+
 
 def main() -> None:
     """
