@@ -29,7 +29,6 @@ class Telephone:
         self.__tracks = minidom.parse('../datafiles/tracks.xml')\
             .getElementsByTagName("track")
         self.__button = Button(input_pin)
-        self.__butoon = None
         self.const = Constants(amount_per_second=4)
 
     def play_multiple_tracks(self, tracks: list) -> None:
@@ -91,10 +90,34 @@ class Telephone:
                 return float(track.getElementsByTagName("duration")[0]
                              .firstChild.data)
 
-    def play_breakfast(self, user_products: list) -> None:
-        for product_list in products:
-            for product in product_list:
+    @staticmethod
+    def prepare_track_list(user_products: list) -> list:
+        tracks = []
+        items = {}
 
+        for product_list in user_products:
+            for product in product_list:
+                try:
+                    items[product['name']] += 1
+                except KeyError:
+                    items[product['name']] = 1
+
+        for item in items:
+            if items[item] > 1:
+                tracks.append(str(items[item]) + "x")
+                tracks.append(item)
+            else:
+
+                tracks.append("1x")
+                tracks.append(item)
+
+        return tracks
+
+    def play_breakfast(self, user_products: list) -> None:
+        tracks = self.prepare_track_list(user_products)
+
+        # Dit is puur een test om te zien wat er in de lijst zit
+        print('\n'.join(map(str, tracks)))
 
     @property
     def button(self) -> Button:
@@ -111,9 +134,36 @@ def main() -> None:
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
+    li = [
+        [
+            {
+                'name': "Wit_brood",
+            }
+        ],
+        [
+            {
+                'name': "Wit_brood",
+            }
+        ],
+        [
+            {
+                'name': "Wit_brood",
+            }
+        ],
+        [
+            {
+                'name': "Wit_brood",
+            }
+        ],
+        [
+            {
+                'name': "bruin_brood",
+            }
+        ],
+    ]
+
     telephone = Telephone(2)
-    print(telephone.get_track_name('Wit_brood'))
-    print(telephone.get_track_duration('Wit_brood'))
+    telephone.play_breakfast(li)
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
