@@ -15,6 +15,7 @@ class Buzzer:
                            als int
         """
         self.__buzzer_thread = None
+        self.__ringtone_thread = None
         self.__buzzer_output_pin = output_pin
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.__buzzer_output_pin, GPIO.OUT)
@@ -31,25 +32,64 @@ class Buzzer:
         GPIO.output(self.__buzzer_output_pin, False)
         sleep(seconds)
 
-    def thread_is_alive(self) -> bool:
+    def ringtone(self) -> None:
         """
-        Controleert of er een thread bestaat.
+        Een methode die een leuk deuntje afspeelt.
+        """
+        self.buzz(0.4)
+        self.buzz(0.2)
+        self.buzz(0.4)
+        self.buzz(0.2)
 
+    def buzz_in_thread(self, seconds: float) -> None:
+        """
+        Voert de buzz functie uit in een aparte thread zodat er andere
+        code tegelijkertijd gedraaid kan worden
+
+        :param seconds:
+        """
+        self.__buzzer_thread = Thread(target=self.buzz, args=(seconds,))
+        self.__buzzer_thread.start()
+
+    def ringtone_in_thread(self) -> None:
+        """
+        Voert de ringtone functie uit in een aparte thread zodat er andere
+        code tegelijkertijd gedraaid kan worden
+
+        :param seconds:
+        """
+        self.__ringtone_thread = Thread(target=self.ringtone)
+        self.__ringtone_thread.start()
+
+    @staticmethod
+    def __thread_is_alive(thread: Thread) -> bool:
+        """
+        Controleert of de opgegeven thread bestaat.
+
+        :param thread: Thread
         :return: True of False op basis op de thread bestaat, als boolean
         """
         # noinspection PyBroadException
         try:
-            return self.__buzzer_thread.is_alive()
+            return thread.is_alive()
         except:
             return False
 
-    def buzz_in_thread(self) -> None:
+    def buzzer_is_alive(self) -> bool:
         """
-        Voert de buzz functie uit in een aparte thread zodat er andere
-        code tegelijkertijd gedraaid kan worden
+        Controleert of de buzzer thread bestaat
+
+        :return: True of False op basis op de thread bestaat, als boolean
         """
-        self.__buzzer_thread = Thread(target=self.buzz)
-        self.__buzzer_thread.start()
+        return self.__thread_is_alive(self.__buzzer_thread)
+
+    def ringtone_is_alive(self) -> bool:
+        """
+        Controleert of de ringtone thread bestaat
+
+        :return: True of False op basis op de thread bestaat, als boolean
+        """
+        return self.__thread_is_alive(self.__ringtone_thread)
 
 
 def main() -> None:
@@ -58,7 +98,7 @@ def main() -> None:
     klasse in een ander bestand wordt geimporteerd!
     """
     buzzer = Buzzer(3)  # input pin
-    buzzer.buzz(2.0)
+    buzzer.ringtone_in_thread()
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
