@@ -27,6 +27,7 @@ class User:
         """
         Reken totaal aantal caloriën uit van de gekozen producten
 
+        :param products: Een lijst met gekozen producten
         :return: De kcal score als float
         """
         kcal = 0 
