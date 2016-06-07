@@ -92,6 +92,13 @@ class Telephone:
 
     @staticmethod
     def prepare_track_list(user_products: list) -> list:
+        """
+        Geef een lijst met tracks terug op basis van alle producten die de
+        gebruiker heeft toegevoegd
+
+        :param user_products: Alle toegevoegde producten
+        :return: Alle tracks die afgespreeld moeten worden als lijst
+        """
         tracks = []
         items = {}
 
