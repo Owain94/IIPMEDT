@@ -3,33 +3,33 @@ from threading import Thread
 import RPi.GPIO as GPIO
 
 
-class Buzzer:
+class Doorbell:
     """
     Klasse om de de bel aan te sturen
     """
-    def __init__(self, output_pin: int) -> None:
+    def __init__(self, audio_track_length: float, output_pin: int) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
 
+        :param audio_track_length: De lengte van het audio bestand
         :param output_pin: De GPIO pin die wordt gebruikt op de raspberry
                            als int
         """
-        self.__buzzer_thread = None
-        self.__buzzer_output_pin = output_pin
+        self.__doorbell_thread = None
+        self.__doorbell_output_pin = output_pin
+        self.__doorbell_audio_track_length = audio_track_length
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(self.__buzzer_output_pin, GPIO.OUT)
+        GPIO.setup(self.__doorbell_output_pin, GPIO.OUT)
 
-    def buzz(self, seconds: float) -> None:
+    def bell(self) -> None:
         """
         Laat de zoomer zoomen door stroom op de GPIO pin te zetten en
         vervolgens de stroom er weer af te halen na een timeout
-
-        :param seconds: secondes als float
         """
-        GPIO.output(self.__buzzer_output_pin, True)
-        sleep(seconds)
-        GPIO.output(self.__buzzer_output_pin, False)
-        sleep(seconds)
+        GPIO.output(self.__doorbell_output_pin, True)
+        sleep(self.__doorbell_audio_track_length)
+        GPIO.output(self.__doorbell_output_pin, False)
+        sleep(1.0)
 
     def thread_is_alive(self) -> bool:
         """
@@ -39,17 +39,17 @@ class Buzzer:
         """
         # noinspection PyBroadException
         try:
-            return self.__buzzer_thread.is_alive()
+            return self.__doorbell_thread.is_alive()
         except:
             return False
 
-    def buzz_in_thread(self) -> None:
+    def bell_in_thread(self) -> None:
         """
         Voer de buzz functie uit in een aparte thread zodat er andere
         code tegelijkertijd gedraaid kan worden
         """
-        self.__buzzer_thread = Thread(target=self.buzz)
-        self.__buzzer_thread.start()
+        self.__doorbell_thread = Thread(target=self.bell)
+        self.__doorbell_thread.start()
 
 
 def main() -> None:
@@ -57,8 +57,8 @@ def main() -> None:
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
-    buzzer = Buzzer(3)  # input pin
-    buzzer.buzz(2.0)
+    doorbell = Doorbell(2.0, 3)  # input pin
+    doorbell.bell()
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
