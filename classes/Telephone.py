@@ -1,3 +1,5 @@
+import os
+
 if __name__ == '__main__':
     from sys import path
     path.append("..")
@@ -22,9 +24,12 @@ class Telephone:
                           als int
         """
         # Inladen van het xml bestand met de audio bestanden
-        self.__tracks = minidom.parse('xml/tracks.xml')\
+        print(os.getcwd())
+
+        self.__tracks = minidom.parse('../datafiles/tracks.xml')\
             .getElementsByTagName("track")
         self.__button = Button(input_pin)
+        self.__butoon = None
         self.const = Constants(amount_per_second=4)
 
     def play_multiple_tracks(self, tracks: list) -> None:
@@ -47,10 +52,9 @@ class Telephone:
         for track in self.__tracks:
             if track.getAttribute('product') == track_name:
 
-                file = track.getElementsByTagName("file")[0].firstChild.data
+                file = self.get_track_name(track_name)
 
-                duration = int(track.getElementsByTagName("duration")[0]
-                               .firstChild.data)
+                duration = self.get_track_duration(track_name)
 
                 process = subprocess.Popen("exec mpg321 " + file,
                                            stdout=subprocess.PIPE,
@@ -62,6 +66,30 @@ class Telephone:
                     time.sleep(1 / self.const.amount_per_second)
                     pass
                 process.kill()
+
+    def get_track_name(self, key: str) -> str:
+        """
+        Krijg de locatie naar een audio bestand aan de hand van een naam
+
+        :param key: naam om op te zoeken in het xml bestand
+        :return: Path naar het audio bestand als string
+        """
+        for track in self.__tracks:
+            if track.getAttribute('product') == key:
+                return track.getElementsByTagName("file")[0]\
+                    .firstChild.data
+
+    def get_track_duration(self, key: str) -> float:
+        """
+        Krijg de duratie van een audio bestand aan de hand van een naam
+
+        :param key: naam om op te zoeken in het xml bestand
+        :return: Duratie van het audio bestand als float
+        """
+        for track in self.__tracks:
+            if track.getAttribute('product') == key:
+                return float(track.getElementsByTagName("duration")[0]
+                             .firstChild.data)
 
     @property
     def button(self) -> Button:
@@ -79,7 +107,8 @@ def main() -> None:
     klasse in een ander bestand wordt geimporteerd!
     """
     telephone = Telephone(2)
-    print(telephone.play_multiple_tracks(['wit_brood', 'bruin_brood']))
+    print(telephone.get_track_name('Wit_brood'))
+    print(telephone.get_track_duration('Wit_brood'))
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
