@@ -108,11 +108,9 @@ class Telephone:
         for item in items:
             if items[item] > 1:
                 tracks.append(str(items[item]) + "x")
-                tracks.append(item)
             else:
-
                 tracks.append("1x")
-                tracks.append(item)
+            tracks.append(item)
 
         return tracks
 
