@@ -131,7 +131,7 @@ def main() -> None:
     """
     user = User()
 
-    #for i in range(10):
+    # for i in range(10):
     #    user.add_product()
     [(user.add_product()) for _ in range(10)]
 

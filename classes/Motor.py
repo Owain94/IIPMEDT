@@ -67,7 +67,7 @@ class Motor:
 
         :param steps: Het aantal stappen dat er gedraaid moet worden als int
         """
-        #for i in range(steps):
+        # for i in range(steps):
         #    for step in self.const.sequence:
         #        self.set_step(step)
         #        sleep(0.005)

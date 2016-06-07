@@ -11,6 +11,7 @@ from time import sleep
 #  https://learn.adafruit.com/matrix-7-segment-led-backpack-with-the-raspberry-pi/configuring-your-pi-for-i2c
 #  https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c
 
+
 class Display:
     """
     Klasse om displays aan te sturen
@@ -191,7 +192,7 @@ class Display:
         """
         Zet alle pixels van het display weer uit.
         """
-        #for x in range(8):
+        # for x in range(8):
         #    for y in range(8):
         #        self.__display.clear()
         #        self.__display.set_pixel(x, y, 0)
