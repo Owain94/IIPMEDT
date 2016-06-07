@@ -92,6 +92,10 @@ try:
         #  STAP 7
         #  De state is 'products_selected'
         elif state.is_state('products_selected'):
+        	display_one.show_digit(user.calculate_final_score(
+                user.calculate_health_score(user.user_products),
+                user.calculate_calorie_score(user.user_products)))
+
             motor.up(user.convert_score_to_motor(user.calculate_final_score(
                 user.calculate_health_score(user.user_products),
                 user.calculate_calorie_score(user.user_products))))
@@ -100,10 +104,11 @@ try:
         #  STAP 8
         #  De state is 'telephone_feedpack_first_score'
         elif state.is_state('telephone_feedback_first_score'):
-            state.current_state = 'first_feedback_track_played'
+            state.current_state = 'telephone_first_track_played'
             telephone.play_track(user.determine_feedback_playback(
                 user.calculate_health_score(user.user_products),
                 user.calculate_calorie_score(user.user_products)))
+            road.move_to_begin()
 
         #  STAP todo stap nummer
         #  Hier wordt de state 'initial' en de displays worden gereset.
