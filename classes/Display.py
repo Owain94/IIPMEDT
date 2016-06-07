@@ -14,7 +14,7 @@ class Display:
     """
     Klasse om displays aan te sturen
     """
-    def __init__(self, display_address: str) -> None:
+    def __init__(self, display_address: int) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
         :param display_address: str
@@ -223,9 +223,9 @@ class Display:
         Haal het display nummer op.
         :return: display nummer als int.
         """
-        if self.__display_address is '0x70':
+        if self.__display_address is 0x70:
             return 1
-        elif self.__display_address is '0x71':
+        elif self.__display_address is 0x71:
             return 2
 
 
@@ -234,9 +234,9 @@ def main() -> None:
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
-    display_one = Display('0x70')
+    display_one = Display(0x70)
     display_one.show_digit(1.0)
-    display_two = Display('0x71')
+    display_two = Display(0x71)
     display_two.show_digit(2.0)
 
     sleep(10)

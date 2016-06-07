@@ -36,8 +36,8 @@ led_plus_red = Led(1)  # Plus led red input pin.
 led_plus_green = Led(1)  # Plus led green input pin.
 
 # Displays
-display_one = Display(1)  # Eerste display
-display_two = Display(2)  # Tweede display
+display_one = Display(0x70)  # Eerste display
+display_two = Display(0x71)  # Tweede display
 
 
 # de twee displays schoonmaken
