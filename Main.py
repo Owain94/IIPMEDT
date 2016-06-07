@@ -92,7 +92,7 @@ try:
         #  STAP 7
         #  De state is 'products_selected'
         elif state.is_state('products_selected'):
-        	display_one.show_digit(user.calculate_final_score(
+            display_one.show_digit(user.calculate_final_score(
                 user.calculate_health_score(user.user_products),
                 user.calculate_calorie_score(user.user_products)))
 
