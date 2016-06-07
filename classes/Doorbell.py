@@ -23,7 +23,7 @@ class Doorbell:
 
     def bell(self) -> None:
         """
-        Laat de zoomer zoomen door stroom op de GPIO pin te zetten en
+        Laat de bel bellen door stroom op de GPIO pin te zetten en
         vervolgens de stroom er weer af te halen na een timeout
         """
         GPIO.output(self.__doorbell_output_pin, True)
@@ -45,7 +45,7 @@ class Doorbell:
 
     def bell_in_thread(self) -> None:
         """
-        Voer de buzz functie uit in een aparte thread zodat er andere
+        Voert de bel functie uit in een aparte thread zodat er andere
         code tegelijkertijd gedraaid kan worden
         """
         self.__doorbell_thread = Thread(target=self.bell)

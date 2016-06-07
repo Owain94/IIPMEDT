@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 
 class Buzzer:
     """
-    Klasse om de de bel aan te sturen
+    Klasse om de de buzzer aan te sturen
     """
     def __init__(self, output_pin: int) -> None:
         """
@@ -45,7 +45,7 @@ class Buzzer:
 
     def buzz_in_thread(self) -> None:
         """
-        Voer de buzz functie uit in een aparte thread zodat er andere
+        Voert de buzz functie uit in een aparte thread zodat er andere
         code tegelijkertijd gedraaid kan worden
         """
         self.__buzzer_thread = Thread(target=self.buzz)
