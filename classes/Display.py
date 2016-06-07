@@ -17,7 +17,7 @@ class Display:
     def __init__(self, display_address: int) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
-        :param display_address: str
+        :param display_address: int
         """
         self.__display_address = display_address
         self.__display = Matrix8x8(address=self.__display_address, busnum=1)
