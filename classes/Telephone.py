@@ -91,6 +91,11 @@ class Telephone:
                 return float(track.getElementsByTagName("duration")[0]
                              .firstChild.data)
 
+    def play_breakfast(self, user_products: list) -> None:
+        for product_list in products:
+            for product in product_list:
+
+
     @property
     def button(self) -> Button:
         """

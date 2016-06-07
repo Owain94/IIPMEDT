@@ -16,10 +16,12 @@ class Display:
     """
     Klasse om displays aan te sturen
     """
-    def __init__(self) -> None:
+    def __init__(self, display_number: int) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
+        :param display_number: int
         """
+        self.__display_number = display_number
         self.__display = Matrix8x8()
         self.__display.begin()
         self.__display.clear()
@@ -217,13 +219,21 @@ class Display:
         self.comma()
         self.digit(int(digit[2]), True)
 
+    @property
+    def display_number(self) -> int:
+        """
+        Haal het display nummer op.
+        :return: display nummer als int.
+        """
+        return self.__display_number
+
 
 def main() -> None:
     """
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
-    display = Display()
+    display = Display(1)
     display.show_digit(6.9)
     sleep(5)
     display.clear()
