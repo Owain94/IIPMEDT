@@ -63,6 +63,11 @@ class Telephone:
                     pass
                 process.kill()
 
+    def play_breakfast(self, user_products: list) -> None:
+        for product_list in products:
+            for product in product_list:
+                
+
     @property
     def button(self) -> Button:
         """
