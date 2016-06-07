@@ -40,6 +40,7 @@ display_one = Display()
 display_two = Display()
 
 
+# de twee displays schoonmaken
 def clear() -> None:
     display_one.clear()
     display_two.clear()
