@@ -4,25 +4,23 @@ if __name__ == '__main__':
 
 from util.Constants import Constants
 from lib.Matrix8x8 import Matrix8x8
-
 from time import sleep
+
 
 #  I2C SETUP
 #  https://learn.adafruit.com/matrix-7-segment-led-backpack-with-the-raspberry-pi/configuring-your-pi-for-i2c
 #  https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c
-
-
 class Display:
     """
     Klasse om displays aan te sturen
     """
-    def __init__(self, display_number: int) -> None:
+    def __init__(self, display_address: int) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
-        :param display_number: int
+        :param display_address: int
         """
-        self.__display_number = display_number
-        self.__display = Matrix8x8()
+        self.__display_address = display_address
+        self.__display = Matrix8x8(address=self.__display_address, busnum=1)
         self.__display.begin()
         self.__display.clear()
 
@@ -225,7 +223,10 @@ class Display:
         Haal het display nummer op.
         :return: display nummer als int.
         """
-        return self.__display_number
+        if self.__display_address is 0x70:
+            return 1
+        elif self.__display_address is 0x71:
+            return 2
 
 
 def main() -> None:
@@ -233,10 +234,14 @@ def main() -> None:
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
-    display = Display(1)
-    display.show_digit(6.9)
-    sleep(5)
-    display.clear()
+    display_one = Display(0x70)
+    display_one.show_digit(1.0)
+    display_two = Display(0x71)
+    display_two.show_digit(2.0)
+
+    sleep(10)
+    display_one.clear()
+    display_two.clear()
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
