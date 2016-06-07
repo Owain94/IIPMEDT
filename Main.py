@@ -39,6 +39,11 @@ led_plus_green = Led(1)  # Plus led green input pin.
 display_one = Display()
 display_two = Display()
 
+
+def clear() -> None:
+    display_one.clear()
+    display_two.clear()
+
 try:
     while True:
         if state.is_state('initial') and button_start.is_pressed():
@@ -83,14 +88,12 @@ try:
             
         else:
             state.reset_state()
-            display_one.clear()
-            display_two.clear()
+            clear()
 
         print('Huidige status: ' + state.current_state)
 
         sleep(0.1)
 
 except KeyboardInterrupt:
-    display_one.clear()
-    display_two.clear()
     GPIO.cleanup()
+    clear()
