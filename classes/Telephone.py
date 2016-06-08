@@ -1,5 +1,3 @@
-import os
-
 if __name__ == '__main__':
     from sys import path
     path.append("..")
@@ -24,8 +22,6 @@ class Telephone:
                           als int
         """
         # Inladen van het xml bestand met de audio bestanden
-        print(os.getcwd())
-
         self.__tracks = minidom.parse('../datafiles/tracks.xml')\
             .getElementsByTagName("track")
         self.__button = Button(input_pin)
@@ -112,11 +108,9 @@ class Telephone:
         for item in items:
             if items[item] > 1:
                 tracks.append(str(items[item]) + "x")
-                tracks.append(item)
             else:
-
                 tracks.append("1x")
-                tracks.append(item)
+            tracks.append(item)
 
         return tracks
 

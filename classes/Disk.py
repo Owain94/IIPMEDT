@@ -23,8 +23,8 @@ class Disk:
         self.__products = document.getElementsByTagName("product")
         # De range voor de prodcuten bereken op basis van de maximale
         # index en het aantal producten
-        self.__disk_range = round(self.const.max_index / len(self.__products),
-                                 2)
+        self.__disk_range = round(self.const.max_index /
+                                  len(self.__products), 2)
         # Het aantal producten
         self.__product_count = len(self.__products)
         # Arduino

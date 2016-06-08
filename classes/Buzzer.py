@@ -55,7 +55,7 @@ class Buzzer:
         Voert de ringtone functie uit in een aparte thread zodat er andere
         code tegelijkertijd gedraaid kan worden
 
-        :param seconds:
+        :param tones: lijst met tonen als list
         """
         self.__ringtone_thread = Thread(target=self.ringtone, args=(tones,))
         self.__ringtone_thread.start()
