@@ -7,6 +7,7 @@ import time
 from util.Constants import Constants
 from xml.dom import minidom
 from classes.Button import Button
+from math import ceil
 
 
 class Telephone:
@@ -22,8 +23,12 @@ class Telephone:
                           als int
         """
         # Inladen van het xml bestand met de audio bestanden
-        self.__tracks = minidom.parse('../datafiles/tracks.xml')\
-            .getElementsByTagName("track")
+        if __name__ == '__main__':
+            xml = '../datafiles/tracks.xml'
+        else:
+            xml = './datafiles/tracks.xml'
+
+        self.__tracks = minidom.parse(xml).getElementsByTagName("track")
         self.__button = Button(input_pin)
         self.const = Constants(amount_per_second=4)
 
@@ -55,7 +60,7 @@ class Telephone:
                                            stdout=subprocess.PIPE,
                                            shell=True)
 
-                for i in range(1, (duration * self.const.amount_per_second)):
+                for i in range(1, ceil(duration * self.const.amount_per_second)):
                     if self.__button.is_pressed():
                         break
                     time.sleep(1 / self.const.amount_per_second)
@@ -163,8 +168,9 @@ def main() -> None:
         ],
     ]
 
-    telephone = Telephone(2)
-    telephone.play_breakfast(li)
+    telephone = Telephone(23)
+    telephone.play_multiple_tracks(['Bruin_brood', 'Bruin_brood'])
+    # telephone.play_breakfast(li)
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd

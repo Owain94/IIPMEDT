@@ -13,7 +13,6 @@ class Button:
                           als int
         """
         self.__button_input_pin = input_pin
-        GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.__button_input_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     def is_pressed(self) -> bool:

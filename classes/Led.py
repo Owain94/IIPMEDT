@@ -16,7 +16,6 @@ class Led:
         """
         self.__blink_thread = None
         self.__led_output_pin = output_pin
-        GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.__led_output_pin, GPIO.OUT)
 
     def blink(self, seconds: float) -> None:
@@ -61,12 +60,16 @@ def main() -> None:
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
-    led = Led(2)  # input pin
-    led.blink_in_thread(4.0)
-    sleep(5.0)
-    print(led.thread_is_alive())
-    sleep(10.0)
-    print(led.thread_is_alive())
+    led_start = Led(12)  # input pin
+    led_start.blink_in_thread(1.0)
+
+    led_red_plus = Led(20)
+    led_green_plus = Led(16)
+
+    led_red_plus.blink_in_thread(1.0)
+    sleep(3)
+    led_green_plus.blink_in_thread(1.0)
+
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd

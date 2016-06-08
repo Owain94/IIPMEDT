@@ -17,7 +17,6 @@ class Buzzer:
         self.__buzzer_thread = None
         self.__ringtone_thread = None
         self.__buzzer_output_pin = output_pin
-        GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.__buzzer_output_pin, GPIO.OUT)
 
     def buzz(self, seconds: float) -> None:
@@ -96,10 +95,11 @@ def main() -> None:
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
-    buzzer = Buzzer(3)  # input pin
-    buzzer.ringtone_in_thread([0.5, 0.2, 0.5, 0.2])
+    buzzer = Buzzer(25)  # input pin
+    buzzer.ringtone_in_thread([0.8])
     sleep(1)
     print(buzzer.ringtone_is_alive())
+    GPIO.cleanup()
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd

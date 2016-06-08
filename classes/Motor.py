@@ -22,8 +22,6 @@ class Motor:
         # (gedefinieerd als constante)
         self.const = Constants(sequence=['1000', '0100', '0010', '0001'])
 
-        GPIO.setmode(GPIO.BCM)
-
         self.__coil_A_1_pin = input_pins[0]
         self.__coil_A_2_pin = input_pins[1]
         self.__coil_B_1_pin = input_pins[2]
