@@ -33,7 +33,7 @@ class User:
         kcal = 0 
         for product_list in products:
             for product in product_list:
-                kcal += product['kcal']
+                kcal += float(product['kcal'])
 
         return round(kcal / 80, 1)
         
@@ -48,7 +48,7 @@ class User:
         count = 0
         for product_list in products:
             for product in product_list:
-                score += product['score']
+                score += float(product['score'])
                 count += 1
 
         return round((score / count) / 2, 1)

@@ -18,18 +18,21 @@ class Led:
         self.__led_output_pin = output_pin
         GPIO.setup(self.__led_output_pin, GPIO.OUT)
 
-    def blink(self, seconds: float) -> None:
+    def blink(self, seconds: float, sleep_after_blink: bool = True) -> None:
         """
         Laat een LED knipperen door stroom op de GPIO pin te zetten en
         vervolgens de stroom er weer af te halen na een timeout
 
+        :param sleep_after_blink: Of er gewacht moet worden na het aanzetten
+                        van de led als bool
         :param seconds: De tijd die tussen het knipperen van de LED zit
                         als float
         """
         GPIO.output(self.__led_output_pin, True)
         sleep(seconds)
         GPIO.output(self.__led_output_pin, False)
-        sleep(seconds)
+        if sleep_after_blink:
+            sleep(seconds)
 
     def thread_is_alive(self) -> bool:
         """
@@ -43,15 +46,18 @@ class Led:
         except:
             return False
 
-    def blink_in_thread(self, seconds: float):
+    def blink_in_thread(self, seconds: float, sleep_after_blink: bool = True):
         """
         Voer de blink functie uit in een aparte thread zodat er andere
         code tegelijkertijd gedraaid kan worden
 
+        :param sleep_after_blink: Of er gewacht moet worden na het aanzetten
+                        van de led als bool
         :param seconds: De tijd die tussen het knipperen van de LED zit
                         als float
         """
-        self.__blink_thread = Thread(target=self.blink, args=(seconds,))
+        self.__blink_thread = Thread(target=self.blink,
+                                     args=(seconds, sleep_after_blink))
         self.__blink_thread.start()
 
 
