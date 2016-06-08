@@ -32,14 +32,13 @@ class Buzzer:
         GPIO.output(self.__buzzer_output_pin, False)
         sleep(seconds)
 
-    def ringtone(self) -> None:
+    def ringtone(self, tones: list) -> None:
         """
         Een methode die een leuk deuntje afspeelt.
+        :param tones: lijst met tonen die afgespeeld moeten worden.
         """
-        self.buzz(0.4)
-        self.buzz(0.2)
-        self.buzz(0.4)
-        self.buzz(0.2)
+        for tone in tones:
+            self.buzz(tone)
 
     def buzz_in_thread(self, seconds: float) -> None:
         """
@@ -51,14 +50,14 @@ class Buzzer:
         self.__buzzer_thread = Thread(target=self.buzz, args=(seconds,))
         self.__buzzer_thread.start()
 
-    def ringtone_in_thread(self) -> None:
+    def ringtone_in_thread(self, tones: list) -> None:
         """
         Voert de ringtone functie uit in een aparte thread zodat er andere
         code tegelijkertijd gedraaid kan worden
 
         :param seconds:
         """
-        self.__ringtone_thread = Thread(target=self.ringtone)
+        self.__ringtone_thread = Thread(target=self.ringtone, args=(tones,))
         self.__ringtone_thread.start()
 
     @staticmethod
@@ -98,7 +97,7 @@ def main() -> None:
     klasse in een ander bestand wordt geimporteerd!
     """
     buzzer = Buzzer(3)  # input pin
-    buzzer.ringtone_in_thread()
+    buzzer.ringtone_in_thread([0.5, 0.2, 0.5, 0.2])
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
