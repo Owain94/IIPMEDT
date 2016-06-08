@@ -98,6 +98,8 @@ def main() -> None:
     """
     buzzer = Buzzer(3)  # input pin
     buzzer.ringtone_in_thread([0.5, 0.2, 0.5, 0.2])
+    sleep(1)
+    print(buzzer.ringtone_is_alive())
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
