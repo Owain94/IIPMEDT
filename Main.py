@@ -125,6 +125,7 @@ try:
             #     user.calculate_calorie_score(user.user_products)))
 
             #  Laat het 'poppertje' omhoog lopen
+            # todo Maarten fix deze shit
             motor.up(user.convert_score_to_motor(user.calculate_final_score(
                 user.calculate_health_score(user.user_products),
                 user.calculate_calorie_score(user.user_products))))
