@@ -15,7 +15,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.cleanup()
 
 # Other
-road = Road(1, 1, [1, 2, 3, 4])  # road with 2 switches and a motor.
+road = Road(1, 1, [26, 19, 13, 6])  # road with 2 switches and a motor.
 telephone = Telephone(23)  # Telephone with button input pin.
 motor = road.motor  # Motor with input pins.
 disk_products = Disk()  # Food disk with range.
@@ -40,14 +40,14 @@ led_plus_red = Led(20)  # Plus led red input pin.
 led_plus_green = Led(16)  # Plus led green input pin.
 
 # Displays
-display_one = Display(0x70)  # Eerste display
-display_two = Display(0x71)  # Tweede display
+# display_one = Display(0x70)  # Eerste display
+# display_two = Display(0x71)  # Tweede display
 
 
 # de twee displays schoonmaken
-def clear() -> None:
-    display_one.clear()
-    display_two.clear()
+# def clear() -> None:
+#     display_one.clear()
+#     display_two.clear()
 
 GPIOFuckUp()
 
@@ -120,9 +120,9 @@ try:
         #  De state is 'products_selected'
         elif state.is_state('products_selected'):
             #  Laat de score van de gebruiker op het eerste schermpje zien
-            display_one.show_digit(user.calculate_final_score(
-                user.calculate_health_score(user.user_products),
-                user.calculate_calorie_score(user.user_products)))
+            # display_one.show_digit(user.calculate_final_score(
+            #     user.calculate_health_score(user.user_products),
+            #     user.calculate_calorie_score(user.user_products)))
 
             #  Laat het 'poppertje' omhoog lopen
             motor.up(user.convert_score_to_motor(user.calculate_final_score(
