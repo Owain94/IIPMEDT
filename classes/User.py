@@ -118,8 +118,6 @@ class User:
     def calculate_display_score(self) -> float:
         kcal = self.calculate_calorie_score(self.user_products)
         health_score = self.calculate_health_score(self.user_products)
-        kcal_score = 0
-        minus = 0
 
         if kcal < 4.5:
             kcal_score = kcal
@@ -131,7 +129,7 @@ class User:
         else:
             kcal_score = 1.0
 
-        return round((0.7 * kcal_score) + (0.3 * (health_score * 2), 1)
+        return round((0.7 * kcal_score) + (0.3 * (health_score * 2)), 1)
 
     @staticmethod
     def convert_score_to_motor(final_score: float) -> int:
