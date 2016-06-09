@@ -22,6 +22,12 @@ class User:
         """
         self.__user_products.append(self.get_product_information())
 
+    def reset_products(self) -> None:
+        """
+        Leegt de producten lijst.
+        """
+        self.__user_products = []
+
     @staticmethod
     def calculate_calorie_score(products: list) -> float:
         """
