@@ -47,8 +47,6 @@ button_telephone = telephone.button  # Telephone button.
 
 # Led's
 led_start_red = Led(12)  # Start led red input pin.
-# led_plus_red = Led(20)  # Plus led red input pin.
-# led_plus_green = Led(16)  # Plus led green input pin.
 led_plus_red = Led(16)  # Plus led red input pin.
 led_plus_green = Led(20)  # Plus led green input pin.
 
