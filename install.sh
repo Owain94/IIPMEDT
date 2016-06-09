@@ -8,3 +8,4 @@ amixer cset numid=3 1
 amixer set PCM -- -400
 sudo apt-get install libjpeg-dev -y
 pip install Pillow -y
+pip install python-slugify -y
