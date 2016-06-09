@@ -13,6 +13,19 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.cleanup()
 
+# Displays
+display_one = Display(0x71)  # Eerste display
+display_two = Display(0x70)  # Tweede display
+
+
+# de twee displays schoonmaken
+def clear() -> None:
+    display_one.clear()
+    display_two.clear()
+
+# Beide displays uitzetten
+clear()
+
 # Other
 road = Road(1, 1, [26, 19, 13, 6])  # road with 2 switches and a motor.
 telephone = Telephone(23)  # Telephone with button input pin.
@@ -39,16 +52,6 @@ led_start_red = Led(12)  # Start led red input pin.
 led_plus_red = Led(16)  # Plus led red input pin.
 led_plus_green = Led(20)  # Plus led green input pin.
 
-# Displays
-display_one = Display(0x71)  # Eerste display
-display_two = Display(0x70)  # Tweede display
-
-
-# de twee displays schoonmaken
-def clear() -> None:
-    display_one.clear()
-    display_two.clear()
-
 
 # print de huidige status
 def status(step) -> None:
@@ -58,9 +61,6 @@ def status(step) -> None:
 
 # Alle GPIO pinnen worden op false gezet
 GPIOFuckUp()
-
-# Beide displays uitzetten
-clear()
 
 # zet het stapnummer
 step = 0
