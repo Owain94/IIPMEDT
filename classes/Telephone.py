@@ -110,6 +110,8 @@ class Telephone:
                 except KeyError:
                     items[product['name']] = 1
 
+        tracks.append('Gekozen')
+
         for item in items:
             if items[item] > 1:
                 tracks.append(str(items[item]) + "x")
@@ -169,8 +171,8 @@ def main() -> None:
     ]
 
     telephone = Telephone(23)
-    telephone.play_multiple_tracks(['Bruin_brood', 'Bruin_brood'])
-    # telephone.play_breakfast(li)
+    # telephone.play_multiple_tracks(['Bruin_brood', 'Bruin_brood'])
+    telephone.play_breakfast(li)
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
