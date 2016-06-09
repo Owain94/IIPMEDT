@@ -34,7 +34,7 @@ class Road:
         # while not self.__begin_switch.is_pressed():
         #     self.__motor.down(1)
 
-        self.__motor.up(20)
+        self.up(20)
 
     def move_to_end(self) -> None:
         """
@@ -43,7 +43,21 @@ class Road:
         # while not self.__end_switch.is_pressed():
         #     self.__motor.up(1)
 
-        self.motor.down(20)
+        self.down(20)
+
+    def up(self, steps: int) -> None:
+        for step in range(steps):
+            if not self.end_switch.is_pressed():
+                self.__motor.up()
+            else:
+                break
+
+    def down(self, steps: int) -> None:
+        for step in range(steps):
+            if not self.begin_switch.is_pressed():
+                self.__motor.down()
+            else:
+                break
 
     @property
     def begin_switch(self) -> Button:

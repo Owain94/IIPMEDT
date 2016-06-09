@@ -46,33 +46,31 @@ class Motor:
         GPIO.output(self.__coil_B_1_pin, int(step[2]) == 1)
         GPIO.output(self.__coil_B_2_pin, int(step[3]) == 1)
 
-    def up(self, steps: int) -> None:
+    def up(self) -> None:
         """
         Laat de motor vooruit draaien
 
         :param steps: Het aantal stappen dat er gedraaid moet worden als int
         """
-        for i in range(steps):
-            # Lees de sequntie achterstevoren in
-            for step in list(reversed(self.const.sequence)):
-                self.set_step(step)
-                sleep(0.005)
-        self.clean()
+        # Lees de sequntie achterstevoren in
+        for step in list(reversed(self.const.sequence)):
+            self.set_step(step)
+            sleep(0.005)
 
-    def down(self, steps: int) -> None:
+    def down(self) -> None:
         """
         Laat de motor achteruit draaien
 
         :param steps: Het aantal stappen dat er gedraaid moet worden als int
         """
-        # for i in range(steps):
-        #    for step in self.const.sequence:
-        #        self.set_step(step)
-        #        sleep(0.005)
+        for step in self.const.sequence:
+            self.set_step(step)
+            sleep(0.005)
 
-        [(self.set_step(step), sleep(0.005))
-         for _ in range(steps) for step in self.const.sequence]
-        self.clean()
+        # todo OWAIN <3 fix dit weer ff voor het loopje hierboven
+        # [(self.set_step(step), sleep(0.005))
+        #  for _ in range(steps) for step in self.const.sequence]
+        # self.clean()
 
     def clean(self) -> None:
         """
