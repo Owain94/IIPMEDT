@@ -124,7 +124,8 @@ class Telephone:
                 return float(track.getElementsByTagName("duration")[0]
                              .firstChild.data)
 
-    def prepare_track_list(self, user_products: list) -> list:
+    @staticmethod
+    def prepare_track_list(user_products: list) -> list:
         """
         Geef een lijst met tracks terug op basis van alle producten die de
         gebruiker heeft toegevoegd
