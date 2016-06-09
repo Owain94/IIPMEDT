@@ -245,4 +245,18 @@
         <sugar>9.2</sugar>
         <fat>0.3</fat>
     </product>
+    <product>
+        <name>Crossant</name>
+        <score>4.4</score>
+        <kcal>215.0</kcal>
+        <sugar>1.2</sugar>
+        <fat>11.8</fat>
+    </product>
+    <product>
+        <name>Bacon</name>
+        <score>4.8</score>
+        <kcal>149.0</kcal>
+        <sugar>0.0</sugar>
+        <fat>13.6</fat>
+    </product>
 </products>
