@@ -53,8 +53,7 @@ class User:
 
         return round((score / count) / 2, 1)
     
-    @staticmethod
-    def calculate_final_score(score: float, kcal_score: float) -> float:
+    def calculate_final_score(self) -> float:
         """
         Bereken totale score op basis van score en kcal score
 
@@ -62,6 +61,9 @@ class User:
         :param kcal_score: Kcal score als float
         :return: De uiteindelijke score als float
         """
+        score = self.calculate_health_score(self.user_products)
+        kcal_score = self.calculate_calorie_score(self.user_products)
+
         return round((0.7 * kcal_score) + (0.3 * score), 1)
 
     @staticmethod
@@ -75,8 +77,7 @@ class User:
         # todo een juiste berekening
         return int(round(final_score * 100))
 
-    @staticmethod
-    def determine_feedback_playback(score: float, kcal_score: float) -> str:
+    def determine_feedback_playback(self) -> str:
         """
         Zoek uit welk bestand er af gespeeld moet worden aan de hand van
         de scores
@@ -85,6 +86,9 @@ class User:
         :param kcal_score: Kcal score als float
         :return: De track naam die afgespeeld moet worden als string
         """
+
+        score = self.calculate_health_score(self.user_products)
+        kcal_score = self.calculate_calorie_score(self.user_products)
 
         if score < 3.5:
             if kcal_score > 6:
@@ -141,7 +145,7 @@ def main() -> None:
     calories = user.calculate_calorie_score(user.user_products)
 
     print("{}\n{}\n{}".format(health, calories,
-                              user.calculate_final_score(health, calories)))
+                              user.calculate_final_score()))
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
