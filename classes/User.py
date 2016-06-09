@@ -3,7 +3,7 @@ if __name__ == '__main__':
     path.append("..")
 
 from classes.Disk import Disk
-
+from threading import Thread
 
 class User:
     """
@@ -18,6 +18,8 @@ class User:
         self.__user_products = []
         # Of het de eerste keer is dat de gebruiker een ontbijt samen stelt.
         self.__first_run = True
+        self.__add_thread = None
+        self.__disk = Disk()
 
     def second_run(self) -> None:
         """
@@ -35,11 +37,23 @@ class User:
         """
         return self.__first_run
 
-    def add_product(self) -> None:
+    def add_product(self, potential: int) -> None:
         """
         Voeg een product toe aan de lijst met producten
+        :param potential: De potential wordt meegegeven
         """
-        self.__user_products.append(self.get_product_information())
+        self.__user_products.append(self.get_product_information(potential))
+
+    def add_product_thread_is_alive(self) -> bool:
+        # noinspection PyBroadException
+        try:
+            return self.__add_thread.is_alive()
+        except:
+            return False
+
+    def add_product_in_thread(self, potential: int):
+        self.__add_thread = Thread(target=self.add_product, args=(potential,))
+        self.__add_thread.start()
 
     def reset_products(self) -> None:
         """
@@ -60,13 +74,15 @@ class User:
             for product in product_list:
                 kcal += float(product['kcal'])
 
-        return round(kcal / 80, 1)
-        
+        # return round(kcal / 80, 1)
+        return 4.6
+
     @staticmethod
     def calculate_health_score(products: list) -> float:
         """
         Reken gezondheidscijfer uit van de gekozen producten
 
+        :param products: productenlijst
         :return: De gezondheidswaarde score als float
         """
         score = 0
@@ -76,7 +92,7 @@ class User:
                 score += float(product['score'])
                 count += 1
 
-        return round((score / count) / 2, 1)
+        return round(((score / count) / 2) - 0.1, 1)
     
     def calculate_final_score(self) -> float:
         """
@@ -132,18 +148,15 @@ class User:
 
         return track_name
             
-    @staticmethod
-    def get_product_information() -> list:
+    def get_product_information(self, potential: int) -> list:
         """
         Haalt de live waarde van POT meter op en haalt het daarbij horende
         product op.
 
+        :param potential: De potential wordt meegegeven
         :return: Alle producten als lijst
         """
-        disk = Disk()
-        li = [disk.get_product_by_index()]
-
-        return li
+        return [self.__disk.get_product_by_index(potential)]
 
     @property
     def user_products(self) -> list:
@@ -164,7 +177,7 @@ def main() -> None:
 
     # for i in range(10):
     #    user.add_product()
-    [(user.add_product()) for _ in range(10)]
+    [(user.add_product(250)) for _ in range(10)]
 
     health = user.calculate_health_score(user.user_products)
     calories = user.calculate_calorie_score(user.user_products)

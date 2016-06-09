@@ -213,6 +213,7 @@ class Display:
         self.clear()
 
         digit = "{:1.1f}".format(score)
+        print(digit)
         self.digit(int(digit[0]))
         self.comma()
         self.digit(int(digit[2]), True)

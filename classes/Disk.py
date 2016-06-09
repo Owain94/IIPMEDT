@@ -189,12 +189,8 @@ def main() -> None:
     klasse in een ander bestand wordt geimporteerd!
     """
     disk = Disk()
-    print(disk.get_product_name_by_index(250))
-    print(disk.get_product_score_by_index(250))
-    print(disk.get_product_kcal_by_index(250))
-    print(disk.get_product_sugar_by_index(250))
-    print(disk.get_product_fat_by_index(250))
-    print(disk.get_product_by_index(250))
+    while True:
+        print(disk.get_product_by_index())
 
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse

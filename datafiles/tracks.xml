@@ -137,27 +137,27 @@
         <duration>0.601</duration>
     </track>
     <track product="Ontbijt_goede_gezondheidswaarde_teveel_eten">
-        <file>audio/Ontbijt_goed_gzw_teveel_eten.mp3</file>
+        <file>audio/Ontbijt_goede_gezondheidswaarde_teveel_eten.mp3</file>
         <duration>8.621</duration>
     </track>
     <track product="Ontbijt_goede_gezondheidswaarde_te_weinig_eten">
-        <file>audio/Ontbijt_goede_gzw_teweinig_eten.mp3</file>
+        <file>audio/Ontbijt_goede_gezondheidswaarde_te_weinig_eten.mp3</file>
         <duration>8.778</duration>
     </track>
     <track product="Ontbijt_lage_gezondheidswaarde_genoeg_eten">
-        <file>audio/Ontbijt_lage_gzw_genoeg_eten.mp3</file>
+        <file>audio/Ontbijt_lage_gezondheidswaarde_genoeg_eten.mp3</file>
         <duration>8.987</duration>
     </track>
     <track product="Ontbijt_lage_gezondheidswaarde_teveel_eten">
-        <file>audio/Ontbijt_lage_gzw_teveel_eten.mp3</file>
+        <file>audio/Ontbijt_lage_gezondheidswaarde_teveel_eten.mp3</file>
         <duration>8.621</duration>
     </track>
     <track product="Ontbijt_lage_gezondheidswaarde_weinig_eten">
-        <file>audio/Ontbijt_lage_gzw_weinig_eten.mp3</file>
+        <file>audio/Ontbijt_lage_gezondheidswaarde_weinig_eten.mp3</file>
         <duration>8.725</duration>
     </track>
     <track product="Ontbijt_perfect">
-        <file>audio/Ontbijt_perf.mp3</file>
+        <file>audio/Ontbijt_perfect.mp3</file>
         <duration>5.225</duration>
     </track>
     <track product="Ontbijtgranen">

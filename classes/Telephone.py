@@ -30,7 +30,10 @@ class Telephone:
 
         self.__tracks = minidom.parse(xml).getElementsByTagName("track")
         self.__button = Button(input_pin)
-        self.const = Constants(amount_per_second=4)
+        self.const = Constants(
+            amount_per_second=4,
+            replace=[', ', ' ']
+        )
 
     def play_multiple_tracks(self, tracks: list) -> None:
         """
@@ -91,8 +94,7 @@ class Telephone:
                 return float(track.getElementsByTagName("duration")[0]
                              .firstChild.data)
 
-    @staticmethod
-    def prepare_track_list(user_products: list) -> list:
+    def prepare_track_list(self, user_products: list) -> list:
         """
         Geef een lijst met tracks terug op basis van alle producten die de
         gebruiker heeft toegevoegd
@@ -105,10 +107,16 @@ class Telephone:
 
         for product_list in user_products:
             for product in product_list:
+
+                product_name = product['name']
+
+                for string in self.const.replace:
+                    product_name = product_name.replace(string, '_')
+
                 try:
-                    items[product['name']] += 1
+                    items[product_name] = int(items[product_name]) + 1
                 except KeyError:
-                    items[product['name']] = 1
+                    items[product_name] = 1
 
         tracks.append('Gekozen')
 
