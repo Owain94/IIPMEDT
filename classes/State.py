@@ -7,6 +7,13 @@ class State:
         Code die wordt uitgevoerd bij het instantiëren van de klasse
         """
         self._current_state = 'initial'
+        self._step = 0
+
+    def reset_step(self) -> None:
+        """
+        Herstel de huidige stap van het programma naar de begin waarde
+        """
+        self._step = 0
 
     def reset_state(self) -> None:
         """
@@ -37,8 +44,26 @@ class State:
     @current_state.setter
     def current_state(self, value) -> None:
         """
-        Setter om de huidige stata van het programma aan te passen
+        Setter om de huidige state van het programma aan te passen
 
         :param value: De nieuwe staat als string
         """
         self._current_state = value
+
+    @property
+    def step(self) -> int:
+        """
+        Getter voor de huidige stap
+
+        :return: De huidige stap als int
+        """
+        return self._step
+
+    @step.setter
+    def step(self, value) -> None:
+        """
+        Setter om de huidige stap van het programma mee aan te passen
+
+        :param value: De huidige stap als int
+        """
+        self._step = value

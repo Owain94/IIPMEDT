@@ -54,16 +54,13 @@ led_plus_green = Led(20)  # Plus led green input pin.
 
 
 # print de huidige status
-def status(step) -> None:
+def status() -> None:
     #  De huidige status wordt geprint.
-    print('Stap: ' + str(step))
+    print('Stap: ' + str(state.step))
     print('Huidige status: ' + state.current_state)
 
 # Alle GPIO pinnen worden op false gezet
 GPIOFuckUp()
-
-# zet het stapnummer
-step = 0
 
 try:
     while True:
@@ -71,7 +68,7 @@ try:
         #  De state is 'initial' en de start button is ingedrukt.
         if state.is_state('initial') and button_start.is_pressed():
             #  Zet het stapnummer
-            step = 2
+            state.step = 2
             #  Verander de state naar 'button_start_pressed'
             state.current_state = 'button_start_pressed'
 
@@ -79,7 +76,7 @@ try:
         #  De state is 'initial'.
         elif state.is_state('initial'):
             #  Zet het stapnummer
-            step = 1
+            state.step = 1
             #  Als het ledje nog niet knippert.
             if not led_start_red.thread_is_alive():
                 #  laat het ledje knipperen voor 1 seconden.
@@ -91,7 +88,7 @@ try:
         elif state.is_state('button_start_pressed')\
                 and not button_telephone.is_pressed():
             #  Zet het stapnummer
-            step = 4
+            state.step = 4
             #  Verander de state naar 'telephone_picked_up_for_first_time'
             state.current_state = 'telephone_picked_up_for_first_time'
 
@@ -99,7 +96,7 @@ try:
         #  De state is 'button_start_pressed'
         elif state.is_state('button_start_pressed'):
             #  Zet het stapnummer
-            step = 3
+            state.step = 3
             #  Kijkt of de ringtone thread bestaat
             if not telephone.play_ringtone_thread_alive():
                 #  Speelt de ringtone af in een aparte thread
@@ -109,7 +106,7 @@ try:
         #  De state is 'telephone_picked_up_for_first_time'
         elif state.is_state('telephone_picked_up_for_first_time'):
             #  Zet het stapnummer
-            step = 5
+            state.step = 5
             #  Verander de state naar 'telephone_first_track_played'
             state.current_state = 'telephone_first_track_played'
             #  Even 2 seconden wachten voordat de audio af gaat spelen.
@@ -123,7 +120,7 @@ try:
         elif state.is_state('telephone_first_track_played')\
                 and button_telephone.is_pressed():
             #  Zet het stapnummer
-            step = 6
+            state.step = 6
 
             #  Wanneer de klaar knop niet ingedrukt is
             while not button_done.is_pressed():
@@ -142,7 +139,7 @@ try:
                 elif not led_plus_red.thread_is_alive():
                     led_plus_red.blink_in_thread(0.5)
                 #  Print de huidige status.
-                status(step)
+                status()
 
             #  Als de klaar knop ingedrukt wordt
             if button_done.is_pressed():
@@ -155,7 +152,7 @@ try:
         elif state.is_state('products_selected')\
                 and not button_telephone.is_pressed():
             #  Zet het stapnummer
-            step = 8
+            state.step = 8
             #  Verander de state naar 'telephone_picked_up_for_first_time'
             state.current_state = 'give_score_to_the_user'
 
@@ -163,7 +160,7 @@ try:
         #  De state is 'button_start_pressed'
         elif state.is_state('products_selected'):
             #  Zet het stapnummer
-            step = 7
+            state.step = 7
             #  Kijkt of de ringtone thread bestaat
             if not telephone.play_ringtone_thread_alive():
                 #  Speelt de ringtone af in een aparte thread
@@ -180,7 +177,7 @@ try:
             #  Controleert of het de eerste keer is.
             if user.is_first_run():
                 #  Zet het stapnummer
-                step = 9
+                state.step = 9
                 #  Laat de score van de gebruiker op het eerste schermpje zien
                 display_one.show_digit(user.calculate_final_score())
             else:
@@ -198,7 +195,7 @@ try:
         elif state.is_state('ring_telephone_for_score')\
                 and not button_telephone.is_pressed():
             #  Zet het stapnummer
-            step = 11
+            state.step = 11
             #  Verander de state naar 'telephone_feedback_first_score'
             state.current_state = 'telephone_feedback_score'
 
@@ -206,7 +203,7 @@ try:
         #  De state is 'button_start_pressed'
         elif state.is_state('ring_telephone_for_score'):
             #  Zet het stapnummer
-            step = 10
+            state.step = 10
             #  Kijkt of de ringtone thread bestaat
             if not telephone.play_ringtone_thread_alive():
                 #  Speelt de ringtone af in een aparte thread
@@ -216,7 +213,7 @@ try:
         #  De state is 'telephone_feedback_first_score'
         elif state.is_state('telephone_feedback_score'):
             #  Zet het stapnummer
-            step = 12
+            state.step = 12
             #  Verander de state naar 'telephone_feedback_score'
             state.current_state = 'klaar_voor_nu'
             #  Wacht 2 seconden voor het afspelen van de telefoon
@@ -237,11 +234,12 @@ try:
         # else:
             #  Reset de state naar 'initial'
             # state.reset_state()
+            # state.reset_step()
             #  Zet alle display ledjes uit.
             # clear()
 
         #  Print de huidige status.
-        status(step)
+        status()
 
         #  De loop wordt 10 per seconden afgespeeld
         sleep(0.1)
