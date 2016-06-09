@@ -147,7 +147,8 @@ try:
                 #  Laat de score van de gebruiker op het eerste schermpje zien
                 display_two.show_digit(user.calculate_final_score())
             #  Laat het 'poppertje' omhoog lopen
-            road.up(user.convert_score_to_motor(user.calculate_final_score()))
+            #  todo is wegehaald voor prototype
+            # road.up(user.convert_score_to_motor(user.calculate_final_score()))
             #  Verander de state naar 'ring_telephone_for_score'
             state.current_state = 'ring_telephone_for_score'
 
@@ -176,18 +177,19 @@ try:
             #  Wacht 2 seconden voor het bewegen naar de terug positie
             sleep(2.0)
             #  Het 'poppertje' beweegt zich terug naar de home positie.
-            road.move_to_begin()
+            #  todo weggehaald voor protoype
+            # road.move_to_begin()
             #  De gekozen productenlijst wordt geleegd.
             user.reset_products()
             #  Geef door dat de eerste keer geeindigd is.
             user.second_run()
 
         #  Hier wordt de state 'initial' en de displays worden gereset.
-        else:
+        # else:
             #  Reset de state naar 'initial'
-            state.reset_state()
+            # state.reset_state()
             #  Zet alle display ledjes uit.
-            clear()
+            # clear()
 
         #  Print de huidige status.
         status()
