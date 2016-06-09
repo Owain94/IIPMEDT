@@ -69,13 +69,21 @@ class User:
         :param products: Een lijst met gekozen producten
         :return: De kcal score als float
         """
-        kcal = 0 
+        kcal = 0
         for product_list in products:
             for product in product_list:
                 kcal += float(product['kcal'])
 
-        # return round(kcal / 80, 1)
-        return 4.6
+        if kcal < 300:
+            kcal /= 66.7
+        elif 300 < kcal < 400:
+            kcal = ((kcal - 300) / 100) + 4.5
+        elif 400 < kcal < 800:
+            kcal /= 88.9
+        else:
+            kcal = 1.0
+
+        return round(kcal, 1)
 
     @staticmethod
     def calculate_health_score(products: list) -> float:
@@ -92,8 +100,8 @@ class User:
                 score += float(product['score'])
                 count += 1
 
-        return round(((score / count) / 2) - 0.1, 1)
-    
+        return round((score / count) / 2, 1)
+
     def calculate_final_score(self) -> float:
         """
         Bereken totale score op basis van score en kcal score
@@ -106,6 +114,24 @@ class User:
         kcal_score = self.calculate_calorie_score(self.user_products)
 
         return round((0.7 * kcal_score) + (0.3 * score), 1)
+
+    def calculate_display_score(self) -> float:
+        kcal = self.calculate_calorie_score(self.user_products)
+        health_score = self.calculate_health_score(self.user_products)
+        kcal_score = 0
+        minus = 0
+
+        if kcal < 4.5:
+            kcal_score = kcal
+        elif 4.5 < kcal < 5.5:
+            kcal_score = kcal * 2
+        elif 5.5 < kcal < 10:
+            minus = kcal - 5
+            kcal_score = 5 - minus
+        else:
+            kcal_score = 1.0
+
+        return round((0.7 * kcal_score) + (0.3 * (health_score * 2), 1)
 
     @staticmethod
     def convert_score_to_motor(final_score: float) -> int:
