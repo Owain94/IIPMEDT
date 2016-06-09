@@ -1,7 +1,6 @@
 from classes.Button import Button
 from classes.Disk import Disk
 from classes.Led import Led
-from classes.Buzzer import Buzzer
 from classes.Telephone import Telephone
 from classes.User import User
 from classes.State import State
@@ -22,7 +21,6 @@ disk_products = Disk()  # Food disk with range.
 arduino = disk_products.arduino  # Arduino
 user = User()  # User.
 state = State()  # Current state
-buzzer = Buzzer(24)  # Bell with output pin.
 
 # Switches
 switch_begin = road.begin_switch  # Begin switch input pin.
@@ -102,10 +100,10 @@ try:
         elif state.is_state('button_start_pressed'):
             #  Zet het stapnummer
             step = 3
-            #  Kijk of de buzzer thread bestaat
-            if not buzzer.buzzer_is_alive():
-                #  Speel de buzzer af in een thread
-                buzzer.buzz_in_thread(0.5)
+            #  Kijkt of de ringtone thread bestaat
+            if not telephone.play_ringtone_thread_alive():
+                #  Speelt de ringtone af in een aparte thread
+                telephone.play_ringtone_in_thread()
 
         #  STAP 5
         #  De state is 'telephone_picked_up_for_first_time'
@@ -166,10 +164,10 @@ try:
         elif state.is_state('products_selected'):
             #  Zet het stapnummer
             step = 7
-            #  Kijk of de buzzer thread bestaat
-            if not buzzer.buzzer_is_alive():
-                #  Speel de buzzer af in een thread
-                buzzer.buzz_in_thread(0.5)
+            #  Kijkt of de ringtone thread bestaat
+            if not telephone.play_ringtone_thread_alive():
+                #  Speelt de ringtone af in een aparte thread
+                telephone.play_ringtone_in_thread()
 
         #  STAP 9
         #  De state is 'products_selected'
@@ -209,10 +207,10 @@ try:
         elif state.is_state('ring_telephone_for_score'):
             #  Zet het stapnummer
             step = 10
-            #  Kijk of de buzzer thread bestaat
-            if not buzzer.buzzer_is_alive():
-                #  Speel de buzzer af in een thread
-                buzzer.buzz_in_thread(0.5)
+            #  Kijkt of de ringtone thread bestaat
+            if not telephone.play_ringtone_thread_alive():
+                #  Speelt de ringtone af in een aparte thread
+                telephone.play_ringtone_in_thread()
 
         #  STAP 12
         #  De state is 'telephone_feedback_first_score'

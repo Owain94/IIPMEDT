@@ -4,10 +4,12 @@ if __name__ == '__main__':
 
 import subprocess
 import time
+import os
 from util.Constants import Constants
 from xml.dom import minidom
 from classes.Button import Button
 from math import ceil
+from threading import Thread
 
 
 class Telephone:
@@ -24,16 +26,44 @@ class Telephone:
         """
         # Inladen van het xml bestand met de audio bestanden
         if __name__ == '__main__':
-            xml = '../datafiles/tracks.xml'
+            prefix = '../'
         else:
-            xml = './datafiles/tracks.xml'
+            prefix = './'
 
-        self.__tracks = minidom.parse(xml).getElementsByTagName("track")
+        self.__prefix = prefix
+        self.__tracks = minidom.parse(self.__prefix + 'datafiles/tracks.xml')\
+            .getElementsByTagName("track")
         self.__button = Button(input_pin)
+        self.__ringtone_thread = None
         self.const = Constants(
             amount_per_second=4,
             replace=[', ', ' ']
         )
+
+    def play_ringtone(self) -> None:
+        """
+        Speel de ringtone af.
+        """
+        os.system('mpg321 -q ' + self.__prefix + 'audio/Tring.mp3')
+
+    def play_ringtone_in_thread(self) -> None:
+        """
+        Speel de ringtone af in een thread.
+        """
+        self.__ringtone_thread = Thread(target=self.play_ringtone)
+        self.__ringtone_thread.start()
+
+    def play_ringtone_thread_alive(self) -> bool:
+        """
+        Haal de thread status op van de ringtone.
+
+        :return: Of de ringtone actief is of niet als boolean.
+        """
+        # noinspection PyBroadException
+        try:
+            return self.__ringtone_thread.is_alive()
+        except:
+            return False
 
     def play_multiple_tracks(self, tracks: list) -> None:
         """
@@ -180,7 +210,8 @@ def main() -> None:
 
     telephone = Telephone(23)
     # telephone.play_multiple_tracks(['Bruin_brood', 'Bruin_brood'])
-    telephone.play_breakfast(li)
+    # telephone.play_breakfast(li)
+    telephone.play_ringtone_in_thread()
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd

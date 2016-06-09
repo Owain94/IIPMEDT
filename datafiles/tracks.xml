@@ -188,6 +188,10 @@
         <file>audio/Sinaassappelsap.mp3</file>
         <duration>1.124</duration>
     </track>
+    <track product="Tring">
+        <file>audio/tring.mp3</file>
+        <duration>3.448</duration>
+    </track>
     <track product="Thee">
         <file>audio/Thee.mp3</file>
         <duration>0.497</duration>
