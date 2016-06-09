@@ -14,7 +14,26 @@ class User:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
         """
+        # Lijst voor alle gekozen producten
         self.__user_products = []
+        # Of het de eerste keer is dat de gebruiker een ontbijt samen stelt.
+        self.__first_run = True
+
+    def second_run(self) -> None:
+        """
+        Met deze methode kan er worden opgegeven dat de gebruiker
+        zijn 2e ontbijt opgeeft.
+        """
+        self.__first_run = False
+
+    def is_first_run(self) -> bool:
+        """
+        Met deze methode kan er worden uitgelezen of de gebruiker
+        zijn eerste ontbijt invoert.
+
+        :return: Of het de eerste keer is al boolean
+        """
+        return self.__first_run
 
     def add_product(self) -> None:
         """

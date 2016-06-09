@@ -40,26 +40,31 @@ led_plus_red = Led(20)  # Plus led red input pin.
 led_plus_green = Led(16)  # Plus led green input pin.
 
 # Displays
-# display_one = Display(0x70)  # Eerste display
-# display_two = Display(0x71)  # Tweede display
+display_one = Display(0x70)  # Eerste display
+display_two = Display(0x71)  # Tweede display
 
 
 # de twee displays schoonmaken
-# def clear() -> None:
-#     display_one.clear()
-#     display_two.clear()
+def clear() -> None:
+    display_one.clear()
+    display_two.clear()
 
+
+# print de huidige status
+def status() -> None:
+    #  De huidige status wordt geprint.
+    print('Huidige status: ' + state.current_state)
+
+# Alle GPIO pinnen worden op false gezet
 GPIOFuckUp()
 
 try:
     while True:
-        #  STAP 2
         #  De state is 'initial' en de start button is ingedrukt.
         if state.is_state('initial') and button_start.is_pressed():
             #  Verander de state naar 'button_start_pressed'
             state.current_state = 'button_start_pressed'
 
-        #  STAP 1
         #  De state is 'initial'.
         elif state.is_state('initial'):
             #  Als het ledje nog niet knippert.
@@ -67,38 +72,33 @@ try:
                 #  laat het ledje knipperen voor 1 seconden.
                 led_start_red.blink_in_thread(0.5)
 
-        #  STAP 4
         #  De state is 'button_start_pressed' en de telefoon knop
         #  is niet ingedrukt.
         elif state.is_state('button_start_pressed')\
-                and button_telephone.is_pressed():  # todo voor de test
-                # and not button_telephone.is_pressed():
+                and not button_telephone.is_pressed():
             #  Verander de state naar 'telephone_picked_up_for_first_time'
             state.current_state = 'telephone_picked_up_for_first_time'
 
-        #  STAP 3
         #  De state is 'button_start_pressed'
         elif state.is_state('button_start_pressed'):
-            #  Speel de buzzer af in een thread
+            #  Kijk of de buzzer thread bestaat
             if not buzzer.buzzer_is_alive():
+                #  Speel de buzzer af in een thread
                 buzzer.buzz_in_thread(0.5)
 
-        #  STAP 5
         #  De state is 'telephone_picked_up_for_first_time'
         elif state.is_state('telephone_picked_up_for_first_time'):
-            #  Even 1,5 seconden wachten voordat de audio af gaat spelen.
-            sleep(1.5)
             #  Verander de state naar 'telephone_first_track_played'
             state.current_state = 'telephone_first_track_played'
+            #  Even 2 seconden wachten voordat de audio af gaat spelen.
+            sleep(2.0)
             #  Speel de track Ontvangsbericht.mp3 af.
             telephone.play_track('Ontvangsbericht')
 
-        #  STAP 6
         #  De state is 'telephone_first_track_played' en de telefoon
         #  knop is ingedrukt.
         elif state.is_state('telephone_first_track_played')\
-                and not button_telephone.is_pressed():  # todo voor de test
-                # and button_telephone.is_pressed():
+                and button_telephone.is_pressed():
             #  Wanneer de klaar knop niet ingedrukt is
             while not button_done.is_pressed():
                 #  Als de plus knop niet ingedrukt is
@@ -111,50 +111,86 @@ try:
                 #  De rode led knippert voor feedback
                 elif not led_plus_red.thread_is_alive():
                     led_plus_red.blink_in_thread(0.5)
+                #  Print de huidige status.
+                status()
             #  Als de klaar knop ingedrukt wordt
             if button_done.is_pressed():
                 #  Verander de status naar 'products_selected'
                 state.current_state = 'products_selected'
 
-        #  STAP 7
-        #  De state is 'products_selected'
-        elif state.is_state('products_selected'):
-            #  Laat de score van de gebruiker op het eerste schermpje zien
-            # display_one.show_digit(user.calculate_final_score(
-            #     user.calculate_health_score(user.user_products),
-            #     user.calculate_calorie_score(user.user_products)))
+        #  De state is 'button_start_pressed' en de telefoon knop
+        #  is niet ingedrukt.
+        elif state.is_state('products_selected')\
+                and not button_telephone.is_pressed():
+            #  Verander de state naar 'telephone_picked_up_for_first_time'
+            state.current_state = 'give_score_to_the_user'
 
+        #  De state is 'button_start_pressed'
+        elif state.is_state('products_selected'):
+            #  Kijk of de buzzer thread bestaat
+            if not buzzer.buzzer_is_alive():
+                #  Speel de buzzer af in een thread
+                buzzer.buzz_in_thread(0.5)
+
+        #  De state is 'products_selected'
+        elif state.is_state('give_score_to_the_user'):
+            #  Wacht 2 seconden voordat de gebruiker de telefoon oppakt.
+            sleep(2.0)
+            #  Speel de lijst met producten af voor de gebruiker.
+            telephone.play_multiple_tracks(
+                telephone.prepare_track_list(user.user_products))
+            #  Controleert of het de eerste keer is.
+            if user.is_first_run():
+                #  Laat de score van de gebruiker op het eerste schermpje zien
+                display_one.show_digit(user.calculate_final_score())
+            else:
+                #  Laat de score van de gebruiker op het eerste schermpje zien
+                display_two.show_digit(user.calculate_final_score())
             #  Laat het 'poppertje' omhoog lopen
-            # todo Maarten fix deze shit
-            motor.up(user.convert_score_to_motor(user.calculate_final_score(
-                user.calculate_health_score(user.user_products),
-                user.calculate_calorie_score(user.user_products))))
+            road.up(user.convert_score_to_motor(user.calculate_final_score()))
+            #  Verander de state naar 'ring_telephone_for_score'
+            state.current_state = 'ring_telephone_for_score'
+
+        #  De state is 'button_start_pressed' en de telefoon knop
+        #  is niet ingedrukt.
+        elif state.is_state('ring_telephone_for_score')\
+                and not button_telephone.is_pressed():
             #  Verander de state naar 'telephone_feedback_first_score'
             state.current_state = 'telephone_feedback_first_score'
 
-        #  STAP 8
-        #  De state is 'telephone_feedpack_first_score'
-        # elif state.is_state('telephone_feedback_first_score'):
+        #  De state is 'button_start_pressed'
+        elif state.is_state('ring_telephone_for_score'):
+            #  Kijk of de buzzer thread bestaat
+            if not buzzer.buzzer_is_alive():
+                #  Speel de buzzer af in een thread
+                buzzer.buzz_in_thread(0.5)
+
+        #  De state is 'telephone_feedback_first_score'
+        elif state.is_state('telephone_feedback_first_score'):
             #  Verander de state naar 'telephone_first_track_played'
-            # state.current_state = 'telephone_first_track_played'
-            #  wacht 1,5 seconden voor het afspelen van de telefoon
-            # sleep(1.5)
+            state.current_state = 'telephone_first_track_played'
+            #  Wacht 2 seconden voor het afspelen van de telefoon
+            sleep(2.0)
             #  Speel de bijpassende feedback af op de telefoon.
-            # telephone.play_track(user.determine_feedback_playback(
-            #     user.calculate_health_score(user.user_products),
-            #     user.calculate_calorie_score(user.user_products)))
-            # road.move_to_begin()
+            telephone.play_track(user.determine_feedback_playback())
+            #  Wacht 2 seconden voor het bewegen naar de terug positie
+            sleep(2.0)
+            #  Het 'poppertje' beweegt zich terug naar de home positie.
+            road.move_to_begin()
+            #  De gekozen productenlijst wordt geleegd.
+            user.reset_products()
+            #  Geef door dat de eerste keer geeindigd is.
+            user.second_run()
 
-        #  STAP todo stap nummer
         #  Hier wordt de state 'initial' en de displays worden gereset.
-        # else:
+        else:
             #  Reset de state naar 'initial'
-            # state.reset_state()
+            state.reset_state()
             #  Zet alle display ledjes uit.
-            # clear()
+            clear()
 
-        #  De huidige status wordt geprint.
-        print('Huidige status: ' + state.current_state)
+        #  Print de huidige status.
+        status()
 
         #  De loop wordt 10 per seconden afgespeeld
         sleep(0.1)
@@ -164,4 +200,4 @@ except KeyboardInterrupt:
     #  Haalt alle stroom van de pinnen af
     GPIO.cleanup()
     #  Zet alle display ledjes uit.
-    # clear()
+    clear()
