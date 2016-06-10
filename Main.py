@@ -172,18 +172,33 @@ try:
         elif state.is_state('give_score_to_the_user'):
             #  Wacht 2 seconden voordat de gebruiker de telefoon oppakt.
             sleep(2.0)
-            #  Speel de lijst met producten af voor de gebruiker.
-            telephone.play_multiple_tracks(
-                telephone.prepare_track_list(user.user_products))
-            #  Controleert of het de eerste keer is.
+            #  Controleert of de gebruiker 0 producten toegevoegd heeft.
+            if not user.added_zero_products():
+                #  Speel de lijst met producten af voor de gebruiker.
+                telephone.play_multiple_tracks(
+                    telephone.prepare_track_list(user.user_products))
+                #  Controleert of het de eerste keer is.
+            else:
+                #  Speelt een audio track af over slecht ontbijten.
+                telephone.play_track('Ontbijt_vergeten')
             if user.is_first_run():
                 #  Zet het stapnummer
                 state.step = 9
                 #  Laat de score van de gebruiker op het eerste schermpje zien
-                display_one.show_digit(user.calculate_final_score())
+                if not user.added_zero_products():
+                    # toont het cijfer.
+                    display_one.show_digit(user.calculate_final_score())
+                else:
+                    # toont het cijfer 0.0
+                    display_one.show_digit(0.0)
             else:
                 #  Laat de score van de gebruiker op het eerste schermpje zien
-                display_two.show_digit(user.calculate_final_score())
+                if not user.added_zero_products():
+                    # toont het cijfer.
+                    display_two.show_digit(user.calculate_final_score())
+                else:
+                    # toont het cijfer 0.0
+                    display_two.show_digit(0.0)
             #  Laat het 'poppertje' omhoog lopen
             #  todo is wegehaald voor prototype
             # road.up(user.convert_score_to_motor(user.calculate_final_score()))

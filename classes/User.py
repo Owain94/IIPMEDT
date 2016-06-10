@@ -31,6 +31,9 @@ class User:
         """
         self.__first_run = False
 
+    def added_zero_products(self) -> bool:
+        return len(self.user_products) is 0
+
     def is_first_run(self) -> bool:
         """
         Met deze methode kan er worden uitgelezen of de gebruiker
