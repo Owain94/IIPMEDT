@@ -138,6 +138,7 @@ class Telephone:
         for product_list in user_products:
             for product in product_list:
                 product_name = slugify(product['name'], separator="_")
+                product_name = product_name[0].title() + product_name[1:]
 
                 try:
                     items[product_name] = int(items[product_name]) + 1
@@ -207,7 +208,7 @@ def main() -> None:
     telephone = Telephone(23)
     # telephone.play_multiple_tracks(['Bruin_brood', 'Bruin_brood'])
     # telephone.play_breakfast(li)
-    telephone.play_ringtone_in_thread()
+    telephone.play_breakfast(li)
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
