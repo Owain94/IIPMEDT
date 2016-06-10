@@ -6,6 +6,7 @@ import subprocess
 import time
 import os
 from util.Constants import Constants
+from util.Strings import Strings
 from xml.dom import minidom
 from classes.Button import Button
 from math import ceil
@@ -124,8 +125,7 @@ class Telephone:
                 return float(track.getElementsByTagName("duration")[0]
                              .firstChild.data)
 
-    @staticmethod
-    def prepare_track_list(user_products: list) -> list:
+    def prepare_track_list(self, user_products: list) -> list:
         """
         Geef een lijst met tracks terug op basis van alle producten die de
         gebruiker heeft toegevoegd
@@ -142,7 +142,8 @@ class Telephone:
                 product_name = product['name']
 
                 for string in self.const.replace:
-                    product_name = product_name.replace(string, '_')
+                    strings = Strings(string)
+                    product_name = strings.fix_string()
 
                 try:
                     items[product_name] = int(items[product_name]) + 1
