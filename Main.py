@@ -206,8 +206,6 @@ try:
             #  Verander de state naar 'ring_telephone_for_score'
             state.current_state = 'ring_telephone_for_score'
 
-
-
         #  STAP 11
         #  De state is 'button_start_pressed' en de telefoon knop
         #  is niet ingedrukt.
@@ -260,8 +258,11 @@ try:
 
         #  Hier wordt de state 'initial' en de displays worden gereset.
         elif state.is_state('both_breakfast_filled_in'):
+            #  Eind bericht
+            telephone.play_track('Ontbijt_vergeten')
             #  Reset de state naar 'initial'
             state.reset_state()
+            #  Reset de stap naar 0
             state.reset_step()
             #  Zet alle display ledjes uit.
             clear()

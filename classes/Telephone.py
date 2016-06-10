@@ -1,5 +1,6 @@
 if __name__ == '__main__':
     from sys import path
+
     path.append("..")
 
 import subprocess
@@ -17,6 +18,7 @@ class Telephone:
     """
     Klasse om audio bestanden af te spelen
     """
+
     def __init__(self, input_pin: int) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
@@ -32,7 +34,7 @@ class Telephone:
             prefix = './'
 
         self.__prefix = prefix
-        self.__tracks = minidom.parse(self.__prefix + 'datafiles/tracks.xml')\
+        self.__tracks = minidom.parse(self.__prefix + 'datafiles/tracks.xml') \
             .getElementsByTagName("track")
         self.__button = Button(input_pin)
         self.__ringtone_thread = None
@@ -53,16 +55,13 @@ class Telephone:
         self.__ringtone_thread = Thread(target=self.play_ringtone)
         self.__ringtone_thread.start()
 
-    def kill_ringtone_thread(self) -> None:
-        self.__ringtone_thread.stop()
-
     def play_ringtone_thread_alive(self) -> bool:
         """
         Haal de thread status op van de ringtone.
 
         :return: Of de ringtone actief is of niet als boolean.
         """
-        # noinspection PyBroadException
+        # noinspection PyBroadExceptionk
         try:
             return self.__ringtone_thread.is_alive()
         except:
@@ -76,7 +75,7 @@ class Telephone:
         """
         for track in tracks:
             self.play_track(track)
-        # [(self.play_track(track)) for track in tracks]
+            # [(self.play_track(track)) for track in tracks]
 
     def play_track(self, track_name: str) -> None:
         """
@@ -113,7 +112,7 @@ class Telephone:
         """
         for track in self.__tracks:
             if track.getAttribute('product') == key:
-                return track.getElementsByTagName("file")[0]\
+                return track.getElementsByTagName("file")[0] \
                     .firstChild.data
 
     def get_track_duration(self, key: str) -> float:
@@ -214,6 +213,7 @@ def main() -> None:
     # telephone.play_multiple_tracks(['Bruin_brood', 'Bruin_brood'])
     # telephone.play_breakfast(li)
     telephone.play_breakfast(li)
+
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
