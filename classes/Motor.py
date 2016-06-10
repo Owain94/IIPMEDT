@@ -53,9 +53,8 @@ class Motor:
         :param steps: Het aantal stappen dat er gedraaid moet worden als int
         """
         # Lees de sequntie achterstevoren in
-        for step in list(reversed(self.const.sequence)):
-            self.set_step(step)
-            sleep(0.005)
+        [(self.set_step(step), sleep(0.005))
+         for step in list(reversed(self.const.sequence))]
 
     def down(self) -> None:
         """
@@ -63,14 +62,8 @@ class Motor:
 
         :param steps: Het aantal stappen dat er gedraaid moet worden als int
         """
-        for step in self.const.sequence:
-            self.set_step(step)
-            sleep(0.005)
-
-        # todo OWAIN <3 fix dit weer ff voor het loopje hierboven
-        # [(self.set_step(step), sleep(0.005))
-        #  for _ in range(steps) for step in self.const.sequence]
-        # self.clean()
+        [(self.set_step(step), sleep(0.005))
+         for step in self.const.sequence]
 
     def clean(self) -> None:
         """
