@@ -192,6 +192,8 @@ try:
             #  Verander de state naar 'ring_telephone_for_score'
             state.current_state = 'ring_telephone_for_score'
 
+
+
         #  STAP 11
         #  De state is 'button_start_pressed' en de telefoon knop
         #  is niet ingedrukt.
@@ -223,6 +225,8 @@ try:
             sleep(2.0)
             #  Speel de bijpassende feedback af op de telefoon.
             telephone.play_track(user.determine_feedback_playback())
+            #  Displays uit
+            clear()
             #  Wacht 2 seconden voor het bewegen naar de terug positie
             sleep(2.0)
             #  Het 'poppertje' beweegt zich terug naar de home positie.

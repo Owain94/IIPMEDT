@@ -53,6 +53,9 @@ class Telephone:
         self.__ringtone_thread = Thread(target=self.play_ringtone)
         self.__ringtone_thread.start()
 
+    def kill_ringtone_thread(self) -> None:
+        self.__ringtone_thread.stop()
+
     def play_ringtone_thread_alive(self) -> bool:
         """
         Haal de thread status op van de ringtone.
@@ -71,9 +74,9 @@ class Telephone:
 
         :param tracks: De bestanden die afgespeeld moeten worden als lijst
         """
-        # for track in tracks:
-        #    self.play_track(track)
-        [(self.play_track(track)) for track in tracks]
+        for track in tracks:
+            self.play_track(track)
+        # [(self.play_track(track)) for track in tracks]
 
     def play_track(self, track_name: str) -> None:
         """
