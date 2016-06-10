@@ -127,12 +127,15 @@ try:
                 print("potmeter waarde: " + str(potential))
                 #  Als de plus knop niet ingedrukt is
                 if button_plus.is_pressed():
-                    #  Wordt het product toegevoegd aan de lijst met producten
-                    if not user.add_product_thread_is_alive():
-                        user.add_product_in_thread(potential)
-                        #  De groene led knippert voor feedback
-                        if not led_plus_green.thread_is_alive():
-                            led_plus_green.blink_in_thread(0.75)
+                    if not plus_button_is_pressed:
+                        #  Wordt het product toegevoegd aan
+                        #  de lijst met producten
+                        if not user.add_product_thread_is_alive():
+                            user.add_product_in_thread(potential)
+                            #  De groene led knippert voor feedback
+                            if not led_plus_green.thread_is_alive():
+                                led_plus_green.blink_in_thread(0.75)
+                        plus_button_is_pressed = True
                 #  De rode led knippert voor feedback
                 elif not led_plus_red.thread_is_alive():
                     led_plus_red.blink_in_thread(0.5)
