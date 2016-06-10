@@ -141,6 +141,7 @@ class Telephone:
 
                 product_name = product['name']
 
+                #  todo https://github.com/un33k/python-slugify
                 for string in self.const.replace:
                     strings = Strings(string)
                     product_name = strings.fix_string()
