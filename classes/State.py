@@ -54,6 +54,14 @@ class State:
         """
         self.__count += 1
 
+    def status(self) -> None:
+        """
+        Print de huidige status voor debuggen
+        """
+        print('Stap: ' + str(self.step))
+        print('Huidige status: ' + self.current_state)
+        print('Count:' + str(self.count))
+
     @property
     def current_state(self) -> str:
         """

@@ -50,15 +50,6 @@ led_start_red = Led(12)  # Start led red input pin.
 led_plus_red = Led(16)  # Plus led red input pin.
 led_plus_green = Led(20)  # Plus led green input pin.
 
-plus_button_is_pressed = False
-
-# print de huidige status
-def status() -> None:
-    #  De huidige status wordt geprint.
-    print('Stap: ' + str(state.step))
-    print('Huidige status: ' + state.current_state)
-    print('Count:' + str(state.count))
-
 # Alle GPIO pinnen worden op false gezet
 GPIOFuckUp()
 
@@ -128,7 +119,7 @@ try:
                 potential = disk_products.get_serial()
                 #  Als de plus knop niet ingedrukt is
                 if button_plus.is_pressed():
-                    if not plus_button_is_pressed:
+                    if not button_plus.is_fake_pressed():
                         #  Wordt het product toegevoegd aan
                         #  de lijst met producten
                         if not user.add_product_thread_is_alive():
@@ -136,13 +127,15 @@ try:
                             #  De groene led knippert voor feedback
                             if not led_plus_green.thread_is_alive():
                                 led_plus_green.blink_in_thread(0.75)
-                        plus_button_is_pressed = True
+                        #  Zet de fake button op true
+                        button_plus.fake_pressed = True
                 #  De rode led knippert voor feedback
                 elif not led_plus_red.thread_is_alive():
                     led_plus_red.blink_in_thread(0.5)
-                    plus_button_is_pressed = False
+                    #  Zet de fake button op false
+                    button_plus.fake_pressed = False
                 #  Print de huidige status.
-                status()
+                state.status()
 
             #  Als de klaar knop ingedrukt wordt
             if button_done.is_pressed():
@@ -255,7 +248,6 @@ try:
             sleep(2.0)
             if not user.added_zero_products():
                 #  Speel de bijpassende feedback af op de telefoon.
-                print("TRACKNAME: " + user.determine_feedback_playback())
                 telephone.play_track(user.determine_feedback_playback())
                 #  Controleert of het eerste ontbijt perfect is.
                 if user.breakfast_is_perfect(user.determine_feedback_playback()):
@@ -288,7 +280,7 @@ try:
             clear()
 
         #  Print de huidige status.
-        status()
+        state.status()
 
         #  De loop wordt 10 per seconden afgespeeld
         sleep(0.1)
@@ -297,5 +289,7 @@ try:
 except KeyboardInterrupt:
     #  Haalt alle stroom van de pinnen af
     GPIO.cleanup()
+    # Alle GPIO pinnen worden op false gezet
+    GPIOFuckUp()
     #  Zet alle display ledjes uit.
     clear()

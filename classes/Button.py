@@ -14,6 +14,7 @@ class Button:
         """
         self.__button_input_pin = input_pin
         GPIO.setup(self.__button_input_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        self.__fake_pressed = False
 
     def is_pressed(self) -> bool:
         """
@@ -26,6 +27,31 @@ class Button:
         # als deze niet is ingedrukt, dit is vrij verwarrend vandaar de we
         # return not gebruiken, hiermee draaien we deze logica om
         return not GPIO.input(self.__button_input_pin)
+
+    def is_fake_pressed(self) -> bool:
+        """
+        Controleer of het faken van de knop True of False is.
+
+        :return: True of False
+        """
+        return self.fake_pressed
+
+    @property
+    def fake_pressed(self) -> bool:
+        """
+        Getter voor fake_pressed
+
+        :return: fake_pressed als boolean
+        """
+        return self.__fake_pressed
+
+    @fake_pressed.setter
+    def fake_pressed(self, value: bool) -> None:
+        """
+        Setter voor fake_pressed.
+        :param value: True of False
+        """
+        self.__fake_pressed = value
 
 
 def main() -> None:
