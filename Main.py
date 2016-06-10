@@ -246,6 +246,10 @@ try:
                 #  Speel de bijpassende feedback af op de telefoon.
                 print("TRACKNAME: " + user.determine_feedback_playback())
                 telephone.play_track(user.determine_feedback_playback())
+                #  Controleert of het eerste ontbijt perfect is.
+                if user.breakfast_is_perfect(user.determine_feedback_playback()):
+                    #  Veranderd de state naar de eind state.
+                    state.current_state = 'both_breakfast_filled_in'
             else:
                 #  Speelt een audio track af over slecht ontbijten.
                 telephone.play_track('Ontbijt_vergeten')
