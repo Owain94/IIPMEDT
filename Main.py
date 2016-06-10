@@ -199,6 +199,11 @@ try:
                 else:
                     # toont het cijfer 0.0
                     display_two.show_digit(0.0)
+            #  Controleert of de gebruiker 0 producten toegevoegd heeft.
+            if not user.added_zero_products():
+                #  Speel de lijst met producten af voor de gebruiker.
+                telephone.play_multiple_tracks(
+                    telephone.prepare_track_list(user.user_products))
             #  Laat het 'poppertje' omhoog lopen
             #  todo is wegehaald voor prototype
             # road.up(user.convert_score_to_motor(user.calculate_final_score()))
@@ -236,8 +241,12 @@ try:
             state.current_state = 'klaar_voor_nu'
             #  Wacht 2 seconden voor het afspelen van de telefoon
             sleep(2.0)
-            #  Speel de bijpassende feedback af op de telefoon.
-            telephone.play_track(user.determine_feedback_playback())
+            if not user.added_zero_products():
+                #  Speel de bijpassende feedback af op de telefoon.
+                telephone.play_track(user.determine_feedback_playback())
+            else:
+                #  Speelt een audio track af over slecht ontbijten.
+                telephone.play_track('Ontbijt_vergeten')
             #  Wacht 2 seconden voor het bewegen naar de terug positie
             sleep(2.0)
             #  Het 'poppertje' beweegt zich terug naar de home positie.
