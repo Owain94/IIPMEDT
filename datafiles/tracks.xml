@@ -48,6 +48,10 @@
         <file>audio/Banaan.mp3</file>
         <duration>0.68</duration>
     </track>
+    <track product="Bacon">
+        <file>audio/Bacon.mp3</file>
+        <duration>0.654</duration>
+    </track>
     <track product="Bolletje">
         <file>audio/Bolletje.mp3</file>
         <duration>0.68</duration>
@@ -63,6 +67,10 @@
     <track product="Cracker">
         <file>audio/Cracker.mp3</file>
         <duration>0.575</duration>
+    </track>
+    <track product="Croissant">
+        <file>audio/Croissant.mp3</file>
+        <duration>0.81</duration>
     </track>
     <track product="Gebakken_ei">
         <file>audio/Gebakken_ei.mp3</file>
@@ -124,12 +132,12 @@
         <file>audio/Margarine.mp3</file>
         <duration>0.81</duration>
     </track>
-    <track product="Melk_halfvol">
-        <file>audio/Melk_halfvol.mp3</file>
+    <track product="Melk_halfvolle">
+        <file>audio/Melk_halfvolle.mp3</file>
         <duration>1.385</duration>
     </track>
-    <track product="Melk_vol">
-        <file>audio/Melk_vol.mp3</file>
+    <track product="Melk_volle">
+        <file>audio/Melk_volle.mp3</file>
         <duration>1.124</duration>
     </track>
     <track product="Muesli">
