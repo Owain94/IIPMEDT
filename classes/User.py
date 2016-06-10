@@ -180,12 +180,14 @@ class User:
 
         if self.is_first_run() and not self.breakfast_is_perfect(track_name):
             track_name += "_eerste_keer"
-        elif not self.is_first_run() and not self.breakfast_is_perfect(track_name):
+        elif not self.is_first_run() and not self.breakfast_is_perfect(
+                track_name):
             track_name += "_tweede_keer"
 
         return track_name
 
-    def breakfast_is_perfect(self, track_name: str) -> bool:
+    @staticmethod
+    def breakfast_is_perfect(track_name: str) -> bool:
         """
         Controleert of het ontbijt perfect is en geeft dit terug als boolean.
 

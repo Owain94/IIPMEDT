@@ -5,6 +5,7 @@ class Button:
     """
     Klasse om buttons uit te lezen die verbonden zijn met een raspberry
     """
+
     def __init__(self, input_pin: int) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
@@ -61,6 +62,7 @@ def main() -> None:
     """
     button = Button(2)
     print(button.is_pressed())
+
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd

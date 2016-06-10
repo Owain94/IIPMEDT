@@ -7,6 +7,7 @@ class Buzzer:
     """
     Klasse om de de buzzer aan te sturen
     """
+
     def __init__(self, output_pin: int) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
@@ -100,6 +101,7 @@ def main() -> None:
     sleep(1)
     print(buzzer.ringtone_is_alive())
     GPIO.cleanup()
+
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd

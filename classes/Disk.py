@@ -1,5 +1,6 @@
 if __name__ == '__main__':
     from sys import path
+
     path.append("..")
 
 from xml.dom import minidom
@@ -46,7 +47,7 @@ class Disk:
         :return: product index als int
         """
         for i in range(0, self.__product_count):
-            if (potential >= i * self.__disk_range)\
+            if (potential >= i * self.__disk_range) \
                     and (potential <= ((i + 1) * self.__disk_range)):
                 return i
 

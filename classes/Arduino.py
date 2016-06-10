@@ -1,5 +1,6 @@
 if __name__ == '__main__':
     from sys import path
+
     path.append("..")
 
 from util.Constants import Constants
@@ -12,6 +13,7 @@ class Arduino:
     """
     Klasse om de serial data van de arduino uit te lezen
     """
+
     def __init__(self) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
@@ -112,6 +114,7 @@ def main() -> None:
 
     for i in range(20):
         print(arduino.get_serial())
+
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd

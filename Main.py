@@ -23,6 +23,7 @@ def clear() -> None:
     display_one.clear()
     display_two.clear()
 
+
 # Beide displays uitzetten
 clear()
 
@@ -63,7 +64,7 @@ try:
             #  Verander de state naar 'button_start_pressed'
             state.current_state = 'button_start_pressed'
 
-        #  STAP 1
+        # STAP 1
         #  De state is 'initial'.
         elif state.is_state('initial'):
             #  Zet het stapnummer
@@ -73,17 +74,17 @@ try:
                 #  laat het ledje knipperen voor 1 seconden.
                 led_start_red.blink_in_thread(0.5)
 
-        #  STAP 4
+        # STAP 4
         #  De state is 'button_start_pressed' en de telefoon knop
         #  is niet ingedrukt.
-        elif state.is_state('button_start_pressed')\
+        elif state.is_state('button_start_pressed') \
                 and not button_telephone.is_pressed():
             #  Zet het stapnummer
             state.step = 4
             #  Verander de state naar 'telephone_picked_up_for_first_time'
             state.current_state = 'telephone_picked_up_for_first_time'
 
-        #  STAP 3
+        # STAP 3
         #  De state is 'button_start_pressed'
         elif state.is_state('button_start_pressed'):
             #  Zet het stapnummer
@@ -93,7 +94,7 @@ try:
                 #  Speelt de ringtone af in een aparte thread
                 telephone.play_ringtone_in_thread()
 
-        #  STAP 5
+        # STAP 5
         #  De state is 'telephone_picked_up_for_first_time'
         elif state.is_state('telephone_picked_up_for_first_time'):
             #  Zet het stapnummer
@@ -105,10 +106,10 @@ try:
             #  Speel de track Ontvangsbericht.mp3 af.
             telephone.play_track('Ontvangsbericht')
 
-        #  STAP 6
+        # STAP 6
         #  De state is 'telephone_first_track_played' en de telefoon
         #  knop is ingedrukt.
-        elif state.is_state('telephone_first_track_played')\
+        elif state.is_state('telephone_first_track_played') \
                 and button_telephone.is_pressed():
             #  Zet het stapnummer
             state.step = 6
@@ -127,22 +128,22 @@ try:
                             #  De groene led knippert voor feedback
                             if not led_plus_green.thread_is_alive():
                                 led_plus_green.blink_in_thread(0.75)
-                        #  Zet de fake button op true
+                        # Zet de fake button op true
                         button_plus.fake_pressed = True
-                #  De rode led knippert voor feedback
+                # De rode led knippert voor feedback
                 elif not led_plus_red.thread_is_alive():
                     led_plus_red.blink_in_thread(0.5)
                     #  Zet de fake button op false
                     button_plus.fake_pressed = False
-                #  Print de huidige status.
+                # Print de huidige status.
                 state.status()
 
-            #  Als de klaar knop ingedrukt wordt
+            # Als de klaar knop ingedrukt wordt
             if button_done.is_pressed():
                 #  Verander de status naar 'products_selected'
                 state.current_state = 'products_selected'
 
-        #  De state is 'telephone_first_track_played'.
+        # De state is 'telephone_first_track_played'.
         elif state.is_state('telephone_first_track_played'):
             #  Controleert na 10 seconden of de telefoon terug gehangen is.
             if state.is_count():
@@ -155,17 +156,17 @@ try:
                 #  De count wordt opgeteld.
                 state.count_up()
 
-        #  STAP 8
+        # STAP 8
         #  De state is 'button_start_pressed' en de telefoon knop
         #  is niet ingedrukt.
-        elif state.is_state('products_selected')\
+        elif state.is_state('products_selected') \
                 and not button_telephone.is_pressed():
             #  Zet het stapnummer
             state.step = 8
             #  Verander de state naar 'telephone_picked_up_for_first_time'
             state.current_state = 'give_score_to_the_user'
 
-        #  STAP 7
+        # STAP 7
         #  De state is 'button_start_pressed'
         elif state.is_state('products_selected'):
             #  Zet het stapnummer
@@ -175,7 +176,7 @@ try:
                 #  Speelt de ringtone af in een aparte thread
                 telephone.play_ringtone_in_thread()
 
-        #  STAP 9
+        # STAP 9
         #  De state is 'products_selected'
         elif state.is_state('give_score_to_the_user'):
             #  Wacht 2 seconden voordat de gebruiker de telefoon oppakt.
@@ -199,30 +200,30 @@ try:
                 else:
                     # toont het cijfer 0.0
                     display_two.show_digit(0.0)
-            #  Controleert of de gebruiker 0 producten toegevoegd heeft.
+            # Controleert of de gebruiker 0 producten toegevoegd heeft.
             if not user.added_zero_products():
                 # todo
                 print(telephone.prepare_track_list(user.user_products))
                 #  Speel de lijst met producten af voor de gebruiker.
                 telephone.play_multiple_tracks(
                     telephone.prepare_track_list(user.user_products))
-            #  Laat het 'poppertje' omhoog lopen
+            # Laat het 'poppertje' omhoog lopen
             #  todo is wegehaald voor prototype
             # road.up(user.convert_score_to_motor(user.calculate_final_score()))
             #  Verander de state naar 'ring_telephone_for_score'
             state.current_state = 'ring_telephone_for_score'
 
-        #  STAP 11
+        # STAP 11
         #  De state is 'button_start_pressed' en de telefoon knop
         #  is niet ingedrukt.
-        elif state.is_state('ring_telephone_for_score')\
+        elif state.is_state('ring_telephone_for_score') \
                 and not button_telephone.is_pressed():
             #  Zet het stapnummer
             state.step = 11
             #  Verander de state naar 'telephone_feedback_first_score'
             state.current_state = 'telephone_feedback_score'
 
-        #  STAP 10
+        # STAP 10
         #  De state is 'button_start_pressed'
         elif state.is_state('ring_telephone_for_score'):
             #  Zet het stapnummer
@@ -232,7 +233,7 @@ try:
                 #  Speelt de ringtone af in een aparte thread
                 telephone.play_ringtone_in_thread()
 
-        #  STAP 12
+        # STAP 12
         #  De state is 'telephone_feedback_first_score'
         elif state.is_state('telephone_feedback_score'):
             #  Zet het stapnummer
@@ -244,19 +245,20 @@ try:
             else:
                 #  Verader de state naar 'both_breakfast_filled_in'
                 state.current_state = 'both_breakfast_filled_in'
-            #  Wacht 2 seconden voor het afspelen van de telefoon
+            # Wacht 2 seconden voor het afspelen van de telefoon
             sleep(2.0)
             if not user.added_zero_products():
                 #  Speel de bijpassende feedback af op de telefoon.
                 telephone.play_track(user.determine_feedback_playback())
                 #  Controleert of het eerste ontbijt perfect is.
-                if user.breakfast_is_perfect(user.determine_feedback_playback()):
+                if user.breakfast_is_perfect(
+                        user.determine_feedback_playback()):
                     #  Veranderd de state naar de eind state.
                     state.current_state = 'both_breakfast_filled_in'
             else:
                 #  Speelt een audio track af over slecht ontbijten.
                 telephone.play_track('Ontbijt_vergeten')
-            #  Wacht 2 seconden voor het bewegen naar de terug positie
+            # Wacht 2 seconden voor het bewegen naar de terug positie
             sleep(2.0)
             #  Het 'poppertje' beweegt zich terug naar de home positie.
             #  todo weggehaald voor protoype
@@ -266,7 +268,7 @@ try:
             #  Geef door dat de eerste keer geeindigd is.
             user.second_run()
 
-        #  Hier wordt de state 'initial' en de displays worden gereset.
+        # Hier wordt de state 'initial' en de displays worden gereset.
         elif state.is_state('both_breakfast_filled_in'):
             #  Eind bericht
             telephone.play_track('Eind_bericht')
@@ -279,13 +281,13 @@ try:
             #  Zet alle display ledjes uit.
             clear()
 
-        #  Print de huidige status.
+        # Print de huidige status.
         state.status()
 
         #  De loop wordt 10 per seconden afgespeeld
         sleep(0.1)
 
-#  Alles wordt opgeruimd.
+# Alles wordt opgeruimd.
 except KeyboardInterrupt:
     #  Haalt alle stroom van de pinnen af
     GPIO.cleanup()

@@ -2,6 +2,7 @@ class Constants(object):
     """
     Klasse om constante variabele aan te kunnen maken
     """
+
     def __init__(self, *args, **kwargs) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse

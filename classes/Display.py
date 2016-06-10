@@ -1,5 +1,6 @@
 if __name__ == '__main__':
     from sys import path
+
     path.append("..")
 
 from util.Constants import Constants
@@ -14,6 +15,7 @@ class Display:
     """
     Klasse om displays aan te sturen
     """
+
     def __init__(self, display_address: int) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
@@ -243,6 +245,7 @@ def main() -> None:
     sleep(10)
     display_one.clear()
     display_two.clear()
+
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd

@@ -1,5 +1,6 @@
 if __name__ == '__main__':
     from sys import path
+
     path.append("..")
 
 from util.Constants import Constants
@@ -11,6 +12,7 @@ class Motor:
     """
     Klasse om een motor aan te sturen
     """
+
     def __init__(self, input_pins: list) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
@@ -77,9 +79,10 @@ def main() -> None:
     klasse in een ander bestand wordt geimporteerd!
     """
     motor = Motor([26, 13, 6, 5])
-    # motor.up(10)
-    # motor.down(10)
+    motor.up()
+    motor.down()
     GPIO.cleanup()
+
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd

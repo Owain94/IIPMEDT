@@ -2,6 +2,7 @@ class State:
     """
     Klasse om bij te houden waar het programma zich bevindt in de flow
     """
+
     def __init__(self) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse

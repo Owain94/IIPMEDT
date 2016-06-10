@@ -1,5 +1,6 @@
 if __name__ == '__main__':
     from sys import path
+
     path.append("..")
 
 from util.Constants import Constants
@@ -7,16 +8,19 @@ import RPi.GPIO as GPIO
 
 
 class GPIOFuckUp:
+
     # noinspection PyBroadException
     def __init__(self):
 
         # Elke GPIO pin
         const = Constants(pins=[2, 3, 4, 5,
                                 6, 7, 8, 9,
-                                10, 11, 12, 13,
-                                14, 15, 16, 17,
-                                18, 19, 20, 21,
-                                22, 23, 24, 25, 26])
+                                10, 11, 12,
+                                13, 14, 15,
+                                16, 17, 18,
+                                19, 20, 21,
+                                22, 23, 24,
+                                25, 26])
 
         # Loop door elke GPIO pin heen
         for pin in const.pins:
@@ -34,6 +38,7 @@ def main() -> None:
     """
     GPIO.setmode(GPIO.BCM)
     GPIOFuckUp()
+
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd

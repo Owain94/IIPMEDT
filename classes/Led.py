@@ -7,6 +7,7 @@ class Led:
     """
     Klasse om LED lampjes aan te sturen
     """
+
     def __init__(self, output_pin: int) -> None:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse

@@ -61,7 +61,7 @@ class Telephone:
 
         :return: Of de ringtone actief is of niet als boolean.
         """
-        # noinspection PyBroadExceptionk
+        # noinspection PyBroadException
         try:
             return self.__ringtone_thread.is_alive()
         except:
