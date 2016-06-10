@@ -14,8 +14,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.cleanup()
 
 # Displays
-display_one = Display(0x70)  # Eerste display
-display_two = Display(0x71)  # Tweede display
+display_one = Display(0x71)  # Eerste display
+display_two = Display(0x70)  # Tweede display
 
 
 # de twee displays schoonmaken
@@ -169,6 +169,8 @@ try:
         elif state.is_state('give_score_to_the_user'):
             #  Wacht 2 seconden voordat de gebruiker de telefoon oppakt.
             sleep(2.0)
+            #  todo debugging
+            print(telephone.prepare_track_list(user.user_products))
             #  Speel de lijst met producten af voor de gebruiker.
             telephone.play_multiple_tracks(
                 telephone.prepare_track_list(user.user_products))
