@@ -44,7 +44,7 @@ class Telephone:
         """
         Speel de ringtone af.
         """
-        os.system('mpg321 -q audio/Tring.mp3')
+        os.system('mpg321 -q ' + self.__prefix + 'audio/Tring.mp3')
 
     def play_ringtone_in_thread(self) -> None:
         """
