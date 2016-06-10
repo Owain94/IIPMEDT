@@ -178,7 +178,21 @@ class User:
             else:
                 track_name = "Ontbijt_perfect"
 
+        if self.is_first_run() and not self.breakfast_is_perfect(track_name):
+            track_name += "_eerste_keer"
+        elif not self.is_first_run() and not self.breakfast_is_perfect(track_name):
+            track_name += "_tweede_keer"
+
         return track_name
+
+    def breakfast_is_perfect(self, track_name: str) -> bool:
+        """
+        Controleert of het ontbijt perfect is en geeft dit terug als boolean.
+
+        :param track_name: De naam van de track zonder .mp3
+        :return: True of False
+        """
+        return track_name is "Ontbijt_perfect"
 
     def get_product_information(self, potential: int) -> list:
         """
