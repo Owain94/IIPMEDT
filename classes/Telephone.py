@@ -93,7 +93,8 @@ class Telephone:
                                            stdout=subprocess.PIPE,
                                            shell=True)
 
-                for i in range(1, ceil(duration * self.const.amount_per_second)):
+                for i in range(1, ceil(
+                                duration * self.const.amount_per_second)):
                     if self.__button.is_pressed():
                         break
                     time.sleep(1 / self.const.amount_per_second)
@@ -122,7 +123,7 @@ class Telephone:
         for track in self.__tracks:
             if track.getAttribute('product') == key:
                 return float(track.getElementsByTagName("duration")[0]
-                             .firstChild.data + 0.5)
+                             .firstChild.data) + 0.5
 
     @staticmethod
     def prepare_track_list(user_products: list) -> list:
