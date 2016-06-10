@@ -122,7 +122,7 @@ class Telephone:
         for track in self.__tracks:
             if track.getAttribute('product') == key:
                 return float(track.getElementsByTagName("duration")[0]
-                             .firstChild.data)
+                             .firstChild.data + 0.5)
 
     def prepare_track_list(self, user_products: list) -> list:
         """
