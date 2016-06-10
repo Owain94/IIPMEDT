@@ -152,12 +152,20 @@
         <file>audio/Ontbijt_goede_gezondheidswaarde_teveel_eten.mp3</file>
         <duration>8.621</duration>
     </track>
-    <track product="Ontbijt_goede_gezondheidswaarde_te_weinig_eten">
-        <file>audio/Ontbijt_goede_gezondheidswaarde_te_weinig_eten.mp3</file>
+    <track product="Ontbijt_goede_gezondheidswaarde_teveel_eten_tweede_keer">
+        <file>audio/Ontbijt_goede_gezondheidswaarde_teveel_eten_tweede_keer.mp3</file>
+        <duration>4.389</duration>
+    </track>
+    <track product="Ontbijt_goede_gezondheidswaarde_weinig_eten_eerste_keer">
+        <file>audio/Ontbijt_goede_gezondheidswaarde_weinig_eten_eerste_keer.mp3</file>
         <duration>8.778</duration>
     </track>
-    <track product="Ontbijt_lage_gezondheidswaarde_genoeg_eten">
-        <file>audio/Ontbijt_lage_gezondheidswaarde_genoeg_eten.mp3</file>
+    <track product="Ontbijt_goede_gezondheidswaarde_weinig_eten_tweede_keer">
+        <file>audio/Ontbijt_goede_gezondheidswaarde_weinig_eten_tweede_keer.mp3</file>
+        <duration>4.545</duration>
+    </track>
+    <track product="Ontbijt_lage_gezondheidswaarde_genoeg_eten_eerste_keer">
+        <file>audio/Ontbijt_lage_gezondheidswaarde_genoeg_eten_eerste_keer.mp3</file>
         <duration>8.987</duration>
     </track>
     <track product="Ontbijt_lage_gezondheidswaarde_teveel_eten">
