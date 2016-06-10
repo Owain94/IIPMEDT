@@ -50,6 +50,7 @@ led_start_red = Led(12)  # Start led red input pin.
 led_plus_red = Led(16)  # Plus led red input pin.
 led_plus_green = Led(20)  # Plus led green input pin.
 
+plus_button_is_pressed = False
 
 # print de huidige status
 def status() -> None:
@@ -124,12 +125,10 @@ try:
             while not button_done.is_pressed():
                 #  potential
                 potential = disk_products.get_serial()
-                print("potmeter waarde: " + str(potential))
                 #  Als de plus knop niet ingedrukt is
                 if button_plus.is_pressed():
                     if not plus_button_is_pressed:
-                        #  Wordt het product toegevoegd aan
-                        #  de lijst met producten
+                        #  Wordt het product toegevoegd aan de lijst met producten
                         if not user.add_product_thread_is_alive():
                             user.add_product_in_thread(potential)
                             #  De groene led knippert voor feedback
@@ -139,6 +138,7 @@ try:
                 #  De rode led knippert voor feedback
                 elif not led_plus_red.thread_is_alive():
                     led_plus_red.blink_in_thread(0.5)
+                    plus_button_is_pressed = False
                 #  Print de huidige status.
                 status()
 
@@ -172,8 +172,6 @@ try:
         elif state.is_state('give_score_to_the_user'):
             #  Wacht 2 seconden voordat de gebruiker de telefoon oppakt.
             sleep(2.0)
-            #  todo debugging
-            print(telephone.prepare_track_list(user.user_products))
             #  Speel de lijst met producten af voor de gebruiker.
             telephone.play_multiple_tracks(
                 telephone.prepare_track_list(user.user_products))
@@ -225,8 +223,6 @@ try:
             sleep(2.0)
             #  Speel de bijpassende feedback af op de telefoon.
             telephone.play_track(user.determine_feedback_playback())
-            #  Displays uit
-            clear()
             #  Wacht 2 seconden voor het bewegen naar de terug positie
             sleep(2.0)
             #  Het 'poppertje' beweegt zich terug naar de home positie.
