@@ -193,6 +193,8 @@ try:
                     display_two.show_digit(0.0)
             #  Controleert of de gebruiker 0 producten toegevoegd heeft.
             if not user.added_zero_products():
+                # todo
+                print(telephone.prepare_track_list(user.user_products))
                 #  Speel de lijst met producten af voor de gebruiker.
                 telephone.play_multiple_tracks(
                     telephone.prepare_track_list(user.user_products))
@@ -242,6 +244,7 @@ try:
             sleep(2.0)
             if not user.added_zero_products():
                 #  Speel de bijpassende feedback af op de telefoon.
+                print("TRACKNAME: " + user.determine_feedback_playback())
                 telephone.play_track(user.determine_feedback_playback())
             else:
                 #  Speelt een audio track af over slecht ontbijten.
@@ -259,7 +262,7 @@ try:
         #  Hier wordt de state 'initial' en de displays worden gereset.
         elif state.is_state('both_breakfast_filled_in'):
             #  Eind bericht
-            telephone.play_track('Ontbijt_vergeten')
+            telephone.play_track('Eind_bericht')
             #  Reset de state naar 'initial'
             state.reset_state()
             #  Reset de stap naar 0

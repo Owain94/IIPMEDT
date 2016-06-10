@@ -140,3 +140,4 @@ app/*.map
 ## Maarten
 fswatch.sh
 rsync.sh
+debug.sh

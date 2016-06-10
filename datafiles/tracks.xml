@@ -116,8 +116,8 @@
         <file>audio/Kiwi.mp3</file>
         <duration>0.549</duration>
     </track>
-    <track product="Koffie_melk_suiker">
-        <file>audio/Koffie_melk_suiker.mp3</file>
+    <track product="Koffie_melk_en_suiker">
+        <file>audio/Koffie_melk_en_suiker.mp3</file>
         <duration>1.777</duration>
     </track>
     <track product="Koffie_zwart">
