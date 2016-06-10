@@ -264,6 +264,8 @@ try:
             state.reset_state()
             #  Reset de stap naar 0
             state.reset_step()
+            #  Reset first run
+            user.reset_run()
             #  Zet alle display ledjes uit.
             clear()
 

@@ -24,6 +24,12 @@ class User:
         self.__add_thread = None
         self.__disk = Disk()
 
+    def reset_run(self) -> None:
+        """
+        Reset de first run.
+        """
+        self.__first_run = True
+
     def second_run(self) -> None:
         """
         Met deze methode kan er worden opgegeven dat de gebruiker
