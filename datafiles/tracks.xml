@@ -168,6 +168,10 @@
         <file>audio/Ontbijt_perfect.mp3</file>
         <duration>5.225</duration>
     </track>
+    <track product="Ontbijt_vergeten">
+        <file>audio/Ontbijt_vergeten.mp3</file>
+        <duration>7.367</duration>
+    </track>
     <track product="Ontbijtgranen">
         <file>audio/Ontbijtgranen.mp3</file>
         <duration>1.045</duration>
