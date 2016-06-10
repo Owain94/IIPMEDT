@@ -10,7 +10,6 @@ from xml.dom import minidom
 from classes.Button import Button
 from math import ceil
 from threading import Thread
-from slugify import slugify
 
 
 class Telephone:
@@ -37,7 +36,8 @@ class Telephone:
         self.__button = Button(input_pin)
         self.__ringtone_thread = None
         self.const = Constants(
-            amount_per_second=4
+            amount_per_second=4,
+            replace=[', ', ' ']
         )
 
     def play_ringtone(self) -> None:
@@ -139,8 +139,11 @@ class Telephone:
         for product_list in user_products:
             for product in product_list:
 
-                #  https://github.com/un33k/python-slugify
-                product_name = slugify(product['name'], separator="_")
+                product_name = product['name']
+
+                #  todo https://github.com/un33k/python-slugify
+                for string in self.const.replace:
+                    product_name = product_name.replace(string, '_')
 
                 try:
                     items[product_name] = int(items[product_name]) + 1
