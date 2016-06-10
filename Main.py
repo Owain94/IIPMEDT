@@ -172,15 +172,7 @@ try:
         elif state.is_state('give_score_to_the_user'):
             #  Wacht 2 seconden voordat de gebruiker de telefoon oppakt.
             sleep(2.0)
-            #  Controleert of de gebruiker 0 producten toegevoegd heeft.
-            if not user.added_zero_products():
-                #  Speel de lijst met producten af voor de gebruiker.
-                telephone.play_multiple_tracks(
-                    telephone.prepare_track_list(user.user_products))
-                #  Controleert of het de eerste keer is.
-            else:
-                #  Speelt een audio track af over slecht ontbijten.
-                telephone.play_track('Ontbijt_vergeten')
+            #  Controleert of het de eerst run is.
             if user.is_first_run():
                 #  Zet het stapnummer
                 state.step = 9
@@ -204,6 +196,10 @@ try:
                 #  Speel de lijst met producten af voor de gebruiker.
                 telephone.play_multiple_tracks(
                     telephone.prepare_track_list(user.user_products))
+                #  Controleert of het de eerste keer is.
+            else:
+                #  Speelt een audio track af over slecht ontbijten.
+                telephone.play_track('Ontbijt_vergeten')
             #  Laat het 'poppertje' omhoog lopen
             #  todo is wegehaald voor prototype
             # road.up(user.convert_score_to_motor(user.calculate_final_score()))
@@ -237,8 +233,13 @@ try:
         elif state.is_state('telephone_feedback_score'):
             #  Zet het stapnummer
             state.step = 12
-            #  Verander de state naar 'telephone_feedback_score'
-            state.current_state = 'klaar_voor_nu'
+            #  Verander de state als de gebruiker voor de eerste keer hier is.
+            if user.is_first_run():
+                #  Verander de state naar 'telephone_feedback_score'
+                state.current_state = 'telephone_first_track_played'
+            else:
+                #  Verader de state naar 'both_breakfast_filled_in'
+                state.current_state = 'both_breakfast_filled_in'
             #  Wacht 2 seconden voor het afspelen van de telefoon
             sleep(2.0)
             if not user.added_zero_products():
@@ -258,12 +259,12 @@ try:
             user.second_run()
 
         #  Hier wordt de state 'initial' en de displays worden gereset.
-        # else:
+        elif state.is_state('both_breakfast_filled_in'):
             #  Reset de state naar 'initial'
-            # state.reset_state()
-            # state.reset_step()
+            state.reset_state()
+            state.reset_step()
             #  Zet alle display ledjes uit.
-            # clear()
+            clear()
 
         #  Print de huidige status.
         status()

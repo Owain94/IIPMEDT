@@ -72,6 +72,10 @@
         <file>audio/Croissant.mp3</file>
         <duration>0.81</duration>
     </track>
+    <track product="Eind_bericht">
+        <file>audio/Eind_bericht.mp3</file>
+        <duration>3.709</duration>
+    </track>
     <track product="Gebakken_ei">
         <file>audio/Gebakken_ei.mp3</file>
         <duration>1.019</duration>
