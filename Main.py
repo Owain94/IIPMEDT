@@ -129,7 +129,8 @@ try:
                 #  Als de plus knop niet ingedrukt is
                 if button_plus.is_pressed():
                     if not plus_button_is_pressed:
-                        #  Wordt het product toegevoegd aan de lijst met producten
+                        #  Wordt het product toegevoegd aan
+                        #  de lijst met producten
                         if not user.add_product_thread_is_alive():
                             user.add_product_in_thread(potential)
                             #  De groene led knippert voor feedback
@@ -212,10 +213,6 @@ try:
                 #  Speel de lijst met producten af voor de gebruiker.
                 telephone.play_multiple_tracks(
                     telephone.prepare_track_list(user.user_products))
-                #  Controleert of het de eerste keer is.
-            else:
-                #  Speelt een audio track af over slecht ontbijten.
-                telephone.play_track('Ontbijt_vergeten')
             #  Laat het 'poppertje' omhoog lopen
             #  todo is wegehaald voor prototype
             # road.up(user.convert_score_to_motor(user.calculate_final_score()))
