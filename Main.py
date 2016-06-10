@@ -57,6 +57,7 @@ def status() -> None:
     #  De huidige status wordt geprint.
     print('Stap: ' + str(state.step))
     print('Huidige status: ' + state.current_state)
+    print('Count:' + str(state.count))
 
 # Alle GPIO pinnen worden op false gezet
 GPIOFuckUp()
@@ -146,6 +147,19 @@ try:
             if button_done.is_pressed():
                 #  Verander de status naar 'products_selected'
                 state.current_state = 'products_selected'
+
+        #  De state is 'telephone_first_track_played'.
+        elif state.is_state('telephone_first_track_played'):
+            #  Controleert na 10 seconden of de telefoon terug gehangen is.
+            if state.is_count():
+                #  Speelt de mp3 af die vertelt dat de gebruiker de telefoon
+                #  moet terug hangen.
+                telephone.play_track('Telefoon_terugleg_bericht')
+                #  de count wordt reset voor de zekerheid.
+                state.reset_count()
+            else:
+                #  De count wordt opgeteld.
+                state.count_up()
 
         #  STAP 8
         #  De state is 'button_start_pressed' en de telefoon knop

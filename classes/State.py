@@ -6,20 +6,27 @@ class State:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
         """
-        self._current_state = 'initial'
-        self._step = 0
-
-    def reset_step(self) -> None:
-        """
-        Herstel de huidige stap van het programma naar de begin waarde
-        """
-        self._step = 0
+        self.__current_state = 'initial'
+        self.__step = 0
+        self.__count = 0
 
     def reset_state(self) -> None:
         """
         Herstel de huidige staat van het programma naar de begin waarde
         """
-        self._current_state = 'initial'
+        self.__current_state = 'initial'
+
+    def reset__step(self) -> None:
+        """
+        Herstel de huidige stap van het programma naar de begin waarde
+        """
+        self.__step = 0
+
+    def reset_count(self) -> None:
+        """
+        Herstelt de huidige count naar de begin waarde.
+        """
+        self.__count = 0
 
     def is_state(self, state: str) -> bool:
         """
@@ -30,7 +37,22 @@ class State:
         :return: True als de huidige staat dezelfde is als de staat om na
         te kijken anders False, als boolean
         """
-        return self._current_state is state
+        return self.__current_state is state
+
+    def is_count(self, count: int = 100) -> bool:
+        """
+        Controleert of het opgegeven getal gelijk is aan de count.
+        :param count: getal om te controleren
+
+        :return: True of False
+        """
+        return self.__count is count
+
+    def count_up(self) -> None:
+        """
+        Telt de count met 1 op.
+        """
+        self.__count += 1
 
     @property
     def current_state(self) -> str:
@@ -39,7 +61,7 @@ class State:
 
         :return: De huidige staat als string
         """
-        return self._current_state
+        return self.__current_state
 
     @current_state.setter
     def current_state(self, value) -> None:
@@ -48,7 +70,16 @@ class State:
 
         :param value: De nieuwe staat als string
         """
-        self._current_state = value
+        self.__current_state = value
+
+    @property
+    def count(self) -> int:
+        """
+        Getter voor de huidige count
+
+        :return: De huidige count als int
+        """
+        return self.__count
 
     @property
     def step(self) -> int:
@@ -57,7 +88,7 @@ class State:
 
         :return: De huidige stap als int
         """
-        return self._step
+        return self.__step
 
     @step.setter
     def step(self, value) -> None:
@@ -66,4 +97,4 @@ class State:
 
         :param value: De huidige stap als int
         """
-        self._step = value
+        self.__step = value
