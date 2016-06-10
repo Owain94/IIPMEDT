@@ -1,15 +1,18 @@
 if __name__ == '__main__':
     from sys import path
+
     path.append("..")
 
 from classes.Disk import Disk
 from threading import Thread
+
 
 class User:
     """
     Klasse om bij te houden welke producten de gebruiker allemaal
     heeft toegevoegd
     """
+
     def __init__(self):
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
@@ -106,8 +109,6 @@ class User:
         """
         Bereken totale score op basis van score en kcal score
 
-        :param score: Gezondheidswaarde score als float
-        :param kcal_score: Kcal score als float
         :return: De uiteindelijke score als float
         """
         score = self.calculate_health_score(self.user_products)
@@ -147,8 +148,6 @@ class User:
         Zoek uit welk bestand er af gespeeld moet worden aan de hand van
         de scores
 
-        :param score: Gezondheidswaarde score als float
-        :param kcal_score: Kcal score als float
         :return: De track naam die afgespeeld moet worden als string
         """
 
@@ -171,7 +170,7 @@ class User:
                 track_name = "Ontbijt_perfect"
 
         return track_name
-            
+
     def get_product_information(self, potential: int) -> list:
         """
         Haalt de live waarde van POT meter op en haalt het daarbij horende
@@ -208,6 +207,7 @@ def main() -> None:
 
     print("{}\n{}\n{}".format(health, calories,
                               user.calculate_final_score()))
+
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd

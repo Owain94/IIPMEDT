@@ -49,8 +49,6 @@ class Motor:
     def up(self) -> None:
         """
         Laat de motor vooruit draaien
-
-        :param steps: Het aantal stappen dat er gedraaid moet worden als int
         """
         # Lees de sequntie achterstevoren in
         [(self.set_step(step), sleep(0.005))
@@ -59,8 +57,6 @@ class Motor:
     def down(self) -> None:
         """
         Laat de motor achteruit draaien
-
-        :param steps: Het aantal stappen dat er gedraaid moet worden als int
         """
         [(self.set_step(step), sleep(0.005))
          for step in self.const.sequence]
@@ -81,8 +77,8 @@ def main() -> None:
     klasse in een ander bestand wordt geimporteerd!
     """
     motor = Motor([26, 13, 6, 5])
-    motor.up(10)
-    motor.down(10)
+    # motor.up(10)
+    # motor.down(10)
     GPIO.cleanup()
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
