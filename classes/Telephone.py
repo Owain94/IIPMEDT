@@ -28,9 +28,7 @@ class Telephone:
                           om te kijken of de hoorn is opgenomen of niet,
                           als int
         """
-
-        self.__prefix = prefix()
-        self.__tracks = minidom.parse(self.__prefix + 'datafiles/tracks.xml') \
+        self.__tracks = minidom.parse(prefix() + 'datafiles/tracks.xml') \
             .getElementsByTagName("track")
         self.__button = Button(input_pin)
         self.__ringtone_thread = None
@@ -42,7 +40,7 @@ class Telephone:
         """
         Speel de ringtone af.
         """
-        os.system('mpg321 -q ' + self.__prefix + 'audio/Tring.mp3')
+        os.system('mpg321 -q ' + prefix() + 'audio/Tring.mp3')
 
     def play_ringtone_in_thread(self) -> None:
         """
