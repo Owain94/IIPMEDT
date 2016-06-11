@@ -7,6 +7,7 @@ import subprocess
 import time
 import os
 from util.Constants import Constants
+from util.Helpers import prefix
 from xml.dom import minidom
 from classes.Button import Button
 from math import ceil
@@ -27,13 +28,8 @@ class Telephone:
                           om te kijken of de hoorn is opgenomen of niet,
                           als int
         """
-        # Inladen van het xml bestand met de audio bestanden
-        if __name__ == '__main__':
-            prefix = '../'
-        else:
-            prefix = './'
 
-        self.__prefix = prefix
+        self.__prefix = prefix()
         self.__tracks = minidom.parse(self.__prefix + 'datafiles/tracks.xml') \
             .getElementsByTagName("track")
         self.__button = Button(input_pin)
@@ -209,8 +205,7 @@ def main() -> None:
     ]
 
     telephone = Telephone(23)
-    # telephone.play_multiple_tracks(['Bruin_brood', 'Bruin_brood'])
-    # telephone.play_breakfast(li)
+    telephone.play_multiple_tracks(['Bruin_brood', 'Bruin_brood'])
     telephone.play_breakfast(li)
 
 
