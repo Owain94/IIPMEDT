@@ -1,5 +1,5 @@
 from time import sleep
-from threading import Thread
+from threading import Thread, ThreadError
 import RPi.GPIO as GPIO
 
 
@@ -71,7 +71,9 @@ class Buzzer:
         # noinspection PyBroadException
         try:
             return thread.is_alive()
-        except:
+        except ThreadError as e:
+            errno, strerror = e.args
+            print("Exception ({0}): {1}".format(errno, strerror))
             return False
 
     def buzzer_is_alive(self) -> bool:

@@ -11,7 +11,7 @@ from util.Helpers import prefix
 from xml.dom import minidom
 from classes.Button import Button
 from math import ceil
-from threading import Thread
+from threading import Thread, ThreadError
 from slugify import slugify
 
 
@@ -59,7 +59,9 @@ class Telephone:
         # noinspection PyBroadException
         try:
             return self.__ringtone_thread.is_alive()
-        except:
+        except ThreadError as e:
+            errno, strerror = e.args
+            print("Exception ({0}): {1}".format(errno, strerror))
             return False
 
     def play_multiple_tracks(self, tracks: list) -> None:
@@ -140,7 +142,9 @@ class Telephone:
 
                 try:
                     items[product_name] = int(items[product_name]) + 1
-                except KeyError:
+                except KeyError as e:
+                    errno, strerror = e.args
+                    print("Exception ({0}): {1}".format(errno, strerror))
                     items[product_name] = 1
 
         tracks.append('Gekozen')

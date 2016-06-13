@@ -4,7 +4,7 @@ if __name__ == '__main__':
     path.append("..")
 
 from classes.Disk import Disk
-from threading import Thread
+from threading import Thread, ThreadError
 
 
 class User:
@@ -60,7 +60,9 @@ class User:
         # noinspection PyBroadException
         try:
             return self.__add_thread.is_alive()
-        except:
+        except ThreadError as e:
+            errno, strerror = e.args
+            print("Exception ({0}): {1}".format(errno, strerror))
             return False
 
     def add_product_in_thread(self, potential: int):

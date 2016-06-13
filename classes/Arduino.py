@@ -46,7 +46,9 @@ class Arduino:
         # noinspection PyBroadException
         try:
             return int(self.__serial.readline())
-        except:
+        except self.__serial.SerialException as e:
+            errno, strerror = e.args
+            print("Exception ({0}): {1}".format(errno, strerror))
             return -1
 
     def get_serial(self) -> int:
