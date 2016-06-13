@@ -233,6 +233,8 @@ class Display:
 
     def show_smiley(self) -> None:
         """
+        MADE BY JULIA ©
+
         Er wordt een smiley getoond op het display.
         """
         #  Clear zet alle pixels uit.
