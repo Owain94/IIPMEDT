@@ -192,8 +192,8 @@
         <file>audio/Ontbijt_perfect.mp3</file>
         <duration>5.225</duration>
     </track>
-    <track product="Ontbijt_vergeten">
-        <file>audio/Ontbijt_vergeten.mp3</file>
+    <track product="Ontbijt_vergeten_eerste_keer">
+        <file>audio/Ontbijt_vergeten_eerste_keer.mp3</file>
         <duration>7.367</duration>
     </track>
     <track product="Ontbijt_vergeten_tweede_keer">
