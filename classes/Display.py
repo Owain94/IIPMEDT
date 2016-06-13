@@ -232,13 +232,18 @@ class Display:
         self.digit(int(digit[2]), True)
 
     def show_smiley(self) -> None:
-        # Clear zet alle pixels uit.
+        """
+        Er wordt een smiley getoond op het display.
+        """
+        #  Clear zet alle pixels uit.
         self.clear()
 
-        # Alle x en y coördinaten worden uitgelezen (Lijst smiley wordt opgehaald).
+        #  Alle x en y coördinaten worden uitgelezen
+        #  (Lijst smiley wordt opgehaald).
         smiley = self.const.smiley[0]
 
-        # Loopt door lijst simley heen. Hij haalt x en y op en zet deze aan.
+        #  Loopt door lijst simley heen.
+        #  Hij haalt x en y op en zet deze aan.
         for pixel in smiley:
             x = int(pixel[0])
             y = int(pixel[1])
@@ -262,13 +267,15 @@ def main() -> None:
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
-    display_one = Display(0x70)
-    display_one.show_digit(1.0)
+    # display_one = Display(0x70)
+    # display_one.show_digit(1.0)
     display_two = Display(0x71)
-    display_two.show_digit(2.0)
+    # display_two.show_digit(2.0)
+
+    display_two.show_smiley()
 
     sleep(10)
-    display_one.clear()
+    # display_one.clear()
     display_two.clear()
 
 
