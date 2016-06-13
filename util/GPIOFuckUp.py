@@ -3,7 +3,7 @@ if __name__ == '__main__':
 
     path.append("..")
 
-from util.Constants import Constants
+from util.Constant import Constants
 import RPi.GPIO as GPIO
 
 

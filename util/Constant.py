@@ -1,4 +1,4 @@
-class Constants(object):
+class Constant(object):
     """
     Klasse om constante variabele aan te kunnen maken
     """

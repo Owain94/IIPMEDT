@@ -3,7 +3,7 @@ if __name__ == '__main__':
 
     path.append("..")
 
-from util.Constants import Constants
+from util.Constant import Constant
 from lib.Matrix8x8 import Matrix8x8
 from time import sleep
 
@@ -26,7 +26,7 @@ class Display:
         self.__display.begin()
         self.__display.clear()
 
-        self.const = Constants(digits={
+        self.const = Constant(digits={
             1: [
                 [2, 2],
                 [2, 3],

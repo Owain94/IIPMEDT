@@ -6,8 +6,8 @@ if __name__ == '__main__':
 import subprocess
 import time
 import os
-from util.Constants import Constants
-from util.Helpers import Helpers
+from util.Constant import Constant
+from util.Helper import Helper
 from xml.dom import minidom
 from classes.Button import Button
 from math import ceil
@@ -28,20 +28,18 @@ class Telephone:
                           om te kijken of de hoorn is opgenomen of niet,
                           als int
         """
-        self.__tracks = minidom.parse(Helpers.prefix() + 'datafiles/tracks.xml') \
+        self.__tracks = minidom.parse(Helper.prefix() + 'datafiles/tracks.xml') \
             .getElementsByTagName("track")
         self.__button = Button(input_pin)
         self.__ringtone_thread = None
-        self.const = Constants(
-            amount_per_second=4
-        )
+        self.const = Constant(amount_per_second=4)
 
     @staticmethod
     def play_ringtone() -> None:
         """
         Speel de ringtone af.
         """
-        os.system('mpg321 -q ' + Helpers.prefix() + 'audio/Tring.mp3')
+        os.system('mpg321 -q ' + Helper.prefix() + 'audio/Tring.mp3')
 
     def play_ringtone_in_thread(self) -> None:
         """

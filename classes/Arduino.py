@@ -3,7 +3,7 @@ if __name__ == '__main__':
 
     path.append("..")
 
-from util.Constants import Constants
+from util.Constant import Constant
 from os.path import exists
 import collections
 import serial
@@ -20,7 +20,7 @@ class Arduino:
         """
 
         # De paden op de arduino (gedefinieerd als constante)
-        self.const = Constants(amc_paths=[
+        self.const = Constant(amc_paths=[
             '/dev/ttyACM0',
             '/dev/ttyACM1',
             '/dev/ttyACM2',
