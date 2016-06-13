@@ -29,7 +29,7 @@ def clear_displays() -> None:
 clear_displays()
 
 # Other
-road = Road(1, 1, [26, 19, 13, 6])  # road with 2 switches and a motor.
+road = Road(17, 22, [26, 19, 13, 6])  # road with 2 switches and a motor.
 telephone = Telephone(23)  # Telephone with button input pin.
 motor = road.motor  # Motor with input pins.
 disk_products = Disk()  # Food disk with range.
