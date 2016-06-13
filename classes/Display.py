@@ -235,11 +235,11 @@ class Display:
         """
         Er wordt een smiley getoond op het display.
         """
-        #  Clear zet alle pixels uit.
+        # Clear zet alle pixels uit.
         self.clear()
-        
-        #  Loopt door lijst simley heen.
-        #  Hij haalt x en y op en zet deze aan.
+
+        # Loopt door lijst simley heen.
+        # Hij haalt x en y op en zet deze aan.
         for pixel in self.const.smiley:
             x = int(pixel[0])
             y = int(pixel[1])
