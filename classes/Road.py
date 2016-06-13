@@ -87,18 +87,26 @@ class Road:
         self.down(20)
 
     def up(self, steps: int) -> None:
+        """
+        Beweeg het motortje omhoog met het aantal opgegeven stappen.
+        :param steps: Het aantal stappen als int.
+        """
         for step in range(steps):
             if not self.end_switch.is_pressed():
                 self.__motor.up()
             else:
-                break
+                self.down(20)
 
     def down(self, steps: int) -> None:
+        """
+        Beweeg het motortje omhoog met het aantal opgegeven stappen.
+        :param steps: Het aantal stappen als int.
+        """
         for step in range(steps):
             if not self.begin_switch.is_pressed():
                 self.__motor.down()
             else:
-                break
+                self.up(20)
 
     @property
     def begin_switch(self) -> Button:
