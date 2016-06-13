@@ -216,8 +216,7 @@ try:
                 telephone.play_multiple_tracks(
                     telephone.prepare_track_list(user.user_products))
             # Laat het 'poppertje' omhoog lopen
-            #  todo is wegehaald voor prototype
-            # road.up(user.convert_score_to_motor(user.calculate_final_score()))
+            road.up(user.convert_score_to_motor(user.calculate_final_score()))
             #  Verander de state naar 'ring_telephone_for_score'
             state.current_state = 'ring_telephone_for_score'
 
@@ -276,8 +275,7 @@ try:
             # Wacht 2 seconden voor het bewegen naar de terug positie
             sleep(2.0)
             #  Het 'poppertje' beweegt zich terug naar de home positie.
-            #  todo weggehaald voor protoype
-            # road.move_to_begin()
+            road.move_to_begin()
             #  De gekozen productenlijst wordt geleegd.
             user.reset_products()
             #  Geef door dat de eerste keer geeindigd is.
