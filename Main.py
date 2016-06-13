@@ -260,9 +260,6 @@ try:
                         user.determine_feedback_playback()):
                     #  Veranderd de state naar de eind state.
                     state.current_state = 'both_breakfast_filled_in'
-                    if user.is_first_run():
-                        #  De smiley wordt op het tweede scherm getoond.
-                        display_two.show_smiley()
                 #  Speel de bijpassende feedback af op de telefoon.
                 telephone.play_track(user.determine_feedback_playback())
             else:
@@ -273,6 +270,12 @@ try:
                 else:
                     #  Speelt een audio track af over slecht ontbijten.
                     telephone.play_track('Ontbijt_vergeten_tweede_keer')
+
+            if user.is_first_run() and user.breakfast_is_perfect(
+                    user.determine_feedback_playback()):
+                # De smiley wordt op het tweede scherm getoond.
+                display_two.show_smiley()
+
             # Wacht 2 seconden voor het bewegen naar de terug positie
             sleep(2.0)
             #  Het 'poppertje' beweegt zich terug naar de home positie.
