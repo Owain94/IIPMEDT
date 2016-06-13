@@ -9,6 +9,7 @@ from classes.Display import Display
 from util.GPIOFuckUp import GPIOFuckUp
 from time import sleep
 import RPi.GPIO as GPIO
+import os
 
 GPIO.setmode(GPIO.BCM)
 GPIO.cleanup()
@@ -45,6 +46,7 @@ button_start = Button(21)  # Start button input pin.
 button_plus = Button(5)  # Plus button input pin.
 button_done = Button(4)  # Done button input pin.
 button_telephone = telephone.button  # Telephone button.
+button_off = Button(1)  # Off button input pin.
 
 # Led's
 led_start_red = Led(12)  # Start led red input pin.
@@ -55,7 +57,7 @@ led_plus_green = Led(20)  # Plus led green input pin.
 GPIOFuckUp()
 
 try:
-    while True:
+    while not button_off.is_pressed():  # Zolang de uitknop niet ingedrukt wordt voert die onderstaande code uit.
         #  STAP 2
         #  De state is 'initial' en de start button is ingedrukt.
         if state.is_state('initial') and button_start.is_pressed():
@@ -286,6 +288,16 @@ try:
 
         #  De loop wordt 10 per seconden afgespeeld
         sleep(0.1)
+
+    #  Haalt alle stroom van de pinnen af
+    GPIO.cleanup()
+    # Alle GPIO pinnen worden op false gezet
+    GPIOFuckUp()
+    #  Zet alle display ledjes uit.
+    clear()
+
+    # De raspberry pi wordt uitgezet als de uitknop wordt ingedrukt.
+    os.system("/sbin/shutdown -h now")
 
 # Alles wordt opgeruimd.
 except KeyboardInterrupt:
