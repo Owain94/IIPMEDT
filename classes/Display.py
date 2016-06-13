@@ -237,14 +237,10 @@ class Display:
         """
         #  Clear zet alle pixels uit.
         self.clear()
-
-        #  Alle x en y coördinaten worden uitgelezen
-        #  (Lijst smiley wordt opgehaald).
-        smiley = self.const.smiley[0]
-
+        
         #  Loopt door lijst simley heen.
         #  Hij haalt x en y op en zet deze aan.
-        for pixel in smiley:
+        for pixel in self.const.smiley:
             x = int(pixel[0])
             y = int(pixel[1])
             self.__display.set_pixel(x, y, 1)
