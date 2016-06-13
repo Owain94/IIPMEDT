@@ -260,8 +260,9 @@ try:
                         user.determine_feedback_playback()):
                     #  Veranderd de state naar de eind state.
                     state.current_state = 'both_breakfast_filled_in'
-                    #  De smiley wordt op het tweede scherm getoond.
-                    display_two.show_smiley()
+                    if user.is_first_run():
+                        #  De smiley wordt op het tweede scherm getoond.
+                        display_two.show_smiley()
                 #  Speel de bijpassende feedback af op de telefoon.
                 telephone.play_track(user.determine_feedback_playback())
             else:
