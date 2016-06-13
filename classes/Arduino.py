@@ -47,13 +47,13 @@ class Arduino:
         try:
             return int(self.__serial.readline())
         except UnicodeDecodeError as e:
-            print("Exception ({0})".format(e))
+            print("Exception (Arduino, read_serial: {0})".format(e))
             return -1
         except serial.SerialException as e:
-            print("Exception ({0})".format(e))
+            print("Exception (Arduino, read_serial: {0})".format(e))
             return -1
         except ValueError as e:
-            print("Exception ({0})".format(e))
+            print("Exception (Arduino, read_serial: {0})".format(e))
             return -1
 
     def get_serial(self) -> int:

@@ -45,10 +45,10 @@ class Led:
         try:
             return self.__blink_thread.is_alive()
         except ThreadError as e:
-            print("Exception ({0})".format(e))
+            print("Exception (Led, thread_is_alive: {0})".format(e))
             return False
         except AttributeError as e:
-            print("Exception ({0})".format(e))
+            print("Exception (Led, thread_is_alive: {0})".format(e))
             return False
 
     def blink_in_thread(self, seconds: float, sleep_after_blink: bool = True):
