@@ -142,7 +142,7 @@ class User:
         else:
             kcal_score = 1.0
 
-        return round((0.7 * kcal_score) + (0.3 * (health_score * 2)), 1)
+        return round((0.5 * kcal_score) + ((0.5 * health_score) * 2), 1)
 
     @staticmethod
     def convert_score_to_motor(final_score: float) -> int:
