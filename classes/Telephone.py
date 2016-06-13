@@ -36,7 +36,8 @@ class Telephone:
             amount_per_second=4
         )
 
-    def play_ringtone(self) -> None:
+    @staticmethod
+    def play_ringtone() -> None:
         """
         Speel de ringtone af.
         """
