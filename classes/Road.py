@@ -94,8 +94,10 @@ class Road:
         for step in range(steps):
             if not self.end_switch.is_pressed():
                 self.__motor.up()
+                pass
             else:
                 self.down(20)
+                break
 
     def down(self, steps: int) -> None:
         """
@@ -105,8 +107,10 @@ class Road:
         for step in range(steps):
             if not self.begin_switch.is_pressed():
                 self.__motor.down()
+                pass
             else:
                 self.up(20)
+                break
 
     @property
     def begin_switch(self) -> Button:
