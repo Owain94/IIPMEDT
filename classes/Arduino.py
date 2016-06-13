@@ -52,6 +52,9 @@ class Arduino:
         except serial.SerialException as e:
             print("Exception ({0})".format(e))
             return -1
+        except ValueError as e:
+            print("Exception ({0})".format(e))
+            return -1
 
     def get_serial(self) -> int:
         """
