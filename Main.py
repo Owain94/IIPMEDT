@@ -256,8 +256,6 @@ try:
             # Wacht 2 seconden voor het afspelen van de telefoon
             sleep(2.0)
             if not user.added_zero_products():
-                #  Speel de bijpassende feedback af op de telefoon.
-                telephone.play_track(user.determine_feedback_playback())
                 #  Controleert of het eerste ontbijt perfect is.
                 if user.breakfast_is_perfect(
                         user.determine_feedback_playback()):
@@ -265,6 +263,8 @@ try:
                     state.current_state = 'both_breakfast_filled_in'
                     #  De smiley wordt op het tweede scherm getoond.
                     display_two.show_smiley()
+                #  Speel de bijpassende feedback af op de telefoon.
+                telephone.play_track(user.determine_feedback_playback())
             else:
                 #  Speelt een audio track af over slecht ontbijten.
                 telephone.play_track('Ontbijt_vergeten')
