@@ -59,7 +59,7 @@ GPIOFuckUp()
 try:
     #  Zolang de uitknop niet ingedrukt wordt,
     #  wordt onderstaande code uitgevoerd.
-    while not button_off.is_pressed():
+    while button_off.is_pressed():
         #  STAP 2
         #  De state is 'initial' en de start button is ingedrukt.
         if state.is_state('initial') and button_start.is_pressed():
