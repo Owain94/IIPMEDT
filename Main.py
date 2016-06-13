@@ -57,7 +57,9 @@ led_plus_green = Led(20)  # Plus led green input pin.
 GPIOFuckUp()
 
 try:
-    while not button_off.is_pressed():  # Zolang de uitknop niet ingedrukt wordt, wordt onderstaande code uitgevoerd.
+    #  Zolang de uitknop niet ingedrukt wordt,
+    #  wordt onderstaande code uitgevoerd.
+    while not button_off.is_pressed():
         #  STAP 2
         #  De state is 'initial' en de start button is ingedrukt.
         if state.is_state('initial') and button_start.is_pressed():
