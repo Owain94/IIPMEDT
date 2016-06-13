@@ -19,7 +19,7 @@ class State:
 
     def reset_step(self) -> None:
         """
-        Herstel de huidige stap van het programma n aar de begin waarde
+        Herstel de huidige stap van het programma naar de begin waarde
         """
         self.__step = 0
 
