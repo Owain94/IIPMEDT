@@ -46,7 +46,7 @@ button_start = Button(21)  # Start button input pin.
 button_plus = Button(5)  # Plus button input pin.
 button_done = Button(4)  # Done button input pin.
 button_telephone = telephone.button  # Telephone button.
-button_off = Button(1)  # Off button input pin.
+button_off = Button(13)  # Off button input pin.
 
 # Led's
 led_start_red = Led(12)  # Start led red input pin.
@@ -57,7 +57,7 @@ led_plus_green = Led(20)  # Plus led green input pin.
 GPIOFuckUp()
 
 try:
-    while not button_off.is_pressed():  # Zolang de uitknop niet ingedrukt wordt voert die onderstaande code uit.
+    while not button_off.is_pressed():  # Zolang de uitknop niet ingedrukt wordt, wordt onderstaande code uitgevoerd.
         #  STAP 2
         #  De state is 'initial' en de start button is ingedrukt.
         if state.is_state('initial') and button_start.is_pressed():

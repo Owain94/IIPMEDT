@@ -161,7 +161,18 @@ class Display:
                 [1, 2],
                 [1, 6]
             ]
-        })
+        }, smiley=[
+            [2, 2],
+            [5, 2],
+            [1, 4],
+            [6, 4],
+            [1, 5],
+            [6, 5],
+            [2, 6],
+            [3, 6],
+            [4, 6],
+            [5, 6]
+        ])
 
     def comma(self) -> None:
         """
@@ -219,6 +230,20 @@ class Display:
         self.digit(int(digit[0]))
         self.comma()
         self.digit(int(digit[2]), True)
+
+    def show_smiley(self) -> None:
+        # Clear zet alle pixels uit.
+        self.clear()
+
+        # Alle x en y coördinaten worden uitgelezen (Lijst smiley wordt opgehaald).
+        smiley = self.const.smiley[0]
+
+        # Loopt door lijst simley heen. Hij haalt x en y op en zet deze aan.
+        for pixel in smiley:
+            x = int(pixel[0])
+            y = int(pixel[1])
+            self.__display.set_pixel(x, y, 1)
+
 
     @property
     def display_number(self) -> int:
