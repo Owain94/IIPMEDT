@@ -60,12 +60,10 @@ class Telephone:
         try:
             return self.__ringtone_thread.is_alive()
         except ThreadError as e:
-            errno, strerror = e.argst
-            print("Exception ({0}): {1}".format(errno, strerror))
+            print("Exception ({0})".format(e))
             return False
         except AttributeError as e:
-            errno, strerror = e.argst
-            print("Exception ({0}): {1}".format(errno, strerror))
+            print("Exception ({0})".format(e))
             return False
 
     def play_multiple_tracks(self, tracks: list) -> None:
@@ -147,8 +145,7 @@ class Telephone:
                 try:
                     items[product_name] = int(items[product_name]) + 1
                 except KeyError as e:
-                    errno, strerror = e.args
-                    print("Exception ({0}): {1}".format(errno, strerror))
+                    print("Exception ({0})".format(e))
                     items[product_name] = 1
 
         tracks.append('Gekozen')

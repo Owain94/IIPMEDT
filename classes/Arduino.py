@@ -47,8 +47,7 @@ class Arduino:
         try:
             return int(self.__serial.readline())
         except self.__serial.SerialException as e:
-            errno, strerror = e.args
-            print("Exception ({0}): {1}".format(errno, strerror))
+            print("Exception ({0})".format(e))
             return -1
 
     def get_serial(self) -> int:

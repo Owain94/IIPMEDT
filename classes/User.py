@@ -61,12 +61,10 @@ class User:
         try:
             return self.__add_thread.is_alive()
         except ThreadError as e:
-            errno, strerror = e.args
-            print("Exception ({0}): {1}".format(errno, strerror))
+            print("Exception ({0})".format(e))
             return False
         except AttributeError as e:
-            errno, strerror = e.args
-            print("Exception ({0}): {1}".format(errno, strerror))
+            print("Exception ({0})".format(e))
             return False
 
     def add_product_in_thread(self, potential: int):

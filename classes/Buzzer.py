@@ -72,12 +72,10 @@ class Buzzer:
         try:
             return thread.is_alive()
         except ThreadError as e:
-            errno, strerror = e.args
-            print("Exception ({0}): {1}".format(errno, strerror))
+            print("Exception ({0})".format(e))
             return False
         except AttributeError as e:
-            errno, strerror = e.args
-            print("Exception ({0}): {1}".format(errno, strerror))
+            print("Exception ({0})".format(e))
             return False
 
     def buzzer_is_alive(self) -> bool:
