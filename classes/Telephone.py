@@ -60,7 +60,11 @@ class Telephone:
         try:
             return self.__ringtone_thread.is_alive()
         except ThreadError as e:
-            errno, strerror = e.args
+            errno, strerror = e.argst
+            print("Exception ({0}): {1}".format(errno, strerror))
+            return False
+        except AttributeError as e:
+            errno, strerror = e.argst
             print("Exception ({0}): {1}".format(errno, strerror))
             return False
 

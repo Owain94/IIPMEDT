@@ -48,6 +48,10 @@ class Led:
             errno, strerror = e.args
             print("Exception ({0}): {1}".format(errno, strerror))
             return False
+        except AttributeError as e:
+            errno, strerror = e.args
+            print("Exception ({0}): {1}".format(errno, strerror))
+            return False
 
     def blink_in_thread(self, seconds: float, sleep_after_blink: bool = True):
         """

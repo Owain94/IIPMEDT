@@ -75,6 +75,10 @@ class Buzzer:
             errno, strerror = e.args
             print("Exception ({0}): {1}".format(errno, strerror))
             return False
+        except AttributeError as e:
+            errno, strerror = e.args
+            print("Exception ({0}): {1}".format(errno, strerror))
+            return False
 
     def buzzer_is_alive(self) -> bool:
         """

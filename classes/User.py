@@ -64,6 +64,10 @@ class User:
             errno, strerror = e.args
             print("Exception ({0}): {1}".format(errno, strerror))
             return False
+        except AttributeError as e:
+            errno, strerror = e.args
+            print("Exception ({0}): {1}".format(errno, strerror))
+            return False
 
     def add_product_in_thread(self, potential: int):
         self.__add_thread = Thread(target=self.add_product, args=(potential,))
