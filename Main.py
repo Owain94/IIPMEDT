@@ -205,6 +205,10 @@ try:
                     # toont het cijfer 0.0
                     display_two.show_digit(0.0)
             # Controleert of de gebruiker 0 producten toegevoegd heeft.
+
+            # todo debugging
+            print("Lijst is leeg: " + str(user.added_zero_products()))
+
             if not user.added_zero_products():
                 # todo
                 print(telephone.prepare_track_list(user.user_products))
