@@ -257,6 +257,8 @@ try:
                         user.determine_feedback_playback()):
                     #  Veranderd de state naar de eind state.
                     state.current_state = 'both_breakfast_filled_in'
+                    #  De smiley wordt op het tweede scherm getoond.
+                    display_two.show_smiley()
             else:
                 #  Speelt een audio track af over slecht ontbijten.
                 telephone.play_track('Ontbijt_vergeten')
