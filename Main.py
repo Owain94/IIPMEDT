@@ -266,8 +266,13 @@ try:
                 #  Speel de bijpassende feedback af op de telefoon.
                 telephone.play_track(user.determine_feedback_playback())
             else:
-                #  Speelt een audio track af over slecht ontbijten.
-                telephone.play_track('Ontbijt_vergeten')
+                #  Op basis van de run wordt de juiste audio ingeladen.
+                if user.is_first_run():
+                    #  Speelt een audio track af over slecht ontbijten.
+                    telephone.play_track('Ontbijt_vergeten_eerste_keer')
+                else:
+                    #  Speelt een audio track af over slecht ontbijten.
+                    telephone.play_track('Ontbijt_vergeten_tweede_keer')
             # Wacht 2 seconden voor het bewegen naar de terug positie
             sleep(2.0)
             #  Het 'poppertje' beweegt zich terug naar de home positie.
