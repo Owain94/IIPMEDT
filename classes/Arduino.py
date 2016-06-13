@@ -43,7 +43,6 @@ class Arduino:
         :return: Gegevens van de POT meter als int, als de uitkomst geen
                  int is zal de functie -1 terug geven
         """
-        # noinspection PyBroadException
         try:
             return int(self.__serial.readline())
         except UnicodeDecodeError as e:

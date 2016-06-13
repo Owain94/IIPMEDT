@@ -57,7 +57,6 @@ class User:
         self.__user_products.append(self.get_product_information(potential))
 
     def add_product_thread_is_alive(self) -> bool:
-        # noinspection PyBroadException
         try:
             return self.__add_thread.is_alive()
         except ThreadError as e:

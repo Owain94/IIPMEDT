@@ -68,7 +68,6 @@ class Buzzer:
         :param thread: Thread
         :return: True of False op basis op de thread bestaat, als boolean
         """
-        # noinspection PyBroadException
         try:
             return thread.is_alive()
         except ThreadError as e:
