@@ -78,6 +78,7 @@ def main() -> None:
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
+    GPIO.setmode(GPIO.BCM)
     motor = Motor([26, 13, 6, 5])
     motor.up()
     motor.down()
