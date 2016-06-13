@@ -254,6 +254,12 @@ try:
                 state.current_state = 'both_breakfast_filled_in'
             # Wacht 2 seconden voor het afspelen van de telefoon
             sleep(2.0)
+
+            if user.is_first_run() and user.breakfast_is_perfect(
+                    user.determine_feedback_playback()):
+                # De smiley wordt op het tweede scherm getoond.
+                display_two.show_smiley()
+
             if not user.added_zero_products():
                 #  Controleert of het eerste ontbijt perfect is.
                 if user.breakfast_is_perfect(
@@ -270,11 +276,6 @@ try:
                 else:
                     #  Speelt een audio track af over slecht ontbijten.
                     telephone.play_track('Ontbijt_vergeten_tweede_keer')
-
-            if user.is_first_run() and user.breakfast_is_perfect(
-                    user.determine_feedback_playback()):
-                # De smiley wordt op het tweede scherm getoond.
-                display_two.show_smiley()
 
             # Wacht 2 seconden voor het bewegen naar de terug positie
             sleep(2.0)
