@@ -44,7 +44,7 @@ class Led:
         # noinspection PyBroadException
         try:
             return self.__blink_thread.is_alive()
-        except as e:
+        except ThreadError as e:
             errno, strerror = e.args
             print("Exception ({0}): {1}".format(errno, strerror))
             return False
