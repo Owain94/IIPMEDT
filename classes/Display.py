@@ -249,7 +249,6 @@ class Display:
             y = int(pixel[1])
             self.__display.set_pixel(x, y, 1)
 
-
     @property
     def display_number(self) -> int:
         """
