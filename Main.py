@@ -192,7 +192,7 @@ try:
                 #  Laat de score van de gebruiker op het eerste schermpje zien
                 if not user.added_zero_products():
                     # toont het cijfer.
-                    display_one.show_digit(user.calculate_final_score())
+                    display_one.show_digit(user.calculate_display_score())
                 else:
                     # toont het cijfer 0.0
                     display_one.show_digit(0.0)
@@ -200,7 +200,7 @@ try:
                 #  Laat de score van de gebruiker op het eerste schermpje zien
                 if not user.added_zero_products():
                     # toont het cijfer.
-                    display_two.show_digit(user.calculate_final_score())
+                    display_two.show_digit(user.calculate_display_score())
                 else:
                     # toont het cijfer 0.0
                     display_two.show_digit(0.0)
