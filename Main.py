@@ -310,4 +310,4 @@ except KeyboardInterrupt:
     # Alle GPIO pinnen worden op false gezet
     GPIOFuckUp()
     #  Zet alle display ledjes uit.
-    clear()
+    clear_displays()
