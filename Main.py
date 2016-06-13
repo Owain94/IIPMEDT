@@ -216,7 +216,8 @@ try:
                 telephone.play_multiple_tracks(
                     telephone.prepare_track_list(user.user_products))
                 # Laat het 'poppertje' omhoog lopen
-                road.up(user.convert_score_to_motor(user.calculate_final_score()))
+                road.up(user.convert_score_to_motor(
+                    user.calculate_final_score()))
             #  Verander de state naar 'ring_telephone_for_score'
             state.current_state = 'ring_telephone_for_score'
 

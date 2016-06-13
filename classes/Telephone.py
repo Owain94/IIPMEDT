@@ -28,7 +28,8 @@ class Telephone:
                           om te kijken of de hoorn is opgenomen of niet,
                           als int
         """
-        self.__tracks = minidom.parse(Helper.prefix() + 'datafiles/tracks.xml') \
+        self.__tracks = minidom.parse(Helper.prefix() +
+                                      'datafiles/tracks.xml') \
             .getElementsByTagName("track")
         self.__button = Button(input_pin)
         self.__ringtone_thread = None
@@ -57,10 +58,12 @@ class Telephone:
         try:
             return self.__ringtone_thread.is_alive()
         except ThreadError as e:
-            print("Exception (Telephone, play_ringtone_thread_alive: {0})".format(e))
+            print("Exception (Telephone, play_ringtone_thread_alive: {0})"
+                  .format(e))
             return False
         except AttributeError as e:
-            print("Exception (Telephone, play_ringtone_thread_alive: {0})".format(e))
+            print("Exception (Telephone, play_ringtone_thread_alive: {0})"
+                  .format(e))
             return False
 
     def play_multiple_tracks(self, tracks: list) -> None:
@@ -142,7 +145,8 @@ class Telephone:
                 try:
                     items[product_name] = int(items[product_name]) + 1
                 except KeyError as e:
-                    print("Exception (Telephone, prepare_track_list: {0})".format(e))
+                    print("Exception (Telephone, prepare_track_list: {0})"
+                          .format(e))
                     items[product_name] = 1
 
         tracks.append('Gekozen')
