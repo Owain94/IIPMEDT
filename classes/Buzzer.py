@@ -61,7 +61,7 @@ class Buzzer:
         self.__ringtone_thread.start()
 
     @staticmethod
-    def __thread_is_alive(thread: Thread) -> bool:
+    def thread_is_alive(thread: Thread) -> bool:
         """
         Controleert of de opgegeven thread bestaat.
 
@@ -72,10 +72,10 @@ class Buzzer:
         try:
             return thread.is_alive()
         except ThreadError as e:
-            print("Exception (Buzzer, __thread_is_alive: {0})".format(e))
+            print("Exception (Buzzer, thread_is_alive: {0})".format(e))
             return False
         except AttributeError as e:
-            print("Exception (Buzzer, __thread_is_alive: {0})".format(e))
+            print("Exception (Buzzer, thread_is_alive: {0})".format(e))
             return False
 
     def buzzer_is_alive(self) -> bool:
@@ -84,7 +84,7 @@ class Buzzer:
 
         :return: True of False op basis op de thread bestaat, als boolean
         """
-        return self.__thread_is_alive(self.__buzzer_thread)
+        return self.thread_is_alive(self.__buzzer_thread)
 
     def ringtone_is_alive(self) -> bool:
         """
@@ -92,7 +92,7 @@ class Buzzer:
 
         :return: True of False op basis op de thread bestaat, als boolean
         """
-        return self.__thread_is_alive(self.__ringtone_thread)
+        return self.thread_is_alive(self.__ringtone_thread)
 
 
 def main() -> None:
