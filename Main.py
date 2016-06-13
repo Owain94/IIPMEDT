@@ -20,13 +20,13 @@ display_two = Display(0x70)  # Tweede display
 
 
 # de twee displays schoonmaken
-def clear() -> None:
+def clear_displays() -> None:
     display_one.clear()
     display_two.clear()
 
 
 # Beide displays uitzetten
-clear()
+clear_displays()
 
 # Other
 road = Road(1, 1, [26, 19, 13, 6])  # road with 2 switches and a motor.
@@ -285,7 +285,7 @@ try:
             #  Reset first run
             user.reset_run()
             #  Zet alle display ledjes uit.
-            clear()
+            clear_displays()
 
         # Print de huidige status.
         state.status()
@@ -298,7 +298,7 @@ try:
     # Alle GPIO pinnen worden op false gezet
     GPIOFuckUp()
     #  Zet alle display ledjes uit.
-    clear()
+    clear_displays()
 
     # De raspberry pi wordt uitgezet als de uitknop wordt ingedrukt.
     os.system("/sbin/shutdown -h now")
