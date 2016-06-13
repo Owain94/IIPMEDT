@@ -54,14 +54,14 @@ class Motor:
         """
         # Lees de sequntie achterstevoren in
         [(self.set_step(step), sleep(0.005))
-         for step in list(reversed(self.const.sequence))]
+         for step in self.const.sequence]
 
     def down(self) -> None:
         """
         Laat de motor achteruit draaien
         """
         [(self.set_step(step), sleep(0.005))
-         for step in self.const.sequence]
+         for step in list(reversed(self.const.sequence))]
 
     def clean(self) -> None:
         """
@@ -79,7 +79,7 @@ def main() -> None:
     klasse in een ander bestand wordt geimporteerd!
     """
     GPIO.setmode(GPIO.BCM)
-    motor = Motor([26, 13, 6, 5])
+    motor = Motor([6, 13, 19, 26])
     motor.up()
     motor.down()
     GPIO.cleanup()
