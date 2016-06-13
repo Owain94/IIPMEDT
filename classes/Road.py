@@ -30,7 +30,7 @@ class Road:
         self.__end_switch = Button(end_switch_input_pin)
         self.__motor = Motor(motor_input_pins)
 
-        self.__const = Constants(max_steps=5000)
+        self.__const = Constants(max_steps=5000, max_state=7)
 
     def move_to_begin(self) -> None:
         """
@@ -41,41 +41,29 @@ class Road:
 
         self.up(20)
 
-    def move_a_quart(self, up: bool = True) -> None:
+    def move_a_state(self, up: bool = True) -> None:
         """
-        Verplaatst het 'poppertje' een kwart omhoog of omlaag.
+        Verplaatst het 'poppertje' een state omhoog of omlaag.
         :param up: omhoog of omlaag als bool
         """
-        quart = self.__const.max_steps / 4
+        state = self.__const.max_steps / self.__const.max_state
 
         if up:
-            self.up(quart)
+            self.up(state)
         else:
-            self.down(quart)
+            self.down(state)
 
-    def move_a_half(self, up: bool = True) -> None:
+    def move_state(self, state: int, up: bool = True) -> None:
         """
-        Verplaatst het 'poppertje' de helft omhoog of omlaag.
+        Verplaats het 'poppertje' aantal opgegeven states omhoog of omlaag
+        :param state: het aantal states.
         :param up: omhoog of omlaag als bool
         """
-        quart = self.__const.max_steps / 2
+        if state > self.__const.max_state:
+            state = self.__const.max_state
 
-        if up:
-            self.up(quart)
-        else:
-            self.down(quart)
-
-    def move_a_three_quarter(self, up: bool = True) -> None:
-        """
-        Verplaatst het 'poppertje' drie kwart omhoog of omlaag.
-        :param up: omhoog of omlaag als bool
-        """
-        quart = (self.__const.max_steps / 4) * 3
-
-        if up:
-            self.up(quart)
-        else:
-            self.down(quart)
+        for i in range(state):
+            self.move_a_state(up)
 
     def move_to_end(self) -> None:
         """
