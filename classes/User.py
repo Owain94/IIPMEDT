@@ -155,7 +155,7 @@ class User:
         :return: Het aantal stappen dat de motor moet draaien als int
         """
         # todo een juiste berekening
-        return int(round(final_score * 100))
+        return int(round(final_score * 133))
 
     def determine_feedback_playback(self) -> str:
         """
