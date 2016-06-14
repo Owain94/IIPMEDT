@@ -140,7 +140,7 @@ try:
                     #  Zet de fake button op false
                     button_plus.fake_pressed = False
                 # Print de huidige status.
-                state.status()
+                # state.status()
 
             # Als de klaar knop ingedrukt wordt
             if button_done.is_pressed():
@@ -296,7 +296,7 @@ try:
             clear_displays()
 
         # Print de huidige status.
-        state.status()
+        # state.status()
 
         #  De loop wordt 10 per seconden afgespeeld
         sleep(0.1)
