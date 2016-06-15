@@ -32,7 +32,7 @@ class Motor:
         GPIO.setup(self.__coil_A_1_pin, GPIO.OUT)
         GPIO.setup(self.__coil_A_2_pin, GPIO.OUT)
         GPIO.setup(self.__coil_B_1_pin, GPIO.OUT)
-        GPIO.setup(self.__coil_B_2_pin, GPIO.OUT
+        GPIO.setup(self.__coil_B_2_pin, GPIO.OUT)
 
         self.count = 0
 
