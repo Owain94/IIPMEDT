@@ -99,7 +99,7 @@ class User:
             kcal /= 88.9
         else:
             kcal = 9.9
-        print("Totaal caloriëen: " + kcal)
+        print("Totaal caloriëen: " + str(kcal))
         return round(kcal, 1)
 
     @staticmethod
