@@ -139,7 +139,7 @@ def main() -> None:
 
     road = Road(17, 22, [6, 13, 19, 26])
     road.move_to_end()
-    road.move_to_begin()
+    road.down(1025)
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd
