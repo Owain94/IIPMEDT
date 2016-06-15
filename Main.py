@@ -214,9 +214,8 @@ try:
                     telephone.prepare_track_list(user.user_products))
                 # Laat het 'poppertje' omhoog lopen
                 # TODO even aangezet
-                # road.up(user.convert_score_to_motor(
-                #    user.calculate_final_score()))
-                print()
+                road.up(user.convert_score_to_motor(
+                    user.calculate_final_score()))
             # Verander de state naar 'ring_telephone_for_score'
             state.current_state = 'ring_telephone_for_score'
 
