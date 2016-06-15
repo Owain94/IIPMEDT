@@ -214,8 +214,8 @@ try:
                     telephone.prepare_track_list(user.user_products))
                 # Laat het 'poppertje' omhoog lopen
                 # TODO even aangezet
-                #road.up(user.convert_score_to_motor(
-                #    user.calculate_final_score()))
+                road.up(user.convert_score_to_motor(
+                    user.calculate_final_score()))
                 print('Gekke dingen: {}'.format(user.convert_score_to_motor(
                     user.calculate_final_score())))
 
