@@ -138,6 +138,7 @@ def main() -> None:
     GPIO.cleanup()
 
     road = Road(17, 22, [6, 13, 19, 26])
+    road.move_to_end()
     road.move_to_begin()
 
     pass
