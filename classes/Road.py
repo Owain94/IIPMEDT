@@ -7,7 +7,6 @@ from classes.Button import Button
 from classes.Motor import Motor
 from util.Constants import Constants
 
-import RPi.GPIO as GPIO
 
 class Road:
     """
@@ -31,7 +30,7 @@ class Road:
         self.__end_switch = Button(end_switch_input_pin)
         self.__motor = Motor(motor_input_pins)
 
-        self.__const = Constants(max_steps=1400, max_state=7)
+        self.__const = Constants(max_steps=1020, max_state=7)
 
     def move_to_begin(self) -> None:
         """
@@ -134,12 +133,14 @@ def main() -> None:
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
-    GPIO.setmode(GPIO.BCM)
-    GPIO.cleanup()
+    # GPIO.setmode(GPIO.BCM)
+    # GPIO.cleanup()
 
-    road = Road(17, 22, [6, 13, 19, 26])
-    road.move_to_end()
-    road.down(1025)
+    # road = Road(17, 22, [6, 13, 19, 26])
+    # road.move_to_end()
+    # road.down(1025)
+
+    pass
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
 # wordt geimporteerd

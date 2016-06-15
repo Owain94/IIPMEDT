@@ -54,24 +54,15 @@ class Motor:
         """
         Laat de motor vooruit draaien
         """
-        # Lees de sequntie achterstevoren in
-        #[(self.set_step(step), sleep(0.005))
-        # # for step in self.const.sequence]
-        # for step in list(reversed(self.const.sequence))]
-        for step in list(reversed(self.const.sequence)):
-            self.set_step(step)
-            sleep(0.005)
-            self.count += 1
-
-        print(self.count)
+        [(self.set_step(step), sleep(0.005))
+         for step in self.const.sequence]
 
     def down(self) -> None:
         """
         Laat de motor achteruit draaien
         """
         [(self.set_step(step), sleep(0.005))
-         for step in self.const.sequence]
-         # for step in list(reversed(self.const.sequence))]
+         for step in list(reversed(self.const.sequence))]
 
     def clean(self) -> None:
         """
