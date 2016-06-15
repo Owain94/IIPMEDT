@@ -15,8 +15,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.cleanup()
 
 # Displays
-display_one = Display(0x71)  # Eerste display
-display_two = Display(0x70)  # Tweede display
+display_one = Display(0x70)  # Eerste display
+display_two = Display(0x71)  # Tweede display
 
 
 # de twee displays schoonmaken
