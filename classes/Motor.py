@@ -32,7 +32,9 @@ class Motor:
         GPIO.setup(self.__coil_A_1_pin, GPIO.OUT)
         GPIO.setup(self.__coil_A_2_pin, GPIO.OUT)
         GPIO.setup(self.__coil_B_1_pin, GPIO.OUT)
-        GPIO.setup(self.__coil_B_2_pin, GPIO.OUT)
+        GPIO.setup(self.__coil_B_2_pin, GPIO.OUT
+
+        self.count = 0
 
     def set_step(self, step: str) -> None:
         """
@@ -53,9 +55,15 @@ class Motor:
         Laat de motor vooruit draaien
         """
         # Lees de sequntie achterstevoren in
-        [(self.set_step(step), sleep(0.005))
-         # for step in self.const.sequence]
-         for step in list(reversed(self.const.sequence))]
+        #[(self.set_step(step), sleep(0.005))
+        # # for step in self.const.sequence]
+        # for step in list(reversed(self.const.sequence))]
+        for step in list(reversed(self.const.sequence)):
+            self.set_step(step)
+            sleep(0.005)
+            self.count += 1
+
+        print(self.count)
 
     def down(self) -> None:
         """
