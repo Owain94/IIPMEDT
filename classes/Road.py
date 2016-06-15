@@ -6,6 +6,7 @@ if __name__ == '__main__':
 from classes.Button import Button
 from classes.Motor import Motor
 from util.Constants import Constants
+import RPi.GPIO as GPIO
 
 
 class Road:
@@ -133,12 +134,12 @@ def main() -> None:
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
-    # GPIO.setmode(GPIO.BCM)
-    # GPIO.cleanup()
+    GPIO.setmode(GPIO.BCM)
+    GPIO.cleanup()
 
-    # road = Road(17, 22, [6, 13, 19, 26])
-    # road.move_to_end()
-    # road.down(1025)
+    road = Road(17, 22, [6, 13, 19, 26])
+    road.move_to_end()
+    road.move_to_begin()
 
     pass
 
