@@ -1,9 +1,9 @@
-from time import sleep
-from classes.Arduino import Arduino
-from classes.User import User
+steps = 10
 
-user = User()
-arduino = Arduino()
+for step in range(steps):
+    if not True:
+        print('up')
+    else:
+        print('down')
+        break
 
-while True:
-    print(user.get_product_information(arduino.read_serial())[0]['name'])

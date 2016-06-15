@@ -81,9 +81,8 @@ class Road:
         :param steps: Het aantal stappen als int.
         """
         for step in range(steps):
-            if not self.end_switch.is_pressed():
+            if not self.__end_switch.is_pressed():
                 self.__motor.up()
-                pass
             else:
                 self.down(20)
                 break
@@ -94,9 +93,8 @@ class Road:
         :param steps: Het aantal stappen als int.
         """
         for step in range(steps):
-            if not self.begin_switch.is_pressed():
+            if not self.__begin_switch.is_pressed():
                 self.__motor.down()
-                pass
             else:
                 self.up(20)
                 break
