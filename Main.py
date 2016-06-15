@@ -23,6 +23,7 @@ display_two = Display(0x71)  # Tweede display
 def clear_displays() -> None:
     display_one.clear()
     display_two.clear()
+    road.motor.clean()
 
 
 # Beide displays uitzetten
