@@ -1,4 +1,4 @@
-class Helper:
+class Helpers:
     @staticmethod
     def prefix() -> str:
         """
@@ -12,4 +12,3 @@ class Helper:
             return '../'
         else:
             return './'
-

@@ -3,7 +3,7 @@ if __name__ == '__main__':
 
     path.append("..")
 
-from util.Constant import Constant
+from util.Constants import Constants
 import RPi.GPIO as GPIO
 from time import sleep
 
@@ -22,7 +22,7 @@ class Motor:
         """
         # De sequentie die wordt gebruikt om de motor te laten draaien
         # (gedefinieerd als constante)
-        self.const = Constant(sequence=['1000', '0100', '0010', '0001'])
+        self.const = Constants(sequence=['1000', '0100', '0010', '0001'])
 
         self.__coil_A_1_pin = input_pins[0]
         self.__coil_A_2_pin = input_pins[1]

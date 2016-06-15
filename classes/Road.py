@@ -5,7 +5,7 @@ if __name__ == '__main__':
 
 from classes.Button import Button
 from classes.Motor import Motor
-from util.Constant import Constant
+from util.Constants import Constants
 
 
 class Road:
@@ -30,7 +30,7 @@ class Road:
         self.__end_switch = Button(end_switch_input_pin)
         self.__motor = Motor(motor_input_pins)
 
-        self.__const = Constant(max_steps=1400, max_state=7)
+        self.__const = Constants(max_steps=1400, max_state=7)
 
     def move_to_begin(self) -> None:
         """

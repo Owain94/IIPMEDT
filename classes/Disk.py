@@ -5,8 +5,8 @@ if __name__ == '__main__':
 
 from xml.dom import minidom
 from classes.Arduino import Arduino
-from util.Constant import Constant
-from util.Helper import Helper
+from util.Constants import Constants
+from util.Helpers import Helpers
 
 
 class Disk:
@@ -18,9 +18,9 @@ class Disk:
         """
         Code die wordt uitgevoerd bij het instantiëren van de klasse
         """
-        self.const = Constant(max_index=1024)
+        self.const = Constants(max_index=1024)
         # Inladen van het xml bestand met de producten
-        document = minidom.parse(Helper.prefix() + 'datafiles/products.xml')
+        document = minidom.parse(Helpers.prefix() + 'datafiles/products.xml')
         # Alle producten inlezen
         self.__products = document.getElementsByTagName("product")
         # De range voor de prodcuten bereken op basis van de maximale
