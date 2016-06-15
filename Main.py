@@ -214,8 +214,8 @@ try:
                     telephone.prepare_track_list(user.user_products))
                 # Laat het 'poppertje' omhoog lopen
                 # TODO even aangezet
-                road.up(user.convert_score_to_motor(
-                    user.calculate_final_score()))
+                # road.up(user.convert_score_to_motor(
+                #     user.calculate_final_score()))
                 print('Gekke dingen: {}'.format(user.convert_score_to_motor(
                     user.calculate_final_score())))
 
@@ -257,7 +257,7 @@ try:
             # Wacht 2 seconden voor het afspelen van de telefoon
             sleep(2.0)
 
-            if user.is_first_run() and user.breakfast_is_perfect(
+            if (user.is_first_run() and not user.added_zero_products()) and user.breakfast_is_perfect(
                     user.determine_feedback_playback()):
                 # De smiley wordt op het tweede scherm getoond.
                 display_two.show_smiley()
@@ -283,7 +283,7 @@ try:
             sleep(2.0)
             #  Het 'poppertje' beweegt zich terug naar de home positie.
             # TODO even uitgezet
-            road.move_to_begin()
+            # road.move_to_begin()
             #  De gekozen productenlijst wordt geleegd.
             user.reset_products()
             #  Geef door dat de eerste keer geeindigd is.

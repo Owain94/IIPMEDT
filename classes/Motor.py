@@ -55,7 +55,7 @@ class Motor:
         Laat de motor vooruit draaien
         """
         [(self.set_step(step), sleep(0.005))
-         for step in self.const.sequence]
+         for step in reversed(self.const.sequence)]
 
     def down(self) -> None:
         """
