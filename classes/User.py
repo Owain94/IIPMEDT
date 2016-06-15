@@ -99,7 +99,7 @@ class User:
             kcal /= 88.9
         else:
             kcal = 9.9
-
+        print("Totaal caloriëen: " + kcal)
         return round(kcal, 1)
 
     @staticmethod
@@ -116,7 +116,7 @@ class User:
             for product in product_list:
                 score += float(product['score'])
                 count += 1
-
+        print("Gemiddeld gezondheidscijfer gedeeld door 2: " + round((score / count) / 2, 1))
         return round((score / count) / 2, 1)
 
     def calculate_final_score(self) -> float:
