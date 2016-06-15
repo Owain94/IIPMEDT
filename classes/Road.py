@@ -133,7 +133,7 @@ def main() -> None:
     Code om de klasse te testen, deze code wordt niet uitgevoerd als de
     klasse in een ander bestand wordt geimporteerd!
     """
-    road = Road()
+    road = Road(17, 22, [6, 13, 19, 26])
     road.move_to_begin()
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse
