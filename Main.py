@@ -18,6 +18,8 @@ GPIO.cleanup()
 display_one = Display(0x70)  # Eerste display
 display_two = Display(0x71)  # Tweede display
 
+road = Road(17, 22, [6, 13, 19, 26])  # road with 2 switches and a motor.
+
 
 # de twee displays schoonmaken
 def clear_displays() -> None:
@@ -30,7 +32,6 @@ def clear_displays() -> None:
 clear_displays()
 
 # Other
-road = Road(17, 22, [6, 13, 19, 26])  # road with 2 switches and a motor.
 telephone = Telephone(23)  # Telephone with button input pin.
 motor = road.motor  # Motor with input pins.
 disk_products = Disk()  # Food disk with range.
@@ -140,8 +141,8 @@ try:
                     led_plus_red.blink_in_thread(0.5)
                     #  Zet de fake button op false
                     button_plus.fake_pressed = False
-                # Print de huidige status.
-                # state.status()
+                    # Print de huidige status.
+                    # state.status()
 
             # Als de klaar knop ingedrukt wordt
             if button_done.is_pressed():
@@ -214,7 +215,7 @@ try:
                 # Laat het 'poppertje' omhoog lopen
                 road.up(user.convert_score_to_motor(
                     user.calculate_final_score()))
-            #  Verander de state naar 'ring_telephone_for_score'
+            # Verander de state naar 'ring_telephone_for_score'
             state.current_state = 'ring_telephone_for_score'
 
         # STAP 11
@@ -263,7 +264,7 @@ try:
                         user.determine_feedback_playback()):
                     #  Veranderd de state naar de eind state.
                     state.current_state = 'both_breakfast_filled_in'
-                #  Speel de bijpassende feedback af op de telefoon.
+                # Speel de bijpassende feedback af op de telefoon.
                 telephone.play_track(user.determine_feedback_playback())
             else:
                 #  Op basis van de run wordt de juiste audio ingeladen.
@@ -302,7 +303,7 @@ try:
         #  De loop wordt 10 per seconden afgespeeld
         sleep(0.1)
 
-    #  Haalt alle stroom van de pinnen af
+    # Haalt alle stroom van de pinnen af
     GPIO.cleanup()
     # Alle GPIO pinnen worden op false gezet
     GPIOFuckUp()
