@@ -98,7 +98,7 @@ class User:
         elif 400 < kcal < 800:
             kcal /= 88.9
         else:
-            kcal = 1.0
+            kcal = 9.9
 
         return round(kcal, 1)
 

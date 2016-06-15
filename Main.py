@@ -25,7 +25,6 @@ road = Road(17, 22, [6, 13, 19, 26])  # road with 2 switches and a motor.
 def clear_displays() -> None:
     display_one.clear()
     display_two.clear()
-    road.motor.clean()
 
 
 # Beide displays uitzetten
