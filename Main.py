@@ -57,6 +57,9 @@ led_plus_green = Led(20)  # Plus led green input pin.
 # Alle GPIO pinnen worden op false gezet
 GPIOFuckUp()
 
+# Laat het autotje naar het begin bewegen.
+road.move_to_begin()
+
 try:
     #  Zolang de uitknop niet ingedrukt wordt,
     #  wordt onderstaande code uitgevoerd.
@@ -213,8 +216,8 @@ try:
                     telephone.prepare_track_list(user.user_products))
                 # Laat het 'poppertje' omhoog lopen
                 # TODO even aangezet
-                # road.up(user.convert_score_to_motor(
-                #     user.calculate_final_score()))
+                road.up(user.convert_score_to_motor(
+                    user.calculate_final_score()))
                 print('Gekke dingen: {}'.format(user.convert_score_to_motor(
                     user.calculate_final_score())))
 
@@ -282,7 +285,7 @@ try:
             sleep(2.0)
             #  Het 'poppertje' beweegt zich terug naar de home positie.
             # TODO even uitgezet
-            # road.move_to_begin()
+            road.move_to_begin()
             #  De gekozen productenlijst wordt geleegd.
             user.reset_products()
             #  Geef door dat de eerste keer geeindigd is.
