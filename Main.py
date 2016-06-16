@@ -291,8 +291,10 @@ try:
             #  Geef door dat de eerste keer geeindigd is.
             user.second_run()
 
+        # STAP 14
         # Hier wordt de state 'initial' en de displays worden gereset.
-        elif state.is_state('both_breakfast_filled_in'):
+        elif state.is_state('both_breakfast_filled_in') \
+                and not button_telephone.is_pressed():
             #  Eind bericht
             telephone.play_track('Eind_bericht')
             #  Reset de state naar 'initial'
@@ -303,6 +305,16 @@ try:
             user.reset_run()
             #  Zet alle display ledjes uit.
             clear_displays()
+
+        # STAP 13
+        #  De state is 'button_start_pressed'
+        elif state.is_state('both_breakfast_filled_in'):
+            #  Zet het stapnummer
+            state.step = 7
+            #  Kijkt of de ringtone thread bestaat
+            if not telephone.play_ringtone_thread_alive():
+                #  Speelt de ringtone af in een aparte thread
+                telephone.play_ringtone_in_thread()
 
         # Print de huidige status.
         # state.status()
