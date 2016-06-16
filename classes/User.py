@@ -154,7 +154,6 @@ class User:
         :param final_score: Uiteindelijke score als float
         :return: Het aantal stappen dat de motor moet draaien als int
         """
-        # todo een juiste berekening
         return int(round(final_score * 102))
 
     def determine_feedback_playback(self) -> str:

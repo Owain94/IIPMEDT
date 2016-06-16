@@ -215,7 +215,6 @@ try:
                 telephone.play_multiple_tracks(
                     telephone.prepare_track_list(user.user_products))
                 # Laat het 'poppertje' omhoog lopen
-                # TODO even aangezet
                 road.up(user.convert_score_to_motor(
                     user.calculate_final_score()))
                 print('Gekke dingen: {}'.format(user.convert_score_to_motor(
@@ -284,7 +283,6 @@ try:
             # Wacht 2 seconden voor het bewegen naar de terug positie
             sleep(2.0)
             #  Het 'poppertje' beweegt zich terug naar de home positie.
-            # TODO even uitgezet
             road.move_to_begin()
             #  De gekozen productenlijst wordt geleegd.
             user.reset_products()

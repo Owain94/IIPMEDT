@@ -21,12 +21,13 @@ class Disk:
         self.const = Constants(max_index=1024)
         # Inladen van het xml bestand met de producten
         document = minidom.parse(prefix() + 'datafiles/products.xml')
+        # document = minidom.parse('../datafiles/products.xml')
         # Alle producten inlezen
         self.__products = document.getElementsByTagName("product")
         # De range voor de prodcuten bereken op basis van de maximale
         # index en het aantal producten
-        self.__disk_range = round(self.const.max_index /
-                                  len(self.__products), 2)
+        self.__disk_range = (self.const.max_index /
+                              len(self.__products))
         # Het aantal producten
         self.__product_count = len(self.__products)
         # Arduino
@@ -52,6 +53,146 @@ class Disk:
                     and (potential <= ((i + 1) * self.__disk_range)):
                 return i
 
+    @staticmethod
+    def get_product_index_v2(potential_number: float) -> int:
+
+        potential_number = int(potential_number)
+
+        # if 0 >= potential_number >= 36:
+        if potential_number >= 0 and potential_number <= 36:
+            return 0
+
+        # elif 37 >= potential_number >= 66:
+        elif potential_number >= 37 and potential_number <= 66:
+            return 1
+
+        # elif 67 >= potential_number >= 93:
+        elif potential_number >= 67 and potential_number <= 93:
+            return 2
+
+        # elif 94 >= potential_number >= 118:
+        elif potential_number >= 94 and potential_number <= 118:
+            return 3
+
+        # elif 119 >= potential_number >= 147:
+        elif potential_number >= 119 and potential_number <= 147:
+            return 4
+
+        # elif 148 >= potential_number >= 174:
+        elif potential_number >= 148 and potential_number <= 174:
+            return 5
+
+        # elif 175 >= potential_number >= 202:
+        elif potential_number >= 175 and potential_number <= 202:
+            return 6
+
+        # elif 203 >= potential_number >= 233:
+        elif potential_number >= 203 and potential_number <= 233:
+            return 7
+
+        # elif 234 >= potential_number >= 264:
+        elif potential_number >= 234 and potential_number <= 264:
+            return 8
+
+        # elif 265 >= potential_number >= 297:
+        elif potential_number >= 265 and potential_number <= 297:
+            return 9
+
+        # elif 298 >= potential_number >= 329:
+        elif potential_number >= 298 and potential_number <= 329:
+            return 10
+
+        # elif 330 >= potential_number >= 362:
+        elif potential_number >= 330 and potential_number <= 362:
+            return 11
+
+        # elif 363 >= potential_number >= 397:
+        elif potential_number >= 363 and potential_number <= 397:
+            return 12
+
+        # elif 398 >= potential_number >= 429:
+        elif potential_number >= 398 and potential_number <= 429:
+            return 13
+
+        # elif 430 >= potential_number >= 463:
+        elif potential_number >= 430 and potential_number <= 463:
+            return 14
+
+        # elif 464 >= potential_number >= 497:
+        elif potential_number >= 464 and potential_number <= 497:
+            return 15
+
+        # elif 498 >= potential_number >= 529:
+        elif potential_number >= 498 and potential_number <= 529:
+            return 16
+
+        # elif 530 >= potential_number >= 564:
+        elif potential_number >= 530 and potential_number <= 564:
+            return 17
+
+        # elif 565 >= potential_number >= 594:
+        elif potential_number >= 565 and potential_number <= 594:
+            return 18
+
+        # elif 595 >= potential_number >= 626:
+        elif potential_number >= 595 and potential_number <= 626:
+            return 19
+
+        # elif 627 >= potential_number >= 658:
+        elif potential_number >= 627 and potential_number <= 658:
+            return 20
+
+        # elif 659 >= potential_number >= 687:
+        elif potential_number >= 659 and potential_number <= 687:
+            return 21
+
+        # elif 688 >= potential_number >= 718:
+        elif potential_number >= 688 and potential_number <= 718:
+            return 22
+
+        # elif 719 >= potential_number >= 747:
+        elif potential_number >= 719 and potential_number <= 747:
+            return 23
+
+        # elif 748 >= potential_number >= 778:
+        elif potential_number >= 748 and potential_number <= 778:
+            return 24
+
+        # elif 779 >= potential_number >= 808:
+        elif potential_number >= 779 and potential_number <= 808:
+            return 25
+
+        # elif 809 >= potential_number >= 836:
+        elif potential_number >= 809 and potential_number <= 836:
+            return 26
+
+        # elif 837 >= potential_number >= 866:
+        elif potential_number >= 837 and potential_number <= 866:
+            return 27
+
+        # elif 867 >= potential_number >= 893:
+        elif potential_number >= 867 and potential_number <= 893:
+            return 28
+
+        # elif 894 >= potential_number >= 928:
+        elif potential_number >= 894 and potential_number <= 928:
+            return 29
+
+        # elif 929 >= potential_number >= 959:
+        elif potential_number >= 929 and potential_number <= 959:
+            return 30
+
+        # elif 960 >= potential_number >= 988:
+        elif potential_number >= 960 and potential_number <= 988:
+            return 31
+
+        # elif 989 >= potential_number >= 1018:
+        elif potential_number >= 989 and potential_number <= 1018:
+            return 32
+
+        elif potential_number >= 1019:
+            return 33
+
     def get_by_key(self, key: str, potential: int) -> str:
         """
         De opgegeven key(name, score, kcal, sugar of fat) wordt uitgelezen
@@ -61,7 +202,7 @@ class Disk:
         :param key: name, score, kcal, sugar of fat als string
         :return: Aantal kcal als string
         """
-        index = self.get_product_index(potential)
+        index = self.get_product_index_v2(potential)
         return self.__products[index].getElementsByTagName(key)[0] \
             .firstChild.data
 
@@ -192,7 +333,9 @@ def main() -> None:
     """
     disk = Disk()
     while True:
-        print(disk.get_product_by_index())
+        print("Productnaam:" + disk.get_product_name_by_index())
+        # print("Index:" + str(disk.get_product_index_v2(disk.get_serial())))
+        # print("Potential:" + str(disk.get_serial()))
 
 
 # Zorg ervoor dat de main functie niet wordt uitgevoerd als de klasse

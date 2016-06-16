@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <products>
-    <product>
-        <name>Peer</name>
-        <score>8.7</score>
-        <kcal>54.0</kcal>
-        <sugar>10.5</sugar>
-        <fat>0.3</fat>
-    </product>
-        <product>
-        <name>Banaan</name>
-        <score>8.3</score>
-        <kcal>86.0</kcal>
-        <sugar>18.2</sugar>
-        <fat>0.2</fat>
-    </product>
         <product>
         <name>Mandarijn</name>
         <score>8.9</score>
@@ -257,6 +243,20 @@
         <score>9.1</score>
         <kcal>38.0</kcal>
         <sugar>6.0</sugar>
+        <fat>0.2</fat>
+    </product>
+    <product>
+        <name>Peer</name>
+        <score>8.7</score>
+        <kcal>54.0</kcal>
+        <sugar>10.5</sugar>
+        <fat>0.3</fat>
+    </product>
+        <product>
+        <name>Banaan</name>
+        <score>8.3</score>
+        <kcal>86.0</kcal>
+        <sugar>18.2</sugar>
         <fat>0.2</fat>
     </product>
 </products>
