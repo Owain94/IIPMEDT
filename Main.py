@@ -134,6 +134,8 @@ try:
                         #  Wordt het product toegevoegd aan
                         #  de lijst met producten
                         if not user.add_product_thread_is_alive():
+                            telephone.play_track_without_telephone_check(
+                                'Product_toegevoegd')
                             user.add_product_in_thread(potential)
                             #  De groene led knippert voor feedback
                             if not led_plus_green.thread_is_alive():
@@ -260,7 +262,8 @@ try:
             # Wacht 2 seconden voor het afspelen van de telefoon
             sleep(2.0)
 
-            if (user.is_first_run() and not user.added_zero_products()) and user.breakfast_is_perfect(
+            if (
+                user.is_first_run() and not user.added_zero_products()) and user.breakfast_is_perfect(
                     user.determine_feedback_playback()):
                 # De smiley wordt op het tweede scherm getoond.
                 display_two.show_smiley()
@@ -281,7 +284,7 @@ try:
                 else:
                     #  Speelt een audio track af over slecht ontbijten.
                     telephone.play_track('Ontbijt_vergeten_tweede_keer')
-            #  moet terug hangen.
+            # moet terug hangen.
             telephone.play_track('Telefoon_terugleg_bericht')
             # Wacht 2 seconden voor het bewegen naar de terug positie
             sleep(2.0)

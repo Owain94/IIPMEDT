@@ -76,6 +76,16 @@ class Telephone:
         for track in tracks:
             self.play_track(track)
 
+    def play_track_without_telephone_check(self, track_name: str) -> None:
+        """
+
+        :param track_name:
+        """
+        for track in self.__tracks:
+            if track.getAttribute('product') == track_name:
+                file = self.get_track_name(track_name)
+                os.system('mpg321 -q ' + prefix() + file)
+
     def play_track(self, track_name: str) -> None:
         """
         Speel een audio track af in een apart process zodat er

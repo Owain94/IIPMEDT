@@ -220,6 +220,10 @@
         <file>audio/Pindakaas.mp3</file>
         <duration>0.863</duration>
     </track>
+    <track product="Product_toegevoegd">
+        <file>audio/Product_toegevoegd.mp3</file>
+        <duration>1.123</duration>
+    </track>
     <track product="Sinaasappel">
         <file>audio/Sinaasappel.mp3</file>
         <duration>0.941</duration>
@@ -243,6 +247,10 @@
     <track product="Vlokken">
         <file>audio/Vlokken.mp3</file>
         <duration>0.68</duration>
+    </track>
+    <track product="Wachten_karretje_beneden_is">
+        <file>audio/Wachten_karretje_beneden_is.mp3</file>
+        <duration>2.063</duration>
     </track>
     <track product="Water">
         <file>audio/Water.mp3</file>
