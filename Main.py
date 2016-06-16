@@ -293,6 +293,8 @@ try:
         # Hier wordt de state 'initial' en de displays worden gereset.
         elif state.is_state('both_breakfast_filled_in') \
                 and not button_telephone.is_pressed():
+            # Wacht 2 seconden voordat het eindbericht af gaat spelen.
+            sleep(2.0)
             #  Eind bericht
             telephone.play_track('Eind_bericht')
             #  Reset de state naar 'initial'
