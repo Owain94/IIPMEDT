@@ -113,6 +113,10 @@ try:
             sleep(2.0)
             #  Speel de track Ontvangsbericht.mp3 af.
             telephone.play_track('Ontvangsbericht')
+            #  Wacht voor 1 seconden
+            sleep(1.0)
+            #  moet terug hangen.
+            telephone.play_track('Telefoon_terugleg_bericht')
 
         # STAP 6
         #  De state is 'telephone_first_track_played' en de telefoon
@@ -217,8 +221,6 @@ try:
                 # Laat het 'poppertje' omhoog lopen
                 road.up(user.convert_score_to_motor(
                     user.calculate_final_score()))
-                print('Gekke dingen: {}'.format(user.convert_score_to_motor(
-                    user.calculate_final_score())))
 
             # Verander de state naar 'ring_telephone_for_score'
             state.current_state = 'ring_telephone_for_score'
@@ -297,6 +299,10 @@ try:
             sleep(2.0)
             #  Eind bericht
             telephone.play_track('Eind_bericht')
+            #  Wacht 1 seconden
+            sleep(1.0)
+            #  moet terug hangen.
+            telephone.play_track('Telefoon_terugleg_bericht')
             #  Reset de state naar 'initial'
             state.reset_state()
             #  Reset de stap naar 0
