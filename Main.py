@@ -134,6 +134,7 @@ try:
                         #  Wordt het product toegevoegd aan
                         #  de lijst met producten
                         if not user.add_product_thread_is_alive():
+                            #  Product wordt toegevoegd wordt afgespeeld.
                             telephone.play_track_without_telephone_check(
                                 'Product_toegevoegd')
                             user.add_product_in_thread(potential)
@@ -263,8 +264,8 @@ try:
             sleep(2.0)
 
             if (
-                user.is_first_run() and not user.added_zero_products()) and user.breakfast_is_perfect(
-                    user.determine_feedback_playback()):
+                        user.is_first_run() and not user.added_zero_products()) and user.breakfast_is_perfect(
+                user.determine_feedback_playback()):
                 # De smiley wordt op het tweede scherm getoond.
                 display_two.show_smiley()
 
@@ -290,6 +291,9 @@ try:
             sleep(2.0)
             #  Het 'poppertje' beweegt zich terug naar de home positie.
             road.move_to_begin()
+            # Speel wachten track af.
+            telephone.play_track_without_telephone_check(
+                'Wachten_karretje_beneden_is')
             #  De gekozen productenlijst wordt geleegd.
             user.reset_products()
             #  Geef door dat de eerste keer geeindigd is.
