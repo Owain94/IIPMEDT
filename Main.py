@@ -113,8 +113,6 @@ try:
             sleep(2.0)
             #  Speel de track Ontvangsbericht.mp3 af.
             telephone.play_track('Ontvangsbericht')
-            #  Wacht voor 1 seconden
-            sleep(1.0)
             #  moet terug hangen.
             telephone.play_track('Telefoon_terugleg_bericht')
 
@@ -218,6 +216,8 @@ try:
                 #  Speel de lijst met producten af voor de gebruiker.
                 telephone.play_multiple_tracks(
                     telephone.prepare_track_list(user.user_products))
+                #  moet terug hangen.
+                telephone.play_track('Telefoon_terugleg_bericht')
                 # Laat het 'poppertje' omhoog lopen
                 road.up(user.convert_score_to_motor(
                     user.calculate_final_score()))
@@ -281,7 +281,8 @@ try:
                 else:
                     #  Speelt een audio track af over slecht ontbijten.
                     telephone.play_track('Ontbijt_vergeten_tweede_keer')
-
+            #  moet terug hangen.
+            telephone.play_track('Telefoon_terugleg_bericht')
             # Wacht 2 seconden voor het bewegen naar de terug positie
             sleep(2.0)
             #  Het 'poppertje' beweegt zich terug naar de home positie.
