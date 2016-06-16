@@ -78,8 +78,10 @@ class Telephone:
 
     def play_track_without_telephone_check(self, track_name: str) -> None:
         """
+        Methode om een audio file af te spelen zonder dat er gecontroleerd
+        wordt of de telefoon opgehangen is.
 
-        :param track_name:
+        :param track_name: audio bestand als string.
         """
         for track in self.__tracks:
             if track.getAttribute('product') == track_name:
